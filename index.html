@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -319,6 +320,52 @@
     }
 
     /* =========================
+       POLYESTER SPIDER-MAN EDITS
+       ========================= */
+
+    .spiderman-edit {
+      position: fixed;
+
+      z-index: 10000;
+
+      width: 300px;
+
+      background: #000080;
+
+      border: 4px dashed #00ffff;
+
+      box-shadow: 8px 8px #000066;
+
+      padding: 6px;
+
+      animation: spiderAppear 0.25s ease-out;
+
+      overflow: hidden;
+    }
+
+    .spiderman-edit video {
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+    }
+
+    @keyframes spiderAppear {
+      from {
+        transform: scale(0) rotate(-15deg);
+
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(0deg);
+
+        opacity: 1;
+      }
+    }
+
+    /* =========================
        PHONE STUFF
        ========================= */
 
@@ -339,6 +386,10 @@
 
       .post {
         padding: 16px;
+      }
+
+      .spiderman-edit {
+        width: 220px;
       }
 
     }
@@ -457,9 +508,11 @@
           i genuinely have no idea what im doing anymore
         </p>
 
-        <button onclick="document.body.style.fontFamily = 'Comic Sans MS, cursive'">
-          COMIC SANS
+        <button onclick="spawnSpiderManEdit()">
+          NO TOUCHIE, this is my no-no square
         </button>
+
+        <p id="dontTouchMessage"></p>
 
       </article>
 
@@ -675,6 +728,7 @@
           document.createElement("a");
 
         link.href = url;
+
         link.download = "CLUTTERFUNK.txt";
 
         document.body.appendChild(link);
@@ -719,6 +773,114 @@
 
 
     /* =========================
+       POLYESTER SPIDER-MAN EDIT
+       ========================= */
+
+    function spawnSpiderManEdit() {
+
+      const spider =
+        document.createElement("div");
+
+      spider.className =
+        "spiderman-edit";
+
+      spider.innerHTML = `
+        <video autoplay playsinline>
+          <source
+            src="polyester-spiderman-edit.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support MP4 video.
+        </video>
+      `;
+
+      document.body.appendChild(spider);
+
+
+      /*
+       * Give the browser one frame to figure out
+       * the video's size before positioning it.
+       */
+
+      requestAnimationFrame(() => {
+
+        const margin = 10;
+
+        const maxX =
+          Math.max(
+            margin,
+            window.innerWidth -
+            spider.offsetWidth -
+            margin
+          );
+
+        const maxY =
+          Math.max(
+            margin,
+            window.innerHeight -
+            spider.offsetHeight -
+            margin
+          );
+
+        const randomX =
+          margin +
+          Math.random() *
+          Math.max(0, maxX - margin);
+
+        const randomY =
+          margin +
+          Math.random() *
+          Math.max(0, maxY - margin);
+
+        spider.style.left =
+          randomX + "px";
+
+        spider.style.top =
+          randomY + "px";
+
+      });
+
+
+      const video =
+        spider.querySelector("video");
+
+
+      /*
+       * Remove this particular Spider-Man
+       * when its video finishes.
+       */
+
+      video.addEventListener(
+        "ended",
+        () => {
+          spider.remove();
+        }
+      );
+
+
+      /*
+       * Remove the box if the video cannot
+       * be loaded.
+       */
+
+      video.addEventListener(
+        "error",
+        () => {
+
+          spider.remove();
+
+          console.error(
+            "Could not load polyester-spiderman-edit.mp4"
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================
        STUPID CURSOR TRAIL
        ========================= */
 
@@ -750,20 +912,31 @@
         dot.textContent =
           stupidThings[
             Math.floor(
-              Math.random() * stupidThings.length
+              Math.random() *
+              stupidThings.length
             )
           ];
 
         dot.style.left =
-          (event.clientX + Math.random() * 20 - 10) + "px";
+          (
+            event.clientX +
+            Math.random() * 20 -
+            10
+          ) + "px";
 
         dot.style.top =
-          (event.clientY + Math.random() * 20 - 10) + "px";
+          (
+            event.clientY +
+            Math.random() * 20 -
+            10
+          ) + "px";
 
         document.body.appendChild(dot);
 
         setTimeout(() => {
+
           dot.remove();
+
         }, 800);
 
       }
@@ -773,3 +946,4 @@
 
 </body>
 </html>
+```
