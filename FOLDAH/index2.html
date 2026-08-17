@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -194,6 +193,69 @@
     }
 
     /* =========================
+       BIG RED "DO NOT CLICK" BUTTON
+       ========================= */
+
+    #dangerButton {
+      display: block;
+
+      margin: 25px auto;
+
+      width: 80%;
+      max-width: 600px;
+      min-height: 140px;
+
+      background: #ff0000;
+      color: white;
+
+      border: 8px outset #ff6666;
+      border-radius: 20px;
+
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      box-shadow:
+        0 0 0 6px #800000,
+        0 0 30px #ff0000,
+        10px 10px 0 #000;
+
+      cursor: pointer;
+
+      animation: dangerPulse 1s ease-in-out infinite;
+    }
+
+    #dangerButton:hover {
+      background: #ff3333;
+      color: white;
+
+      transform: scale(1.05);
+    }
+
+    #dangerButton:active {
+      border-style: inset;
+      transform: scale(0.98);
+    }
+
+    @keyframes dangerPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 6px #800000,
+          0 0 25px #ff0000,
+          10px 10px 0 #000;
+      }
+
+      50% {
+        box-shadow:
+          0 0 0 6px #800000,
+          0 0 50px #ff0000,
+          10px 10px 0 #000;
+      }
+    }
+
+    /* =========================
        VISITOR COUNTER
        ========================= */
 
@@ -354,13 +416,11 @@
     @keyframes spiderAppear {
       from {
         transform: scale(0) rotate(-15deg);
-
         opacity: 0;
       }
 
       to {
         transform: scale(1) rotate(0deg);
-
         opacity: 1;
       }
     }
@@ -392,6 +452,11 @@
         width: 220px;
       }
 
+      #dangerButton {
+        width: 95%;
+        min-height: 120px;
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
@@ -613,8 +678,11 @@
         seriously
       </p>
 
-      <button onclick="doNotClick()">
-        DO NOT CLICK THIS BUTTON
+      <button
+        id="dangerButton"
+        onclick="doNotClick()"
+      >
+        🚨 DO NOT CLICK THIS BUTTON 🚨
       </button>
 
       <p id="dontClickMessage"></p>
@@ -946,4 +1014,3 @@
 
 </body>
 </html>
-```
