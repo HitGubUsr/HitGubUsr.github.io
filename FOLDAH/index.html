@@ -39,6 +39,11 @@
       animation: bluBackground 12s ease infinite;
 
       cursor: crosshair;
+
+      transition:
+        background 2s ease,
+        color 2s ease,
+        filter 2s ease;
     }
 
     @keyframes bluBackground {
@@ -131,6 +136,11 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 10px 24px 60px;
+
+      transition:
+        opacity 2s ease,
+        transform 2s ease,
+        filter 2s ease;
     }
 
     /* =========================
@@ -148,6 +158,13 @@
       border-radius: 0;
 
       box-shadow: 8px 8px #000080;
+
+      transition:
+        opacity 2s ease,
+        transform 2s ease,
+        filter 2s ease,
+        background 2s ease,
+        border-color 2s ease;
     }
 
     .post h2 {
@@ -301,12 +318,22 @@
     }
 
     /* =========================
-       COMPLETELY USELESS SPINNING THING
+       THE BLUE IMAGE
        ========================= */
 
     .jpeg-zone {
       text-align: center;
       margin: 30px 0;
+
+      position: relative;
+    }
+
+    .blue-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      min-height: 190px;
     }
 
     .spinning-jpeg {
@@ -317,14 +344,43 @@
       align-items: center;
       justify-content: center;
 
-      background: #0000ff;
+      background:
+        linear-gradient(
+          135deg,
+          #000080,
+          #0000ff,
+          #00b8b8,
+          #0000ff,
+          #000080
+        );
+
       color: #00ffff;
 
       border: 5px solid #00ffff;
 
       font-size: 4rem;
 
-      animation: spin 3s linear infinite;
+      cursor: pointer;
+
+      user-select: none;
+
+      box-shadow:
+        0 0 15px #0000ff,
+        0 0 30px rgba(0, 255, 255, 0.35);
+
+      animation:
+        spin 3s linear infinite,
+        blueImagePulse 2.5s ease-in-out infinite;
+
+      transition:
+        filter 0.05s,
+        transform 0.05s;
+    }
+
+    .spinning-jpeg:hover {
+      box-shadow:
+        0 0 20px #00ffff,
+        0 0 45px #0000ff;
     }
 
     @keyframes spin {
@@ -336,6 +392,354 @@
         transform: rotate(360deg);
       }
     }
+
+    @keyframes blueImagePulse {
+      0%, 100% {
+        box-shadow:
+          0 0 15px #0000ff,
+          0 0 30px rgba(0, 255, 255, 0.35);
+      }
+
+      50% {
+        box-shadow:
+          0 0 25px #0000ff,
+          0 0 45px rgba(0, 255, 255, 0.5);
+      }
+    }
+
+    /* =========================
+       BLUE IMAGE GLITCH
+       ========================= */
+
+    .blue-glitch {
+      animation: blueGlitch 0.12s steps(2, end) !important;
+    }
+
+    @keyframes blueGlitch {
+      0% {
+        filter:
+          hue-rotate(0deg)
+          contrast(1);
+        clip-path: inset(0);
+      }
+
+      20% {
+        filter:
+          hue-rotate(140deg)
+          contrast(2);
+        transform:
+          rotate(7deg)
+          translateX(-8px)
+          skewX(12deg);
+        clip-path:
+          inset(20% 0 45% 0);
+      }
+
+      40% {
+        filter:
+          invert(1)
+          contrast(3);
+        transform:
+          rotate(-18deg)
+          translateX(10px)
+          scaleY(0.7);
+        clip-path:
+          inset(55% 0 10% 0);
+      }
+
+      60% {
+        filter:
+          hue-rotate(280deg)
+          saturate(5);
+        transform:
+          rotate(90deg)
+          translateX(-5px)
+          scaleX(1.3);
+        clip-path:
+          inset(5% 0 70% 0);
+      }
+
+      80% {
+        filter:
+          grayscale(1)
+          contrast(4);
+        transform:
+          rotate(-35deg)
+          translateX(6px);
+        clip-path:
+          inset(35% 0 30% 0);
+      }
+
+      100% {
+        filter:
+          hue-rotate(0deg)
+          contrast(1);
+        clip-path: inset(0);
+      }
+    }
+
+    /* =========================
+       ESCAPE MESSAGE
+       ========================= */
+
+    #escapeMessage {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 50000;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      pointer-events: none;
+
+      color: white;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size: clamp(
+        1.5rem,
+        5vw,
+        4rem
+      );
+
+      font-weight: bold;
+
+      text-align: center;
+
+      text-shadow:
+        0 0 10px white,
+        0 0 25px #00ffff;
+
+      background: rgba(0, 0, 0, 0);
+
+      transition:
+        opacity 2s ease;
+    }
+
+    #escapeMessage.show {
+      display: flex;
+      animation: escapeText 3s ease forwards;
+    }
+
+    @keyframes escapeText {
+      0% {
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      70% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       BINARY VOID
+       ========================= */
+
+    #binaryVoid {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 45000;
+
+      display: none;
+
+      overflow: hidden;
+
+      background: #000;
+
+      color: #00ff00;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        clamp(
+          12px,
+          1.7vw,
+          22px
+        );
+
+      line-height: 1.1;
+
+      word-break: break-all;
+
+      padding: 20px;
+
+      opacity: 0;
+
+      transition: opacity 3s ease;
+    }
+
+    #binaryVoid.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .binary-line {
+      opacity: 0.85;
+      animation: binaryFlicker 0.7s infinite alternate;
+    }
+
+    .binary-line:nth-child(3n) {
+      color: #00b800;
+    }
+
+    .binary-line:nth-child(5n) {
+      color: #004400;
+    }
+
+    @keyframes binaryFlicker {
+      from {
+        opacity: 0.55;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+       ESCAPED BLUE IMAGE
+       ========================= */
+
+    #escapedBlueImage {
+      position: fixed;
+
+      z-index: 49000;
+
+      left: 50%;
+      top: 50%;
+
+      width: 150px;
+      height: 150px;
+
+      transform:
+        translate(-50%, -50%);
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #000080,
+          #0000ff,
+          #00ffff,
+          #000080
+        );
+
+      border: 5px solid #00ffff;
+
+      color: #00ffff;
+
+      font-size: 4rem;
+
+      box-shadow:
+        0 0 30px #0000ff,
+        0 0 80px #00ffff;
+    }
+
+    #escapedBlueImage.show {
+      display: flex;
+
+      animation:
+        escapedImage 2.5s ease-in-out forwards;
+    }
+
+    @keyframes escapedImage {
+      0% {
+        opacity: 0;
+        transform:
+          translate(-50%, -50%)
+          scale(0);
+      }
+
+      30% {
+        opacity: 1;
+        transform:
+          translate(-50%, -50%)
+          scale(1);
+      }
+
+      70% {
+        opacity: 1;
+        transform:
+          translate(-50%, -50%)
+          rotate(180deg)
+          scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform:
+          translate(-50%, -50%)
+          rotate(360deg)
+          scale(0.8);
+      }
+    }
+
+    /* =========================
+       COMPLETE VOID
+       ========================= */
+
+    body.escape-void {
+      background: #000 !important;
+      color: #000;
+
+      animation: none !important;
+
+      overflow: hidden;
+    }
+
+    body.escape-void > *:not(#binaryVoid):not(#escapedBlueImage):not(#escapeMessage) {
+      transition:
+        opacity 4s ease,
+        filter 4s ease,
+        transform 4s ease !important;
+
+      filter:
+        grayscale(1)
+        brightness(0);
+
+      opacity: 0;
+
+      pointer-events: none !important;
+    }
+
+    body.escape-dead {
+      background: #000 !important;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    body.escape-dead > * {
+      pointer-events: none !important;
+    }
+
+    /* =========================
+       COMPLETELY USELESS SPINNING THING
+       ========================= */
+
+    /* Kept for compatibility with the
+       original class name. */
 
     /* =========================
        FOOTER
@@ -361,7 +765,8 @@
 
       font-size: 18px;
 
-      animation: stupidTrail 0.8s linear forwards;
+      animation:
+        stupidTrail 0.8s linear forwards;
     }
 
     @keyframes stupidTrail {
@@ -400,7 +805,8 @@
 
       padding: 6px;
 
-      animation: spiderAppear 0.25s ease-out;
+      animation:
+        spiderAppear 0.25s ease-out;
 
       overflow: hidden;
     }
@@ -415,12 +821,18 @@
 
     @keyframes spiderAppear {
       from {
-        transform: scale(0) rotate(-15deg);
+        transform:
+          scale(0)
+          rotate(-15deg);
+
         opacity: 0;
       }
 
       to {
-        transform: scale(1) rotate(0deg);
+        transform:
+          scale(1)
+          rotate(0deg);
+
         opacity: 1;
       }
     }
@@ -456,6 +868,12 @@
         width: 95%;
         min-height: 120px;
         font-size: 1.8rem;
+      }
+
+      .spinning-jpeg {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
       }
     }
   </style>
@@ -584,7 +1002,7 @@
     </section>
 
 
-    <!-- USELESS SPINNING THING -->
+    <!-- BLUE IMAGE INCIDENT -->
 
     <section class="post jpeg-zone">
 
@@ -596,14 +1014,20 @@
         this serves absolutely no purpose
       </p>
 
-      <div
-        class="spinning-jpeg"
-        title="this is not a JPEG"
-      >
-        🔵
+      <div class="blue-image-wrapper">
+
+        <div
+          id="blueImage"
+          class="spinning-jpeg"
+          title="this is not a JPEG"
+          onclick="blueImageClicked()"
+        >
+          🔵
+        </div>
+
       </div>
 
-      <p>
+      <p id="blueImageMessage">
         why is it spinning
       </p>
 
@@ -703,6 +1127,19 @@
   </footer>
 
 
+  <!-- ESCAPE EFFECT ELEMENTS -->
+
+  <div id="escapeMessage">
+    It has escaped...
+  </div>
+
+  <div id="binaryVoid"></div>
+
+  <div id="escapedBlueImage">
+    🔵
+  </div>
+
+
   <!-- COUNTERAPI -->
 
   <script
@@ -733,10 +1170,17 @@
       ];
 
       const random =
-        things[Math.floor(Math.random() * things.length)];
+        things[
+          Math.floor(
+            Math.random() *
+            things.length
+          )
+        ];
 
       const result =
-        document.getElementById("randomResult");
+        document.getElementById(
+          "randomResult"
+        );
 
       result.textContent =
         random;
@@ -822,13 +1266,13 @@
 
       const randomChoice =
         array =>
-          array[Math.floor(Math.random() * array.length)];
+          array[
+            Math.floor(
+              Math.random() *
+              array.length
+            )
+          ];
 
-
-      /*
-       * Give the result enough freedom to become
-       * weird without making it impossible to read.
-       */
 
       result.style.display =
         "inline-block";
@@ -899,18 +1343,23 @@
       result.style.textShadow =
         Math.random() < 0.65
           ? (
-              Math.floor(Math.random() * 8) +
+              Math.floor(
+                Math.random() * 8
+              ) +
               "px " +
-              Math.floor(Math.random() * 8) +
+              Math.floor(
+                Math.random() * 8
+              ) +
               "px " +
-              colors[Math.floor(Math.random() * colors.length)]
+              colors[
+                Math.floor(
+                  Math.random() *
+                  colors.length
+                )
+              ]
             )
           : "none";
 
-
-      /*
-       * Occasionally shove the text around a little.
-       */
 
       result.style.left =
         (
@@ -922,10 +1371,6 @@
           Math.random() * 30 - 15
         ).toFixed(0) + "px";
 
-
-      /*
-       * Sometimes make the result especially stupid.
-       */
 
       if (Math.random() < 0.2) {
 
@@ -945,7 +1390,6 @@
 
         result.style.padding =
           "0";
-
       }
 
     }
@@ -967,9 +1411,15 @@
       ];
 
       const random =
-        blues[Math.floor(Math.random() * blues.length)];
+        blues[
+          Math.floor(
+            Math.random() *
+            blues.length
+          )
+        ];
 
-      document.body.style.background = random;
+      document.body.style.background =
+        random;
     }
 
 
@@ -980,7 +1430,9 @@
     function fakeMalware() {
 
       const message =
-        document.getElementById("downloadMessage");
+        document.getElementById(
+          "downloadMessage"
+        );
 
       message.textContent =
         "DOWNLOADING CLUTTERFUNK... 3%... 17%... 99%... wait never mind lol";
@@ -997,7 +1449,9 @@
         const blob =
           new Blob(
             [fileContent],
-            { type: "text/plain" }
+            {
+              type: "text/plain"
+            }
           );
 
         const url =
@@ -1006,9 +1460,11 @@
         const link =
           document.createElement("a");
 
-        link.href = url;
+        link.href =
+          url;
 
-        link.download = "CLUTTERFUNK.txt";
+        link.download =
+          "CLUTTERFUNK.txt";
 
         document.body.appendChild(link);
 
@@ -1044,9 +1500,16 @@
       ];
 
       const random =
-        messages[Math.floor(Math.random() * messages.length)];
+        messages[
+          Math.floor(
+            Math.random() *
+            messages.length
+          )
+        ];
 
-      document.getElementById("dontClickMessage").textContent =
+      document.getElementById(
+        "dontClickMessage"
+      ).textContent =
         random;
     }
 
@@ -1074,13 +1537,10 @@
         </video>
       `;
 
-      document.body.appendChild(spider);
+      document.body.appendChild(
+        spider
+      );
 
-
-      /*
-       * Give the browser one frame to figure out
-       * the video's size before positioning it.
-       */
 
       requestAnimationFrame(() => {
 
@@ -1105,12 +1565,18 @@
         const randomX =
           margin +
           Math.random() *
-          Math.max(0, maxX - margin);
+          Math.max(
+            0,
+            maxX - margin
+          );
 
         const randomY =
           margin +
           Math.random() *
-          Math.max(0, maxY - margin);
+          Math.max(
+            0,
+            maxY - margin
+          );
 
         spider.style.left =
           randomX + "px";
@@ -1122,13 +1588,10 @@
 
 
       const video =
-        spider.querySelector("video");
+        spider.querySelector(
+          "video"
+        );
 
-
-      /*
-       * Remove this particular Spider-Man
-       * when its video finishes.
-       */
 
       video.addEventListener(
         "ended",
@@ -1137,11 +1600,6 @@
         }
       );
 
-
-      /*
-       * Remove the box if the video cannot
-       * be loaded.
-       */
 
       video.addEventListener(
         "error",
@@ -1157,6 +1615,479 @@
       );
 
     }
+
+
+    /* =========================
+       BLUE IMAGE GLITCH SYSTEM
+       ========================= */
+
+    let blueImageEscaped =
+      false;
+
+    let glitchTimeout;
+
+
+    function triggerBlueGlitch() {
+
+      if (blueImageEscaped) {
+        return;
+      }
+
+      const image =
+        document.getElementById(
+          "blueImage"
+        );
+
+      if (!image) {
+        return;
+      }
+
+      image.classList.remove(
+        "blue-glitch"
+      );
+
+      void image.offsetWidth;
+
+      image.classList.add(
+        "blue-glitch"
+      );
+
+      setTimeout(() => {
+
+        image.classList.remove(
+          "blue-glitch"
+        );
+
+      }, 140);
+
+      scheduleBlueGlitch();
+
+    }
+
+
+    function scheduleBlueGlitch() {
+
+      if (blueImageEscaped) {
+        return;
+      }
+
+      clearTimeout(
+        glitchTimeout
+      );
+
+      const delay =
+        3500 +
+        Math.random() * 9000;
+
+      glitchTimeout =
+        setTimeout(
+          triggerBlueGlitch,
+          delay
+        );
+    }
+
+
+    /* =========================
+       BLUE IMAGE CLICK
+       ========================= */
+
+    function blueImageClicked() {
+
+      if (blueImageEscaped) {
+        return;
+      }
+
+      /*
+       * The vast majority of clicks
+       * are completely harmless.
+       */
+
+      const escapeChance =
+        Math.random();
+
+      if (escapeChance < 0.02) {
+
+        escapeBlueImage();
+
+        return;
+      }
+
+
+      const message =
+        document.getElementById(
+          "blueImageMessage"
+        );
+
+      const harmlessMessages = [
+        "you touched the JPEG.",
+        "nothing happened.",
+        "the JPEG remains contained.",
+        "please stop touching the image.",
+        "it noticed you.",
+        "blu.",
+        "...",
+        "JPEG STATUS: NORMAL",
+        "why did you click that"
+      ];
+
+      message.textContent =
+        harmlessMessages[
+          Math.floor(
+            Math.random() *
+            harmlessMessages.length
+          )
+        ];
+
+    }
+
+
+    /* =========================
+       GENERATE BINARY
+       ========================= */
+
+    function generateBinary() {
+
+      const binaryVoid =
+        document.getElementById(
+          "binaryVoid"
+        );
+
+      binaryVoid.innerHTML =
+        "";
+
+      for (
+        let i = 0;
+        i < 90;
+        i++
+      ) {
+
+        const line =
+          document.createElement(
+            "div"
+          );
+
+        line.className =
+          "binary-line";
+
+        let text = "";
+
+        for (
+          let j = 0;
+          j < 80;
+          j++
+        ) {
+
+          text +=
+            Math.random() < 0.5
+              ? "0"
+              : "1";
+
+          if (
+            Math.random() < 0.06
+          ) {
+            text += " ";
+          }
+
+        }
+
+        line.textContent =
+          text;
+
+        binaryVoid.appendChild(
+          line
+        );
+      }
+    }
+
+
+    /* =========================
+       ESCAPE SEQUENCE
+       ========================= */
+
+    function escapeBlueImage() {
+
+      if (blueImageEscaped) {
+        return;
+      }
+
+      blueImageEscaped =
+        true;
+
+      clearTimeout(
+        glitchTimeout
+      );
+
+
+      const image =
+        document.getElementById(
+          "blueImage"
+        );
+
+      const message =
+        document.getElementById(
+          "escapeMessage"
+        );
+
+      const binaryVoid =
+        document.getElementById(
+          "binaryVoid"
+        );
+
+      const escapedImage =
+        document.getElementById(
+          "escapedBlueImage"
+        );
+
+
+      /*
+       * The image disappears.
+       */
+
+      image.style.animation =
+        "none";
+
+      image.style.opacity =
+        "0";
+
+      image.style.pointerEvents =
+        "none";
+
+
+      /*
+       * Tell the visitor what happened.
+       */
+
+      message.classList.add(
+        "show"
+      );
+
+
+      /*
+       * Begin killing the website.
+       */
+
+      setTimeout(() => {
+
+        document.body.classList.add(
+          "escape-void"
+        );
+
+      }, 1800);
+
+
+      /*
+       * Start revealing binary.
+       */
+
+      setTimeout(() => {
+
+        generateBinary();
+
+        binaryVoid.classList.add(
+          "active"
+        );
+
+      }, 5000);
+
+
+      /*
+       * Remove the old website
+       * almost completely.
+       */
+
+      setTimeout(() => {
+
+        document.body.classList.add(
+          "escape-dead"
+        );
+
+      }, 8500);
+
+
+      /*
+       * Binary begins disappearing.
+       */
+
+      setTimeout(() => {
+
+        binaryVoid.style.opacity =
+          "0";
+
+      }, 12500);
+
+
+      /*
+       * The blue image returns
+       * briefly from the void.
+       */
+
+      setTimeout(() => {
+
+        binaryVoid.classList.remove(
+          "active"
+        );
+
+        escapedImage.classList.add(
+          "show"
+        );
+
+      }, 14500);
+
+
+      /*
+       * Everything becomes darkness.
+       */
+
+      setTimeout(() => {
+
+        escapedImage.classList.remove(
+          "show"
+        );
+
+        document.body.style.background =
+          "#000";
+
+      }, 17200);
+
+
+      /*
+       * Twenty seconds after the
+       * escape sequence begins,
+       * restore everything.
+       */
+
+      setTimeout(() => {
+
+        restoreWebsite();
+
+      }, 20000);
+
+    }
+
+
+    /* =========================
+       RESTORE WEBSITE
+       ========================= */
+
+    function restoreWebsite() {
+
+      const image =
+        document.getElementById(
+          "blueImage"
+        );
+
+      const message =
+        document.getElementById(
+          "escapeMessage"
+        );
+
+      const binaryVoid =
+        document.getElementById(
+          "binaryVoid"
+        );
+
+      const escapedImage =
+        document.getElementById(
+          "escapedBlueImage"
+        );
+
+
+      document.body.classList.remove(
+        "escape-void"
+      );
+
+      document.body.classList.remove(
+        "escape-dead"
+      );
+
+
+      document.body.style.background =
+        "";
+
+      document.body.style.color =
+        "";
+
+      document.body.style.cursor =
+        "";
+
+
+      /*
+       * Reset all hidden website elements.
+       */
+
+      document.querySelectorAll(
+        "body > *"
+      ).forEach(element => {
+
+        element.style.opacity =
+          "";
+
+        element.style.filter =
+          "";
+
+        element.style.transform =
+          "";
+
+      });
+
+
+      /*
+       * Restore the original image.
+       */
+
+      image.style.opacity =
+        "";
+
+      image.style.animation =
+        "";
+
+      image.style.pointerEvents =
+        "";
+
+      image.classList.remove(
+        "blue-glitch"
+      );
+
+
+      message.classList.remove(
+        "show"
+      );
+
+
+      binaryVoid.classList.remove(
+        "active"
+      );
+
+      binaryVoid.style.opacity =
+        "";
+
+      binaryVoid.innerHTML =
+        "";
+
+
+      escapedImage.classList.remove(
+        "show"
+      );
+
+
+      /*
+       * It is technically the same
+       * website again.
+       */
+
+      blueImageEscaped =
+        false;
+
+      scheduleBlueGlitch();
+
+    }
+
+
+    /* =========================
+       START THE RANDOM GLITCHES
+       ========================= */
+
+    scheduleBlueGlitch();
 
 
     /* =========================
@@ -1182,8 +2113,19 @@
       "mousemove",
       function(event) {
 
+        /*
+         * Don't keep generating cursor
+         * junk during the void.
+         */
+
+        if (blueImageEscaped) {
+          return;
+        }
+
         const dot =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
 
         dot.className =
           "cursor-dot";
@@ -1210,7 +2152,9 @@
             10
           ) + "px";
 
-        document.body.appendChild(dot);
+        document.body.appendChild(
+          dot
+        );
 
         setTimeout(() => {
 
