@@ -735,8 +735,220 @@
       const random =
         things[Math.floor(Math.random() * things.length)];
 
-      document.getElementById("randomResult").textContent =
+      const result =
+        document.getElementById("randomResult");
+
+      result.textContent =
         random;
+
+
+      /* =========================
+         RANDOM STUPID APPEARANCE
+         ========================= */
+
+      const fonts = [
+        '"Comic Sans MS", cursive',
+        '"Courier New", monospace',
+        'Impact, "Arial Black", sans-serif',
+        'Georgia, serif',
+        'Verdana, sans-serif',
+        '"Times New Roman", serif',
+        'monospace',
+        'cursive'
+      ];
+
+      const colors = [
+        "#ffffff",
+        "#00ffff",
+        "#00ff00",
+        "#ffff00",
+        "#ff00ff",
+        "#ff6600",
+        "#ff3333"
+      ];
+
+      const sizes = [
+        "0.35rem",
+        "0.55rem",
+        "0.8rem",
+        "1rem",
+        "1.4rem",
+        "2rem",
+        "3rem",
+        "4rem",
+        "5rem"
+      ];
+
+      const weights = [
+        "normal",
+        "bold",
+        "900"
+      ];
+
+      const transforms = [
+        "none",
+        "rotate(0deg)",
+        "rotate(7deg)",
+        "rotate(-7deg)",
+        "rotate(13deg)",
+        "rotate(-13deg)",
+        "rotate(25deg)",
+        "rotate(-25deg)",
+        "rotate(90deg)",
+        "rotate(-90deg)",
+        "rotate(180deg)",
+        "rotate(180deg) scaleX(-1)"
+      ];
+
+      const textTransforms = [
+        "none",
+        "uppercase",
+        "lowercase",
+        "capitalize"
+      ];
+
+      const decorations = [
+        "none",
+        "underline",
+        "line-through",
+        "overline",
+        "underline line-through"
+      ];
+
+      const alignments = [
+        "left",
+        "center",
+        "right"
+      ];
+
+      const randomChoice =
+        array =>
+          array[Math.floor(Math.random() * array.length)];
+
+
+      /*
+       * Give the result enough freedom to become
+       * weird without changing the surrounding layout.
+       */
+
+      result.style.display =
+        "inline-block";
+
+      result.style.position =
+        "relative";
+
+      result.style.fontFamily =
+        randomChoice(fonts);
+
+      result.style.fontSize =
+        randomChoice(sizes);
+
+      result.style.fontWeight =
+        randomChoice(weights);
+
+      result.style.fontStyle =
+        Math.random() < 0.25
+          ? "italic"
+          : "normal";
+
+      result.style.color =
+        randomChoice(colors);
+
+      result.style.textTransform =
+        randomChoice(textTransforms);
+
+      result.style.textDecoration =
+        randomChoice(decorations);
+
+      result.style.textAlign =
+        randomChoice(alignments);
+
+      result.style.letterSpacing =
+        (
+          Math.random() * 0.6 - 0.2
+        ).toFixed(2) + "em";
+
+      result.style.wordSpacing =
+        (
+          Math.random() * 0.8 - 0.2
+        ).toFixed(2) + "em";
+
+      result.style.opacity =
+        (
+          0.55 +
+          Math.random() * 0.45
+        ).toFixed(2);
+
+      result.style.transform =
+        randomChoice(transforms) +
+        " skew(" +
+        (
+          Math.random() * 12 - 6
+        ).toFixed(1) +
+        "deg) scaleX(" +
+        (
+          0.7 +
+          Math.random() * 0.9
+        ).toFixed(2) +
+        ") scaleY(" +
+        (
+          0.7 +
+          Math.random() * 0.9
+        ).toFixed(2) +
+        ")";
+
+      result.style.textShadow =
+        Math.random() < 0.65
+          ? (
+              Math.floor(Math.random() * 8) +
+              "px " +
+              Math.floor(Math.random() * 8) +
+              "px " +
+              colors[Math.floor(Math.random() * colors.length)]
+            )
+          : "none";
+
+
+      /*
+       * Occasionally shove the text around a little.
+       */
+
+      result.style.left =
+        (
+          Math.random() * 80 - 40
+        ).toFixed(0) + "px";
+
+      result.style.top =
+        (
+          Math.random() * 30 - 15
+        ).toFixed(0) + "px";
+
+
+      /*
+       * Sometimes make the result especially stupid.
+       */
+
+      if (Math.random() < 0.2) {
+
+        result.style.border =
+          "2px dashed " +
+          randomChoice(colors);
+
+        result.style.padding =
+          Math.floor(
+            Math.random() * 10
+          ) + "px";
+
+      } else {
+
+        result.style.border =
+          "none";
+
+        result.style.padding =
+          "0";
+
+      }
+
     }
 
 
