@@ -1,511 +1,1227 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* =========================
-     RANDOM CRAP
-     ========================= */
+  <title>JZ's Wonderously Bored Website</title>
 
-  function randomNonsense() {
+  <meta
+    name="description"
+    content="JZ's personal bored crap lol"
+  >
 
-    const things = [
-      "you have been clutterfunk'd",
-      "blu",
-      "why did you click that",
-      "congratulations. nothing happened.",
-      "this website has achieved absolutely nothing",
-      "ERROR: boredom detected",
-      "have you considered going outside",
-      "CLUTTERFUNK LEVEL: 87%",
-      "the blue knows",
-      "i forgot what this button does"
-    ];
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    const random =
-      things[Math.floor(Math.random() * things.length)];
+    /* =========================
+       THE BLU ZONE
+       ========================= */
 
-    const result =
-      document.getElementById("randomResult");
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      background: #000080;
+      color: white;
+      line-height: 1.5;
 
-    result.textContent =
-      random;
+      background: linear-gradient(
+        135deg,
+        #000080,
+        #0000cc,
+        #0000ff,
+        #000080
+      );
+
+      background-size: 400% 400%;
+      animation: bluBackground 12s ease infinite;
+
+      cursor: crosshair;
+    }
+
+    @keyframes bluBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 25px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 4px 4px #000080;
+    }
+
+    header p {
+      color: #00ffff;
+      font-size: 1.1rem;
+    }
+
+    /* =========================
+       CLUTTERFUNK BANNER
+       ========================= */
+
+    .clutter-banner {
+      margin: 25px 0;
+      padding: 15px;
+      background: #0000ff;
+      border: 4px dashed #00ffff;
+
+      font-family: "Comic Sans MS", cursive;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00ffff;
+
+      text-align: center;
+
+      animation: blink 0.8s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.25;
+      }
+    }
+
+    /* =========================
+       NAV
+       ========================= */
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: underline;
+    }
+
+    nav a:hover {
+      background: #00ffff;
+      color: #000080;
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px 24px 60px;
+    }
+
+    /* =========================
+       POSTS
+       ========================= */
+
+    .post {
+      background: #0000ff;
+      color: white;
+
+      padding: 22px;
+      margin-bottom: 18px;
+
+      border: 3px dashed #00ffff;
+      border-radius: 0;
+
+      box-shadow: 8px 8px #000080;
+    }
+
+    .post h2 {
+      margin-top: 0;
+      color: white;
+    }
+
+    .post p {
+      color: white;
+    }
+
+    .date {
+      color: #00ffff;
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       BUTTONS
+       ========================= */
+
+    button {
+      font-family: "Comic Sans MS", cursive;
+      font-weight: bold;
+
+      background: #000080;
+      color: white;
+
+      border: 3px outset #00ffff;
+
+      padding: 10px 15px;
+      margin: 6px;
+
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00ffff;
+      color: #000080;
+    }
+
+    button:active {
+      border-style: inset;
+    }
+
+    /* =========================
+       BIG RED "DO NOT CLICK" BUTTON
+       ========================= */
+
+    #dangerButton {
+      display: block;
+
+      margin: 25px auto;
+
+      width: 80%;
+      max-width: 600px;
+      min-height: 140px;
+
+      background: #ff0000;
+      color: white;
+
+      border: 8px outset #ff6666;
+      border-radius: 20px;
+
+      font-family: Impact, "Arial Black", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      box-shadow:
+        0 0 0 6px #800000,
+        0 0 30px #ff0000,
+        10px 10px 0 #000;
+
+      cursor: pointer;
+
+      animation: dangerPulse 1s ease-in-out infinite;
+    }
+
+    #dangerButton:hover {
+      background: #ff3333;
+      color: white;
+
+      transform: scale(1.05);
+    }
+
+    #dangerButton:active {
+      border-style: inset;
+      transform: scale(0.98);
+    }
+
+    @keyframes dangerPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 6px #800000,
+          0 0 25px #ff0000,
+          10px 10px 0 #000;
+      }
+
+      50% {
+        box-shadow:
+          0 0 0 6px #800000,
+          0 0 50px #ff0000,
+          10px 10px 0 #000;
+      }
+    }
+
+    /* =========================
+       VISITOR COUNTER
+       ========================= */
+
+    .counter-box {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .counter-label {
+      color: #00ffff;
+      margin-bottom: 8px;
+    }
+
+    .counterapi {
+      display: inline-block;
+      min-height: 44px;
+      padding: 8px 15px;
+
+      background: black;
+      color: #00ff00;
+
+      border: 3px inset #888;
+
+      font-family: "Courier New", monospace;
+    }
+
+    /* =========================
+       FAKE MALWARE ZONE
+       ========================= */
+
+    .danger-zone {
+      background: #000066;
+      border: 4px double #ff00ff;
+
+      padding: 20px;
+      margin-top: 20px;
+
+      text-align: center;
+    }
+
+    .danger-zone h2 {
+      color: #ff00ff;
+    }
+
+    /* =========================
+       COMPLETELY USELESS SPINNING THING
+       ========================= */
+
+    .jpeg-zone {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .spinning-jpeg {
+      width: 150px;
+      height: 150px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #0000ff;
+      color: #00ffff;
+
+      border: 5px solid #00ffff;
+
+      font-size: 4rem;
+
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      text-align: center;
+      padding: 30px;
+
+      color: #00ffff;
+
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       STUPID CURSOR TRAIL
+       ========================= */
+
+    .cursor-dot {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+
+      font-size: 18px;
+
+      animation: stupidTrail 0.8s linear forwards;
+    }
+
+    @keyframes stupidTrail {
+      0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(2) rotate(180deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(0) rotate(720deg);
+      }
+    }
+
+    /* =========================
+       POLYESTER SPIDER-MAN EDITS
+       ========================= */
+
+    .spiderman-edit {
+      position: fixed;
+
+      z-index: 10000;
+
+      width: 300px;
+
+      background: #000080;
+
+      border: 4px dashed #00ffff;
+
+      box-shadow: 8px 8px #000066;
+
+      padding: 6px;
+
+      animation: spiderAppear 0.25s ease-out;
+
+      overflow: hidden;
+    }
+
+    .spiderman-edit video {
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+    }
+
+    @keyframes spiderAppear {
+      from {
+        transform: scale(0) rotate(-15deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    /* =========================
+       PHONE STUFF
+       ========================= */
+
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .clutter-banner {
+        font-size: 1.6rem;
+      }
+
+      main {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .post {
+        padding: 16px;
+      }
+
+      .spiderman-edit {
+        width: 220px;
+      }
+
+      #dangerButton {
+        width: 95%;
+        min-height: 120px;
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Hey ig. :l</h1>
+
+    <p>This is me being bored.</p>
+
+    <div class="clutter-banner">
+      🔵 CLUTTERFUNK 🔵
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#posts">Posts</a>
+      <a href="#danger">DO NOT CLICK</a>
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- ABOUT -->
+
+    <section id="about" class="post">
+
+      <h2>
+        Tidbits Into The Creation of This Website (aka about me)
+      </h2>
+
+      <p>
+        This is now my personal corner of the internet that i do bored stuff on.
+        i may share the occasional post of whatever the absolute frick im doing
+        but i think this is about to be an abondoned website
+      </p>
+
+      <p>
+        anyway welcome to clutterfunk
+      </p>
+
+    </section>
+
+
+    <!-- POSTS -->
+
+    <section id="posts">
+
+      <article class="post">
+
+        <span class="date">
+          August 16, 2026
+        </span>
+
+        <h2>
+          Post 1: "ClutterFunk"
+        </h2>
+
+        <p>
+          This is the first piece of "clutterfunk" im adding to the internet.
+          Think of it as a wonderous bit of malware-not-malware im adding to the internet
+        </p>
+
+        <button onclick="randomNonsense()">
+          CLICK FOR RANDOM CRAP
+        </button>
+
+        <p id="randomResult"></p>
+
+      </article>
+
+
+      <article class="post">
+
+        <span class="date">
+          August 16, 2026
+        </span>
+
+        <h2>
+          Post 2: More "ClutterFunk"
+        </h2>
+
+        <p>
+          Second piece of "clutterfunk" lol. omg im so boreddddd
+        </p>
+
+        <button onclick="changeBlu()">
+          MAKE IT BLUER
+        </button>
+
+        <button onclick="alert('you clicked a button. congratulations.')">
+          USELESS BUTTON
+        </button>
+
+      </article>
+
+
+      <article class="post">
+
+        <span class="date">
+          August 16, 2026
+        </span>
+
+        <h2>
+          Post 3: Why Is This Here
+        </h2>
+
+        <p>
+          i genuinely have no idea what im doing anymore
+        </p>
+
+        <button onclick="spawnSpiderManEdit()">
+          NO TOUCHIE, this is my no-no square
+        </button>
+
+        <p id="dontTouchMessage"></p>
+
+      </article>
+
+    </section>
+
+
+    <!-- USELESS SPINNING THING -->
+
+    <section class="post jpeg-zone">
+
+      <h2>
+        🔵 IMPORTANT IMAGE 🔵
+      </h2>
+
+      <p>
+        this serves absolutely no purpose
+      </p>
+
+      <div
+        class="spinning-jpeg"
+        title="this is not a JPEG"
+      >
+        🔵
+      </div>
+
+      <p>
+        why is it spinning
+      </p>
+
+    </section>
+
+
+    <!-- REAL VISITOR COUNTER -->
+
+    <section class="post">
+
+      <h2>
+        Totally Real Visitor Counter
+      </h2>
+
+      <div class="counter-box">
+
+        <div class="counter-label">
+          You are visitor:
+        </div>
+
+        <div
+          class="counterapi"
+          ns="jzs-wonderously-bored-website"
+          action="view"
+          key="homepage"
+          noIcon="true"
+          noLink="true"
+          noCss="true"
+          color="#00ff00"
+          bg="black"
+        ></div>
+
+        <p>
+          probably
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- MALWARE-NOT-MALWARE -->
+
+    <section id="danger" class="danger-zone">
+
+      <h2>
+        ⚠️ VERY NORMAL DOWNLOAD ZONE ⚠️
+      </h2>
+
+      <p>
+        Download completely legitimate and absolutely normal clutterfunk.
+      </p>
+
+      <button onclick="fakeMalware()">
+        💾 DOWNLOAD CLUTTERFUNK.EXE
+      </button>
+
+      <p id="downloadMessage"></p>
+
+    </section>
+
+
+    <!-- DO NOT CLICK -->
+
+    <section class="post">
+
+      <h2>
+        🚫 DO NOT CLICK 🚫
+      </h2>
+
+      <p>
+        seriously
+      </p>
+
+      <button
+        id="dangerButton"
+        onclick="doNotClick()"
+      >
+        🚨 DO NOT CLICK THIS BUTTON 🚨
+      </button>
+
+      <p id="dontClickMessage"></p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    © 2026 HitGubUsr · Made with HTML & CSS · probably
+
+    <br>
+
+    🔵 this website is extremely blu 🔵
+
+  </footer>
+
+
+  <!-- COUNTERAPI -->
+
+  <script
+    src="https://counterapi.com/c.js"
+    async>
+  </script>
+
+
+  <script>
+
+    /* =========================
+       RANDOM CRAP
+       ========================= */
+
+    function randomNonsense() {
+
+      const things = [
+        "you have been clutterfunk'd",
+        "blu",
+        "why did you click that",
+        "congratulations. nothing happened.",
+        "this website has achieved absolutely nothing",
+        "ERROR: boredom detected",
+        "have you considered going outside",
+        "CLUTTERFUNK LEVEL: 87%",
+        "the blue knows",
+        "i forgot what this button does"
+      ];
+
+      const random =
+        things[Math.floor(Math.random() * things.length)];
+
+      const result =
+        document.getElementById("randomResult");
+
+      result.textContent =
+        random;
+
+
+      /* =========================
+         RANDOM STUPID APPEARANCE
+         ========================= */
+
+      const fonts = [
+        '"Comic Sans MS", cursive',
+        '"Courier New", monospace',
+        'Impact, "Arial Black", sans-serif',
+        'Georgia, serif',
+        'Verdana, sans-serif',
+        '"Times New Roman", serif',
+        'monospace',
+        'cursive'
+      ];
+
+      const colors = [
+        "#ffffff",
+        "#00b8b8",
+        "#00b800",
+        "#d4d400",
+        "#c000c0",
+        "#d94f00",
+        "#d02020"
+      ];
+
+      const sizes = [
+        "0.8rem",
+        "1rem",
+        "1.2rem",
+        "1.5rem",
+        "2rem",
+        "2.5rem",
+        "3rem",
+        "4rem",
+        "5rem"
+      ];
+
+      const weights = [
+        "bold",
+        "900"
+      ];
+
+      const transforms = [
+        "none",
+        "rotate(0deg)",
+        "rotate(7deg)",
+        "rotate(-7deg)",
+        "rotate(13deg)",
+        "rotate(-13deg)",
+        "rotate(25deg)",
+        "rotate(-25deg)",
+        "rotate(90deg)",
+        "rotate(-90deg)",
+        "rotate(180deg)",
+        "rotate(180deg) scaleX(-1)"
+      ];
+
+      const textTransforms = [
+        "none",
+        "uppercase",
+        "lowercase",
+        "capitalize"
+      ];
+
+      const decorations = [
+        "none",
+        "underline",
+        "line-through",
+        "overline",
+        "underline line-through"
+      ];
+
+      const alignments = [
+        "left",
+        "center",
+        "right"
+      ];
+
+      const randomChoice =
+        array =>
+          array[Math.floor(Math.random() * array.length)];
+
+
+      /*
+       * Give the result enough freedom to become
+       * weird without making it impossible to read.
+       */
+
+      result.style.display =
+        "inline-block";
+
+      result.style.position =
+        "relative";
+
+      result.style.fontFamily =
+        randomChoice(fonts);
+
+      result.style.fontSize =
+        randomChoice(sizes);
+
+      result.style.fontWeight =
+        randomChoice(weights);
+
+      result.style.fontStyle =
+        Math.random() < 0.25
+          ? "italic"
+          : "normal";
+
+      result.style.color =
+        randomChoice(colors);
+
+      result.style.textTransform =
+        randomChoice(textTransforms);
+
+      result.style.textDecoration =
+        randomChoice(decorations);
+
+      result.style.textAlign =
+        randomChoice(alignments);
+
+      result.style.letterSpacing =
+        (
+          Math.random() * 0.6 - 0.2
+        ).toFixed(2) + "em";
+
+      result.style.wordSpacing =
+        (
+          Math.random() * 0.8 - 0.2
+        ).toFixed(2) + "em";
+
+      result.style.opacity =
+        (
+          0.8 +
+          Math.random() * 0.2
+        ).toFixed(2);
+
+      result.style.transform =
+        randomChoice(transforms) +
+        " skew(" +
+        (
+          Math.random() * 8 - 4
+        ).toFixed(1) +
+        "deg) scaleX(" +
+        (
+          0.85 +
+          Math.random() * 0.45
+        ).toFixed(2) +
+        ") scaleY(" +
+        (
+          0.85 +
+          Math.random() * 0.45
+        ).toFixed(2) +
+        ")";
+
+      result.style.textShadow =
+        Math.random() < 0.65
+          ? (
+              Math.floor(Math.random() * 8) +
+              "px " +
+              Math.floor(Math.random() * 8) +
+              "px " +
+              colors[Math.floor(Math.random() * colors.length)]
+            )
+          : "none";
+
+
+      /*
+       * Occasionally shove the text around a little.
+       */
+
+      result.style.left =
+        (
+          Math.random() * 80 - 40
+        ).toFixed(0) + "px";
+
+      result.style.top =
+        (
+          Math.random() * 30 - 15
+        ).toFixed(0) + "px";
+
+
+      /*
+       * Sometimes make the result especially stupid.
+       */
+
+      if (Math.random() < 0.2) {
+
+        result.style.border =
+          "2px dashed " +
+          randomChoice(colors);
+
+        result.style.padding =
+          Math.floor(
+            Math.random() * 10
+          ) + "px";
+
+      } else {
+
+        result.style.border =
+          "none";
+
+        result.style.padding =
+          "0";
+
+      }
+
+    }
 
 
     /* =========================
-       RANDOM STUPID APPEARANCE
+       MAKE IT BLUER
        ========================= */
 
-    const fonts = [
-      '"Comic Sans MS", cursive',
-      '"Courier New", monospace',
-      'Impact, "Arial Black", sans-serif',
-      'Georgia, serif',
-      'Verdana, sans-serif',
-      '"Times New Roman", serif',
-      'monospace',
-      'cursive'
-    ];
+    function changeBlu() {
 
-    const colors = [
-      "#ffffff",
-      "#00b8b8",
-      "#00b800",
-      "#d4d400",
-      "#c000c0",
-      "#d94f00",
-      "#d02020"
-    ];
+      const blues = [
+        "#000080",
+        "#0000aa",
+        "#0000cc",
+        "#0000ff",
+        "#001aff",
+        "#000066"
+      ];
 
-    const sizes = [
-      "0.8rem",
-      "1rem",
-      "1.2rem",
-      "1.5rem",
-      "2rem",
-      "2.5rem",
-      "3rem",
-      "4rem",
-      "5rem"
-    ];
+      const random =
+        blues[Math.floor(Math.random() * blues.length)];
 
-    const weights = [
-      "bold",
-      "900"
-    ];
-
-    const transforms = [
-      "none",
-      "rotate(0deg)",
-      "rotate(7deg)",
-      "rotate(-7deg)",
-      "rotate(13deg)",
-      "rotate(-13deg)",
-      "rotate(25deg)",
-      "rotate(-25deg)",
-      "rotate(90deg)",
-      "rotate(-90deg)",
-      "rotate(180deg)",
-      "rotate(180deg) scaleX(-1)"
-    ];
-
-    const textTransforms = [
-      "none",
-      "uppercase",
-      "lowercase",
-      "capitalize"
-    ];
-
-    const decorations = [
-      "none",
-      "underline",
-      "line-through",
-      "overline",
-      "underline line-through"
-    ];
-
-    const alignments = [
-      "left",
-      "center",
-      "right"
-    ];
-
-    const randomChoice =
-      array =>
-        array[Math.floor(Math.random() * array.length)];
-
-
-    /*
-     * Give the result enough freedom to become
-     * weird without making it impossible to read.
-     */
-
-    result.style.display =
-      "inline-block";
-
-    result.style.position =
-      "relative";
-
-    result.style.fontFamily =
-      randomChoice(fonts);
-
-    result.style.fontSize =
-      randomChoice(sizes);
-
-    result.style.fontWeight =
-      randomChoice(weights);
-
-    result.style.fontStyle =
-      Math.random() < 0.25
-        ? "italic"
-        : "normal";
-
-    result.style.color =
-      randomChoice(colors);
-
-    result.style.textTransform =
-      randomChoice(textTransforms);
-
-    result.style.textDecoration =
-      randomChoice(decorations);
-
-    result.style.textAlign =
-      randomChoice(alignments);
-
-    result.style.letterSpacing =
-      (
-        Math.random() * 0.6 - 0.2
-      ).toFixed(2) + "em";
-
-    result.style.wordSpacing =
-      (
-        Math.random() * 0.8 - 0.2
-      ).toFixed(2) + "em";
-
-    result.style.opacity =
-      (
-        0.8 +
-        Math.random() * 0.2
-      ).toFixed(2);
-
-    result.style.transform =
-      randomChoice(transforms) +
-      " skew(" +
-      (
-        Math.random() * 8 - 4
-      ).toFixed(1) +
-      "deg) scaleX(" +
-      (
-        0.85 +
-        Math.random() * 0.45
-      ).toFixed(2) +
-      ") scaleY(" +
-      (
-        0.85 +
-        Math.random() * 0.45
-      ).toFixed(2) +
-      ")";
-
-    result.style.textShadow =
-      Math.random() < 0.65
-        ? (
-            Math.floor(Math.random() * 8) +
-            "px " +
-            Math.floor(Math.random() * 8) +
-            "px " +
-            colors[Math.floor(Math.random() * colors.length)]
-          )
-        : "none";
-
-
-    /*
-     * Occasionally shove the text around a little.
-     */
-
-    result.style.left =
-      (
-        Math.random() * 80 - 40
-      ).toFixed(0) + "px";
-
-    result.style.top =
-      (
-        Math.random() * 30 - 15
-      ).toFixed(0) + "px";
-
-
-    /*
-     * Sometimes make the result especially stupid.
-     */
-
-    if (Math.random() < 0.2) {
-
-      result.style.border =
-        "2px dashed " +
-        randomChoice(colors);
-
-      result.style.padding =
-        Math.floor(
-          Math.random() * 10
-        ) + "px";
-
-    } else {
-
-      result.style.border =
-        "none";
-
-      result.style.padding =
-        "0";
-
+      document.body.style.background = random;
     }
 
-  }
 
+    /* =========================
+       FAKE MALWARE
+       ========================= */
 
-  /* =========================
-     MAKE IT BLUER
-     ========================= */
+    function fakeMalware() {
 
-  function changeBlu() {
-
-    const blues = [
-      "#000080",
-      "#0000aa",
-      "#0000cc",
-      "#0000ff",
-      "#001aff",
-      "#000066"
-    ];
-
-    const random =
-      blues[Math.floor(Math.random() * blues.length)];
-
-    document.body.style.background = random;
-  }
-
-
-  /* =========================
-     FAKE MALWARE
-     ========================= */
-
-  function fakeMalware() {
-
-    const message =
-      document.getElementById("downloadMessage");
-
-    message.textContent =
-      "DOWNLOADING CLUTTERFUNK... 3%... 17%... 99%... wait never mind lol";
-
-    setTimeout(() => {
-
-      const fileContent =
-        "CLUTTERFUNK.EXE\n\n" +
-        "Congratulations.\n" +
-        "You downloaded a text file.\n" +
-        "It is not malware.\n" +
-        "You have been clutterfunk'd.";
-
-      const blob =
-        new Blob(
-          [fileContent],
-          { type: "text/plain" }
-        );
-
-      const url =
-        URL.createObjectURL(blob);
-
-      const link =
-        document.createElement("a");
-
-      link.href = url;
-
-      link.download = "CLUTTERFUNK.txt";
-
-      document.body.appendChild(link);
-
-      link.click();
-
-      link.remove();
-
-      URL.revokeObjectURL(url);
+      const message =
+        document.getElementById("downloadMessage");
 
       message.textContent =
-        "download complete. your computer is probably fine lol";
-
-    }, 1500);
-  }
-
-
-  /* =========================
-     DO NOT CLICK
-     ========================= */
-
-  function doNotClick() {
-
-    const messages = [
-      "i told you not to click it",
-      "why",
-      "you had ONE JOB",
-      "bruh",
-      "the button has been clicked",
-      "this changes nothing",
-      "congratulations on your poor decision",
-      "CLUTTERFUNK ACTIVATED",
-      "okay now stop clicking it"
-    ];
-
-    const random =
-      messages[Math.floor(Math.random() * messages.length)];
-
-    document.getElementById("dontClickMessage").textContent =
-      random;
-  }
-
-
-  /* =========================
-     POLYESTER SPIDER-MAN EDIT
-     ========================= */
-
-  function spawnSpiderManEdit() {
-
-    const spider =
-      document.createElement("div");
-
-    spider.className =
-      "spiderman-edit";
-
-    spider.innerHTML = `
-      <video autoplay playsinline>
-        <source
-          src="polyester-spiderman-edit.mp4"
-          type="video/mp4"
-        >
-
-        Your browser does not support MP4 video.
-      </video>
-    `;
-
-    document.body.appendChild(spider);
-
-
-    /*
-     * Give the browser one frame to figure out
-     * the video's size before positioning it.
-     */
-
-    requestAnimationFrame(() => {
-
-      const margin = 10;
-
-      const maxX =
-        Math.max(
-          margin,
-          window.innerWidth -
-          spider.offsetWidth -
-          margin
-        );
-
-      const maxY =
-        Math.max(
-          margin,
-          window.innerHeight -
-          spider.offsetHeight -
-          margin
-        );
-
-      const randomX =
-        margin +
-        Math.random() *
-        Math.max(0, maxX - margin);
-
-      const randomY =
-        margin +
-        Math.random() *
-        Math.max(0, maxY - margin);
-
-      spider.style.left =
-        randomX + "px";
-
-      spider.style.top =
-        randomY + "px";
-
-    });
-
-
-    const video =
-      spider.querySelector("video");
-
-
-    /*
-     * Remove this particular Spider-Man
-     * when its video finishes.
-     */
-
-    video.addEventListener(
-      "ended",
-      () => {
-        spider.remove();
-      }
-    );
-
-
-    /*
-     * Remove the box if the video cannot
-     * be loaded.
-     */
-
-    video.addEventListener(
-      "error",
-      () => {
-
-        spider.remove();
-
-        console.error(
-          "Could not load polyester-spiderman-edit.mp4"
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =========================
-     STUPID CURSOR TRAIL
-     ========================= */
-
-  const stupidThings = [
-    "🔵",
-    "blu",
-    "💀",
-    "???",
-    "🦠",
-    "💥",
-    "🗿",
-    "🧀",
-    "HELP",
-    "bruh",
-    "✨",
-    "💾"
-  ];
-
-  document.addEventListener(
-    "mousemove",
-    function(event) {
-
-      const dot =
-        document.createElement("div");
-
-      dot.className =
-        "cursor-dot";
-
-      dot.textContent =
-        stupidThings[
-          Math.floor(
-            Math.random() *
-            stupidThings.length
-          )
-        ];
-
-      dot.style.left =
-        (
-          event.clientX +
-          Math.random() * 20 -
-          10
-        ) + "px";
-
-      dot.style.top =
-        (
-          event.clientY +
-          Math.random() * 20 -
-          10
-        ) + "px";
-
-      document.body.appendChild(dot);
+        "DOWNLOADING CLUTTERFUNK... 3%... 17%... 99%... wait never mind lol";
 
       setTimeout(() => {
 
-        dot.remove();
+        const fileContent =
+          "CLUTTERFUNK.EXE\n\n" +
+          "Congratulations.\n" +
+          "You downloaded a text file.\n" +
+          "It is not malware.\n" +
+          "You have been clutterfunk'd.";
 
-      }, 800);
+        const blob =
+          new Blob(
+            [fileContent],
+            { type: "text/plain" }
+          );
+
+        const url =
+          URL.createObjectURL(blob);
+
+        const link =
+          document.createElement("a");
+
+        link.href = url;
+
+        link.download = "CLUTTERFUNK.txt";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+
+        URL.revokeObjectURL(url);
+
+        message.textContent =
+          "download complete. your computer is probably fine lol";
+
+      }, 1500);
+    }
+
+
+    /* =========================
+       DO NOT CLICK
+       ========================= */
+
+    function doNotClick() {
+
+      const messages = [
+        "i told you not to click it",
+        "why",
+        "you had ONE JOB",
+        "bruh",
+        "the button has been clicked",
+        "this changes nothing",
+        "congratulations on your poor decision",
+        "CLUTTERFUNK ACTIVATED",
+        "okay now stop clicking it"
+      ];
+
+      const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      document.getElementById("dontClickMessage").textContent =
+        random;
+    }
+
+
+    /* =========================
+       POLYESTER SPIDER-MAN EDIT
+       ========================= */
+
+    function spawnSpiderManEdit() {
+
+      const spider =
+        document.createElement("div");
+
+      spider.className =
+        "spiderman-edit";
+
+      spider.innerHTML = `
+        <video autoplay playsinline>
+          <source
+            src="polyester-spiderman-edit.mp4"
+            type="video/mp4"
+          >
+
+          Your browser does not support MP4 video.
+        </video>
+      `;
+
+      document.body.appendChild(spider);
+
+
+      /*
+       * Give the browser one frame to figure out
+       * the video's size before positioning it.
+       */
+
+      requestAnimationFrame(() => {
+
+        const margin = 10;
+
+        const maxX =
+          Math.max(
+            margin,
+            window.innerWidth -
+            spider.offsetWidth -
+            margin
+          );
+
+        const maxY =
+          Math.max(
+            margin,
+            window.innerHeight -
+            spider.offsetHeight -
+            margin
+          );
+
+        const randomX =
+          margin +
+          Math.random() *
+          Math.max(0, maxX - margin);
+
+        const randomY =
+          margin +
+          Math.random() *
+          Math.max(0, maxY - margin);
+
+        spider.style.left =
+          randomX + "px";
+
+        spider.style.top =
+          randomY + "px";
+
+      });
+
+
+      const video =
+        spider.querySelector("video");
+
+
+      /*
+       * Remove this particular Spider-Man
+       * when its video finishes.
+       */
+
+      video.addEventListener(
+        "ended",
+        () => {
+          spider.remove();
+        }
+      );
+
+
+      /*
+       * Remove the box if the video cannot
+       * be loaded.
+       */
+
+      video.addEventListener(
+        "error",
+        () => {
+
+          spider.remove();
+
+          console.error(
+            "Could not load polyester-spiderman-edit.mp4"
+          );
+
+        }
+      );
 
     }
-  );
 
-</script>
+
+    /* =========================
+       STUPID CURSOR TRAIL
+       ========================= */
+
+    const stupidThings = [
+      "🔵",
+      "blu",
+      "💀",
+      "???",
+      "🦠",
+      "💥",
+      "🗿",
+      "🧀",
+      "HELP",
+      "bruh",
+      "✨",
+      "💾"
+    ];
+
+    document.addEventListener(
+      "mousemove",
+      function(event) {
+
+        const dot =
+          document.createElement("div");
+
+        dot.className =
+          "cursor-dot";
+
+        dot.textContent =
+          stupidThings[
+            Math.floor(
+              Math.random() *
+              stupidThings.length
+            )
+          ];
+
+        dot.style.left =
+          (
+            event.clientX +
+            Math.random() * 20 -
+            10
+          ) + "px";
+
+        dot.style.top =
+          (
+            event.clientY +
+            Math.random() * 20 -
+            10
+          ) + "px";
+
+        document.body.appendChild(dot);
+
+        setTimeout(() => {
+
+          dot.remove();
+
+        }, 800);
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
