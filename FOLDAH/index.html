@@ -822,34 +822,49 @@
 
     @keyframes phaseTwoBackground {
 
+      /*
+       * Starts as the blank green-grey
+       * field.
+       */
+
       0% {
         background:
           #303b31;
       }
 
-      32% {
+      35% {
         background:
-          #344132;
+          #33412f;
       }
 
-      58% {
+      /*
+       * As the screen fills,
+       * the underlying field becomes
+       * slightly more yellow-green.
+       */
+
+      60% {
         background:
-          #414c34;
+          #3e4b30;
       }
 
-      76% {
+      78% {
         background:
-          #515838;
+          #4b5332;
       }
+
+      /*
+       * Final stage begins turning muddy.
+       */
 
       88% {
         background:
-          #4a5238;
+          #3c4331;
       }
 
       100% {
         background:
-          #262b24;
+          #191d18;
       }
     }
 
@@ -892,6 +907,13 @@
       filter:
         blur(var(--code-blur));
 
+      /*
+       * FINAL POSITION.
+       *
+       * Nothing here animates
+       * toward the viewer.
+       */
+
       transform:
         translate(
           -50%,
@@ -918,20 +940,16 @@
         break-all;
 
       /*
-       * IMPORTANT:
+       * ONLY APPEARS.
        *
-       * The code does NOT travel,
-       * zoom toward the user, or
-       * grow out from the center.
-       *
-       * It appears exactly where
-       * it was placed.
+       * Once visible, it remains
+       * where it spawned.
        */
 
       animation:
-        codeAppear
+        codeMaterialize
         var(--code-duration)
-        ease-out
+        linear
         forwards;
 
       animation-delay:
@@ -978,138 +996,90 @@
     }
 
     /*
-     * The position/size/rotation are
-     * already established. The animation
-     * only changes opacity and blur.
+     * This is intentionally ONLY
+     * an opacity animation.
      */
 
-    @keyframes codeAppear {
+    @keyframes codeMaterialize {
 
       0% {
         opacity: 0;
-
-        filter:
-          blur(
-            calc(
-              var(--code-blur) + 1px
-            )
-          );
       }
 
       100% {
         opacity:
           var(--code-opacity);
-
-        filter:
-          blur(var(--code-blur));
       }
     }
 
     /* =========================
-       MUD / RESIDUE
+       MUDDY GREEN OVERLAY
        ========================= */
 
-    .binary-residue {
+    #binaryMud {
       position: absolute;
 
-      border-radius:
-        var(--residue-radius);
+      inset: 0;
 
-      left:
-        var(--residue-left);
+      z-index: 80;
 
-      top:
-        var(--residue-top);
-
-      width:
-        var(--residue-width);
-
-      height:
-        var(--residue-height);
+      pointer-events: none;
 
       background:
-        var(--residue-color);
+        #52633e;
 
-      opacity:
-        0;
-
-      filter:
-        blur(var(--residue-blur));
-
-      transform:
-        rotate(var(--residue-angle))
-        scale(0.85);
-
-      mix-blend-mode:
-        screen;
+      opacity: 0;
 
       animation:
-        residueGrow
+        muddyGreen
         10s
         linear
         forwards;
-
-      animation-delay:
-        var(--residue-delay);
-
-      z-index:
-        10;
     }
 
-    @keyframes residueGrow {
+    @keyframes muddyGreen {
+
+      /*
+       * Code is still bright and
+       * readable-ish.
+       */
 
       0% {
         opacity: 0;
-
-        transform:
-          rotate(var(--residue-angle))
-          scale(0.85);
       }
 
-      45% {
-        opacity:
-          0.02;
-
-        transform:
-          rotate(var(--residue-angle))
-          scale(0.95);
+      55% {
+        opacity: 0;
       }
+
+      /*
+       * The accumulated code begins
+       * looking like one giant mass.
+       */
 
       68% {
-        opacity:
-          0.06;
-
-        transform:
-          rotate(var(--residue-angle))
-          scale(1.04);
+        opacity: 0.05;
       }
 
-      84% {
-        opacity:
-          0.12;
+      78% {
+        opacity: 0.14;
+      }
 
-        transform:
-          rotate(
-            calc(
-              var(--residue-angle) +
-              4deg
-            )
-          )
-          scale(1.15);
+      86% {
+        opacity: 0.28;
+      }
+
+      /*
+       * This is the muddy green
+       * stage immediately before black.
+       */
+
+      92% {
+        opacity: 0.46;
       }
 
       100% {
-        opacity:
-          0.22;
-
-        transform:
-          rotate(
-            calc(
-              var(--residue-angle) +
-              8deg
-            )
-          )
-          scale(1.3);
+        opacity: 0.82;
       }
     }
 
@@ -1140,28 +1110,34 @@
 
     @keyframes binaryToBlack {
 
+      /*
+       * The code is untouched.
+       * Black only begins taking over
+       * near the end.
+       */
+
       0% {
         opacity: 0;
       }
 
-      58% {
+      72% {
         opacity: 0;
       }
 
-      70% {
+      82% {
         opacity: 0.04;
       }
 
-      80% {
+      88% {
         opacity: 0.14;
       }
 
-      88% {
-        opacity: 0.32;
+      93% {
+        opacity: 0.30;
       }
 
-      94% {
-        opacity: 0.62;
+      97% {
+        opacity: 0.58;
       }
 
       100% {
@@ -1808,6 +1784,10 @@
   <div
     id="binaryVoid"
   >
+
+    <div
+      id="binaryMud"
+    ></div>
 
     <div
       id="binaryFadeToBlack"
@@ -2859,10 +2839,6 @@
       }
 
 
-      /*
-       * Scratch group 1
-       */
-
       generateScratchGroup(
         overlay,
         28,
@@ -2870,10 +2846,6 @@
         8
       );
 
-
-      /*
-       * Scratch group 2
-       */
 
       generateScratchGroup(
         overlay,
@@ -2883,11 +2855,6 @@
       );
 
 
-      /*
-       * Scratch group 3
-       * Very dense.
-       */
-
       generateScratchGroup(
         overlay,
         95,
@@ -2895,10 +2862,6 @@
         18
       );
 
-
-      /*
-       * Final overload.
-       */
 
       generateScratchGroup(
         overlay,
@@ -3114,7 +3077,9 @@
 
         `${words[0]} ${words[1]} ${words[2]}`,
 
-        `0x${Math.floor(Math.random() * 9999).toString(16).toUpperCase()} ${binary}`,
+        `0x${Math.floor(
+          Math.random() * 9999
+        ).toString(16).toUpperCase()} ${binary}`,
 
         `10101010 :: ${words[0]} :: NULL :: ${binary}`,
 
@@ -3142,14 +3107,14 @@
       binaryVoid.innerHTML =
         `
           <div
+            id="binaryMud"
+          ></div>
+
+          <div
             id="binaryFadeToBlack"
           ></div>
         `;
 
-
-      /* =========================
-         CODE
-         ========================= */
 
       const codeCount =
         230;
@@ -3255,8 +3220,11 @@
 
 
         /*
-         * Random final location.
-         * It never travels there.
+         * FINAL LOCATION.
+         *
+         * This is where the code
+         * remains for the rest
+         * of Phase 2.
          */
 
         const x =
@@ -3290,9 +3258,9 @@
 
 
         /*
-         * The first code appears
-         * early. Later ones keep
-         * filling the available space.
+         * Later pieces appear later
+         * and pile on top of earlier
+         * pieces.
          */
 
         const delay =
@@ -3355,10 +3323,17 @@
               );
 
 
+        /*
+         * Very short materialization.
+         *
+         * Once complete, the element
+         * stays there permanently.
+         */
+
         const duration =
-          0.12 +
+          0.08 +
           Math.random() *
-          0.3;
+          0.22;
 
 
         code.style.setProperty(
@@ -3443,6 +3418,7 @@
 
         code.style.setProperty(
           "--code-glow",
+
           large
 
             ? `${6 + Math.random() * 16}px`
@@ -3464,6 +3440,7 @@
 
         code.style.setProperty(
           "--code-layer",
+
           large
             ? "5"
             : "4"
@@ -3476,113 +3453,6 @@
 
         binaryVoid.appendChild(
           code
-        );
-      }
-
-
-      /* =========================
-         RESIDUE BLOBS
-         ========================= */
-
-      const residueCount =
-        48;
-
-
-      const residueColors = [
-
-        "#3d522d",
-
-        "#55652e",
-
-        "#6b7330",
-
-        "#7d8532",
-
-        "#89913a",
-
-        "#69763c",
-
-        "#53613d"
-      ];
-
-
-      for (
-        let i = 0;
-        i < residueCount;
-        i++
-      ) {
-
-        const residue =
-          document.createElement(
-            "div"
-          );
-
-
-        residue.className =
-          "binary-residue";
-
-
-        residue.style.setProperty(
-          "--residue-left",
-          `${-10 + Math.random() * 120}%`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-top",
-          `${-10 + Math.random() * 120}%`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-width",
-          `${80 + Math.random() * 480}px`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-height",
-          `${50 + Math.random() * 320}px`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-radius",
-          `${25 + Math.random() * 55}% ${20 + Math.random() * 60}% ${30 + Math.random() * 60}% ${15 + Math.random() * 65}%`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-color",
-          residueColors[
-            Math.floor(
-              Math.random() *
-              residueColors.length
-            )
-          ]
-        );
-
-
-        residue.style.setProperty(
-          "--residue-blur",
-          `${8 + Math.random() * 22}px`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-angle",
-          `${Math.random() * 360}deg`
-        );
-
-
-        residue.style.setProperty(
-          "--residue-delay",
-          `${2 + Math.random() * 5}s`
-        );
-
-
-        binaryVoid.appendChild(
-          residue
         );
       }
     }
@@ -3984,8 +3854,8 @@
 
 
         /*
-         * Phase 2 is already
-         * completely black here.
+         * Phase 2 has naturally
+         * become black.
          */
 
         binaryVoid.classList.remove(
@@ -4015,7 +3885,8 @@
 
 
           /*
-           * Two seconds of darkness.
+           * Two seconds of darkness
+           * after final JPEG.
            */
 
           await new Promise(
@@ -4137,9 +4008,9 @@
 
 
       /*
-       * Keep a normal-looking,
-       * random message in each
-       * affected message location.
+       * The page looks normal again,
+       * apart from the deliberately
+       * permanent JPEG behavior.
        */
 
       restoreNormalMessages();
@@ -4153,7 +4024,7 @@
        * Therefore:
        * - JPEG cannot escape again
        * - JPEG cannot trigger another event
-       * - random JPEG glitches stay disabled
+       * - JPEG glitches stay disabled
        */
 
       escapePhase =
