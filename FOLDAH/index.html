@@ -37,6 +37,7 @@
       );
 
       background-size: 400% 400%;
+
       animation:
         bluBackground
         12s
@@ -826,34 +827,34 @@
           #303b31;
       }
 
-      35% {
+      32% {
         background:
-          #364332;
+          #344132;
       }
 
-      60% {
+      58% {
         background:
-          #4a5736;
+          #414c34;
       }
 
       76% {
         background:
-          #606638;
+          #515838;
       }
 
       88% {
         background:
-          #56603a;
+          #4a5238;
       }
 
       100% {
         background:
-          #252a22;
+          #262b24;
       }
     }
 
     /* =========================
-       PHASE 2 CODE GROUPS
+       PHASE 2 CODE
        ========================= */
 
     .binary-code {
@@ -916,10 +917,21 @@
       word-break:
         break-all;
 
+      /*
+       * IMPORTANT:
+       *
+       * The code does NOT travel,
+       * zoom toward the user, or
+       * grow out from the center.
+       *
+       * It appears exactly where
+       * it was placed.
+       */
+
       animation:
-        codeArrival
-        10s
-        linear
+        codeAppear
+        var(--code-duration)
+        ease-out
         forwards;
 
       animation-delay:
@@ -933,6 +945,7 @@
     }
 
     .binary-code.neat {
+
       font-family:
         "Courier New",
         monospace;
@@ -950,6 +963,7 @@
     }
 
     .binary-code.chunky {
+
       text-transform:
         uppercase;
 
@@ -957,131 +971,42 @@
         0 0
         14px
         currentColor,
+
         0 0
         35px
         currentColor;
     }
 
-    @keyframes codeArrival {
+    /*
+     * The position/size/rotation are
+     * already established. The animation
+     * only changes opacity and blur.
+     */
+
+    @keyframes codeAppear {
 
       0% {
         opacity: 0;
 
         filter:
-          blur(0);
-
-        transform:
-          translate(
-            -50%,
-            -50%
-          )
-          rotate(var(--code-angle))
-          scale(0.35);
-      }
-
-      18% {
-        opacity:
-          var(--code-opacity);
-
-        filter:
-          blur(0);
-
-        transform:
-          translate(
-            -50%,
-            -50%
-          )
-          rotate(var(--code-angle))
-          scale(1);
-      }
-
-      55% {
-        opacity:
-          var(--code-opacity);
-
-        filter:
-          blur(
-            var(--code-blur)
-          );
-
-        transform:
-          translate(
-            -50%,
-            -50%
-          )
-          rotate(var(--code-angle))
-          scale(
-            var(--code-scale)
-          );
-      }
-
-      78% {
-        opacity:
-          calc(
-            var(--code-opacity) * 0.95
-          );
-
-        filter:
           blur(
             calc(
-              var(--code-blur) + 0.5px
-            )
-          );
-
-        transform:
-          translate(
-            -50%,
-            -50%
-          )
-          rotate(
-            calc(
-              var(--code-angle) +
-              var(--late-angle)
-            )
-          )
-          scale(
-            calc(
-              var(--code-scale) *
-              1.12
+              var(--code-blur) + 1px
             )
           );
       }
 
       100% {
         opacity:
-          calc(
-            var(--code-opacity) * 0.55
-          );
+          var(--code-opacity);
 
         filter:
-          blur(
-            calc(
-              var(--code-blur) + 4px
-            )
-          );
-
-        transform:
-          translate(
-            -50%,
-            -50%
-          )
-          rotate(
-            calc(
-              var(--code-angle) +
-              var(--late-angle) * 2
-            )
-          )
-          scale(
-            calc(
-              var(--code-scale) *
-              1.35
-            )
-          );
+          blur(var(--code-blur));
       }
     }
 
     /* =========================
-       MUD / RESIDUE LAYER
+       MUD / RESIDUE
        ========================= */
 
     .binary-residue {
@@ -1113,7 +1038,7 @@
 
       transform:
         rotate(var(--residue-angle))
-        scale(0.7);
+        scale(0.85);
 
       mix-blend-mode:
         screen;
@@ -1138,53 +1063,53 @@
 
         transform:
           rotate(var(--residue-angle))
-          scale(0.7);
-      }
-
-      48% {
-        opacity:
-          0.04;
-
-        transform:
-          rotate(var(--residue-angle))
           scale(0.85);
       }
 
-      70% {
+      45% {
         opacity:
-          0.08;
+          0.02;
 
         transform:
           rotate(var(--residue-angle))
-          scale(1.05);
+          scale(0.95);
       }
 
-      86% {
+      68% {
         opacity:
-          0.16;
+          0.06;
+
+        transform:
+          rotate(var(--residue-angle))
+          scale(1.04);
+      }
+
+      84% {
+        opacity:
+          0.12;
 
         transform:
           rotate(
             calc(
               var(--residue-angle) +
-              5deg
+              4deg
             )
           )
-          scale(1.18);
+          scale(1.15);
       }
 
       100% {
         opacity:
-          0.24;
+          0.22;
 
         transform:
           rotate(
             calc(
               var(--residue-angle) +
-              9deg
+              8deg
             )
           )
-          scale(1.35);
+          scale(1.3);
       }
     }
 
@@ -1205,10 +1130,7 @@
         #000;
 
       opacity: 0;
-    }
 
-    #binaryVoid.active
-      #binaryFadeToBlack {
       animation:
         binaryToBlack
         10s
@@ -1222,24 +1144,24 @@
         opacity: 0;
       }
 
-      55% {
+      58% {
         opacity: 0;
       }
 
       70% {
-        opacity: 0.06;
+        opacity: 0.04;
       }
 
       80% {
-        opacity: 0.18;
+        opacity: 0.14;
       }
 
       88% {
-        opacity: 0.38;
+        opacity: 0.32;
       }
 
       94% {
-        opacity: 0.66;
+        opacity: 0.62;
       }
 
       100% {
@@ -1343,11 +1265,13 @@
 
     body.escape-finished
       #blueImage {
+
       animation:
         spin
         3s
         linear
         infinite,
+
         blueImagePulse
         2.5s
         ease-in-out
@@ -1359,6 +1283,7 @@
        ========================= */
 
     body.escape-dead {
+
       background:
         #000 !important;
 
@@ -1374,6 +1299,7 @@
 
     body.escape-dead
       > *:not(#escapedBlueImage) {
+
       visibility:
         hidden !important;
     }
@@ -1539,6 +1465,7 @@
         height: 120px;
         font-size: 3rem;
       }
+
     }
 
   </style>
@@ -1565,6 +1492,7 @@
     </div>
 
     <nav>
+
       <a href="index.html">
         Home
       </a>
@@ -1580,6 +1508,7 @@
       <a href="#danger">
         DO NOT CLICK
       </a>
+
     </nav>
 
   </header>
@@ -1755,7 +1684,9 @@
          VISITOR COUNTER
          ========================= -->
 
-    <section class="post">
+    <section
+      class="post"
+    >
 
       <h2>
         Totally Real Visitor Counter
@@ -1825,7 +1756,9 @@
          DO NOT CLICK
          ========================= -->
 
-    <section class="post">
+    <section
+      class="post"
+    >
 
       <h2>
         🚫 DO NOT CLICK 🚫
@@ -2128,13 +2061,19 @@
         randomChoice(colors);
 
       result.style.textTransform =
-        randomChoice(textTransforms);
+        randomChoice(
+          textTransforms
+        );
 
       result.style.textDecoration =
-        randomChoice(decorations);
+        randomChoice(
+          decorations
+        );
 
       result.style.textAlign =
-        randomChoice(alignments);
+        randomChoice(
+          alignments
+        );
 
       result.style.letterSpacing =
         (
@@ -2160,7 +2099,9 @@
         ).toFixed(2);
 
       result.style.transform =
-        randomChoice(transforms) +
+        randomChoice(
+          transforms
+        ) +
         " skew(" +
         (
           Math.random() *
@@ -2799,10 +2740,6 @@
         "";
 
 
-      /* =========================
-         MAIN CRACKS
-         ========================= */
-
       const crackCount =
         16;
 
@@ -2922,10 +2859,9 @@
       }
 
 
-      /* =========================
-         SCRATCH GROUP 1
-         0 - 10 SECONDS
-         ========================= */
+      /*
+       * Scratch group 1
+       */
 
       generateScratchGroup(
         overlay,
@@ -2935,10 +2871,9 @@
       );
 
 
-      /* =========================
-         SCRATCH GROUP 2
-         10 - 15 SECONDS
-         ========================= */
+      /*
+       * Scratch group 2
+       */
 
       generateScratchGroup(
         overlay,
@@ -2948,11 +2883,10 @@
       );
 
 
-      /* =========================
-         SCRATCH GROUP 3
-         15 - 20 SECONDS
-         VERY DENSE
-         ========================= */
+      /*
+       * Scratch group 3
+       * Very dense.
+       */
 
       generateScratchGroup(
         overlay,
@@ -2962,9 +2896,9 @@
       );
 
 
-      /* =========================
-         EXTRA LAST-SECOND SCRATCHES
-         ========================= */
+      /*
+       * Final overload.
+       */
 
       generateScratchGroup(
         overlay,
@@ -3214,11 +3148,11 @@
 
 
       /* =========================
-         CODE ELEMENTS
+         CODE
          ========================= */
 
       const codeCount =
-        190;
+        230;
 
 
       const colors = [
@@ -3258,11 +3192,14 @@
 
 
         const large =
-          Math.random() < 0.27;
+          Math.random() <
+          0.27;
+
 
         const medium =
           !large &&
-          Math.random() < 0.38;
+          Math.random() <
+          0.38;
 
 
         if (large) {
@@ -3317,6 +3254,11 @@
                 35;
 
 
+        /*
+         * Random final location.
+         * It never travels there.
+         */
+
         const x =
           Math.random() *
           110 -
@@ -3347,14 +3289,15 @@
               0.35;
 
 
+        /*
+         * The first code appears
+         * early. Later ones keep
+         * filling the available space.
+         */
+
         const delay =
-          large
-
-            ? Math.random() *
-              5.8
-
-            : Math.random() *
-              8.2;
+          Math.random() *
+          7.8;
 
 
         const opacity =
@@ -3383,13 +3326,15 @@
           large
 
             ? (
-                Math.random() < 0.5
+                Math.random() <
+                0.5
                   ? "900"
                   : "bold"
               )
 
             : (
-                Math.random() < 0.7
+                Math.random() <
+                0.7
                   ? "normal"
                   : "bold"
               );
@@ -3405,10 +3350,15 @@
               )
 
             : (
-                0 +
                 Math.random() *
                 0.05
               );
+
+
+        const duration =
+          0.12 +
+          Math.random() *
+          0.3;
 
 
         code.style.setProperty(
@@ -3462,12 +3412,6 @@
 
 
         code.style.setProperty(
-          "--late-angle",
-          `${-7 + Math.random() * 14}deg`
-        );
-
-
-        code.style.setProperty(
           "--code-scale",
           scale
         );
@@ -3476,6 +3420,12 @@
         code.style.setProperty(
           "--code-delay",
           `${delay}s`
+        );
+
+
+        code.style.setProperty(
+          "--code-duration",
+          `${duration}s`
         );
 
 
@@ -3494,7 +3444,9 @@
         code.style.setProperty(
           "--code-glow",
           large
+
             ? `${6 + Math.random() * 16}px`
+
             : `${2 + Math.random() * 8}px`
         );
 
@@ -3960,7 +3912,8 @@
 
 
       /* =========================
-         JPEG ESCAPES
+         PHASE 1
+         0 - 20 SECONDS
          ========================= */
 
       image.style.opacity =
@@ -3970,11 +3923,6 @@
       image.style.pointerEvents =
         "none";
 
-
-      /* =========================
-         PHASE 1
-         0 - 20 SECONDS
-         ========================= */
 
       message.classList.add(
         "show"
@@ -4036,9 +3984,8 @@
 
 
         /*
-         * The binary overlay has
-         * already faded completely
-         * into black by this point.
+         * Phase 2 is already
+         * completely black here.
          */
 
         binaryVoid.classList.remove(
@@ -4068,8 +4015,7 @@
 
 
           /*
-           * Only 2 seconds after
-           * the final JPEG.
+           * Two seconds of darkness.
            */
 
           await new Promise(
@@ -4191,8 +4137,9 @@
 
 
       /*
-       * Leave behind a normal,
-       * random-looking state.
+       * Keep a normal-looking,
+       * random message in each
+       * affected message location.
        */
 
       restoreNormalMessages();
@@ -4201,12 +4148,12 @@
       /*
        * Permanent state:
        *
-       * blueImageEscaped stays TRUE.
+       * blueImageEscaped remains TRUE.
        *
-       * So:
+       * Therefore:
        * - JPEG cannot escape again
        * - JPEG cannot trigger another event
-       * - JPEG glitches do not restart
+       * - random JPEG glitches stay disabled
        */
 
       escapePhase =
