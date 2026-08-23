@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>JZ's Wonderously Bored Website</title>
 
@@ -23,20 +26,32 @@
 
     body {
       margin: 0;
-      font-family: "Comic Sans MS", "Comic Sans", cursive;
-      background: #000080;
-      color: white;
-      line-height: 1.5;
 
-      background: linear-gradient(
-        135deg,
-        #000080,
-        #0000cc,
-        #0000ff,
-        #000080
-      );
+      font-family:
+        "Comic Sans MS",
+        "Comic Sans",
+        cursive;
 
-      background-size: 400% 400%;
+      background:
+        #000080;
+
+      color:
+        white;
+
+      line-height:
+        1.5;
+
+      background:
+        linear-gradient(
+          135deg,
+          #000080,
+          #0000cc,
+          #0000ff,
+          #000080
+        );
+
+      background-size:
+        400% 400%;
 
       animation:
         bluBackground
@@ -44,74 +59,110 @@
         ease
         infinite;
 
-      cursor: crosshair;
+      cursor:
+        crosshair;
 
       transition:
-        background 2s ease,
-        color 2s ease,
-        filter 2s ease;
+        background 0.8s ease,
+        color 0.8s ease,
+        filter 0.8s ease;
     }
+
 
     @keyframes bluBackground {
 
       0% {
-        background-position: 0% 50%;
+        background-position:
+          0% 50%;
       }
 
       50% {
-        background-position: 100% 50%;
+        background-position:
+          100% 50%;
       }
 
       100% {
-        background-position: 0% 50%;
+        background-position:
+          0% 50%;
       }
     }
+
 
     /* =========================
        HEADER
        ========================= */
 
     header {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px 25px;
-      text-align: center;
+      max-width:
+        900px;
+
+      margin:
+        0 auto;
+
+      padding:
+        40px 24px 25px;
+
+      text-align:
+        center;
     }
+
 
     header h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: white;
-      text-shadow: 4px 4px #000080;
+      margin:
+        0;
+
+      font-size:
+        3rem;
+
+      color:
+        white;
+
+      text-shadow:
+        4px 4px #000080;
     }
 
+
     header p {
-      color: #00ffff;
-      font-size: 1.1rem;
+      color:
+        #00ffff;
+
+      font-size:
+        1.1rem;
     }
+
 
     /* =========================
        CLUTTERFUNK BANNER
        ========================= */
 
     .clutter-banner {
-      margin: 25px 0;
-      padding: 15px;
+      margin:
+        25px 0;
 
-      background: #0000ff;
+      padding:
+        15px;
 
-      border: 4px dashed #00ffff;
+      background:
+        #0000ff;
+
+      border:
+        4px dashed #00ffff;
 
       font-family:
         "Comic Sans MS",
         cursive;
 
-      font-size: 2.5rem;
-      font-weight: bold;
+      font-size:
+        2.5rem;
 
-      color: #00ffff;
+      font-weight:
+        bold;
 
-      text-align: center;
+      color:
+        #00ffff;
+
+      text-align:
+        center;
 
       animation:
         blink
@@ -120,85 +171,127 @@
         infinite;
     }
 
+
     @keyframes blink {
 
       50% {
-        opacity: 0.25;
+        opacity:
+          0.25;
       }
     }
+
 
     /* =========================
        NAV
        ========================= */
 
     nav {
-      margin-top: 20px;
+      margin-top:
+        20px;
     }
+
 
     nav a {
-      color: white;
-      margin-right: 15px;
-      text-decoration: underline;
+      color:
+        white;
+
+      margin-right:
+        15px;
+
+      text-decoration:
+        underline;
     }
 
+
     nav a:hover {
-      background: #00ffff;
-      color: #000080;
+      background:
+        #00ffff;
+
+      color:
+        #000080;
     }
+
 
     /* =========================
        MAIN
        ========================= */
 
     main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 10px 24px 60px;
+      max-width:
+        900px;
+
+      margin:
+        0 auto;
+
+      padding:
+        10px 24px 60px;
 
       transition:
-        opacity 2s ease,
-        transform 2s ease,
-        filter 2s ease;
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
     }
+
 
     /* =========================
        POSTS
        ========================= */
 
     .post {
-      background: #0000ff;
-      color: white;
+      background:
+        #0000ff;
 
-      padding: 22px;
-      margin-bottom: 18px;
+      color:
+        white;
 
-      border: 3px dashed #00ffff;
-      border-radius: 0;
+      padding:
+        22px;
+
+      margin-bottom:
+        18px;
+
+      border:
+        3px dashed #00ffff;
+
+      border-radius:
+        0;
 
       box-shadow:
         8px 8px #000080;
 
       transition:
-        opacity 2s ease,
-        transform 2s ease,
-        filter 2s ease,
-        background 2s ease,
-        border-color 2s ease;
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease,
+        background 0.8s ease,
+        border-color 0.8s ease,
+        color 0.8s ease;
     }
+
 
     .post h2 {
-      margin-top: 0;
-      color: white;
+      margin-top:
+        0;
+
+      color:
+        white;
     }
+
 
     .post p {
-      color: white;
+      color:
+        white;
     }
 
+
     .date {
-      color: #00ffff;
-      font-size: 0.8rem;
+      color:
+        #00ffff;
+
+      font-size:
+        0.8rem;
     }
+
 
     /* =========================
        BUTTONS
@@ -209,63 +302,97 @@
         "Comic Sans MS",
         cursive;
 
-      font-weight: bold;
+      font-weight:
+        bold;
 
-      background: #000080;
-      color: white;
+      background:
+        #000080;
 
-      border: 3px outset #00ffff;
+      color:
+        white;
 
-      padding: 10px 15px;
-      margin: 6px;
+      border:
+        3px outset #00ffff;
 
-      cursor: pointer;
+      padding:
+        10px 15px;
+
+      margin:
+        6px;
+
+      cursor:
+        pointer;
     }
+
 
     button:hover {
-      background: #00ffff;
-      color: #000080;
+      background:
+        #00ffff;
+
+      color:
+        #000080;
     }
 
+
     button:active {
-      border-style: inset;
+      border-style:
+        inset;
     }
+
 
     /* =========================
        BIG RED DO NOT CLICK
        ========================= */
 
     #dangerButton {
-      display: block;
+      display:
+        block;
 
-      margin: 25px auto;
+      margin:
+        25px auto;
 
-      width: 80%;
-      max-width: 600px;
-      min-height: 140px;
+      width:
+        80%;
 
-      background: #ff0000;
-      color: white;
+      max-width:
+        600px;
 
-      border: 8px outset #ff6666;
-      border-radius: 20px;
+      min-height:
+        140px;
+
+      background:
+        #ff0000;
+
+      color:
+        white;
+
+      border:
+        8px outset #ff6666;
+
+      border-radius:
+        20px;
 
       font-family:
         Impact,
         "Arial Black",
         sans-serif;
 
-      font-size: 2.5rem;
-      font-weight: 900;
+      font-size:
+        2.5rem;
 
-      text-transform: uppercase;
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
 
       box-shadow:
         0 0 0 6px #800000,
         0 0 30px #ff0000,
         10px 10px 0 #000;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
       animation:
         dangerPulse
@@ -274,16 +401,27 @@
         infinite;
     }
 
+
     #dangerButton:hover {
-      background: #ff3333;
-      color: white;
-      transform: scale(1.05);
+      background:
+        #ff3333;
+
+      color:
+        white;
+
+      transform:
+        scale(1.05);
     }
 
+
     #dangerButton:active {
-      border-style: inset;
-      transform: scale(0.98);
+      border-style:
+        inset;
+
+      transform:
+        scale(0.98);
     }
+
 
     @keyframes dangerPulse {
 
@@ -303,96 +441,159 @@
       }
     }
 
+
     /* =========================
        VISITOR COUNTER
        ========================= */
 
     .counter-box {
-      text-align: center;
-      margin-top: 15px;
+      text-align:
+        center;
+
+      margin-top:
+        15px;
     }
+
 
     .counter-label {
-      color: #00ffff;
-      margin-bottom: 8px;
+      color:
+        #00ffff;
+
+      margin-bottom:
+        8px;
     }
 
+
     .counterapi {
-      display: inline-block;
-      min-height: 44px;
-      padding: 8px 15px;
+      display:
+        inline-block;
 
-      background: black;
-      color: #00ff00;
+      min-height:
+        44px;
 
-      border: 3px inset #888;
+      padding:
+        8px 15px;
+
+      background:
+        black;
+
+      color:
+        #00ff00;
+
+      border:
+        3px inset #888;
 
       font-family:
         "Courier New",
         monospace;
     }
 
+
     /* =========================
        FAKE MALWARE ZONE
        ========================= */
 
     .danger-zone {
-      background: #000066;
+      background:
+        #000066;
 
-      border: 4px double #ff00ff;
+      border:
+        4px double #ff00ff;
 
-      padding: 20px;
-      margin-top: 20px;
+      padding:
+        20px;
 
-      text-align: center;
+      margin-top:
+        20px;
+
+      text-align:
+        center;
     }
+
 
     .danger-zone h2 {
-      color: #ff00ff;
+      color:
+        #ff00ff;
     }
+
 
     /* =========================
        THE BLUE IMAGE
        ========================= */
 
     .jpeg-zone {
-      text-align: center;
-      margin: 30px 0;
-      position: relative;
+      text-align:
+        center;
+
+      margin:
+        30px 0;
+
+      position:
+        relative;
     }
+
 
     .blue-image-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display:
+        flex;
 
-      min-height: 190px;
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      min-height:
+        190px;
     }
 
+
     /*
-     * SIMPLE, UNASSUMING JPEG
+     * GERALD.
+     *
+     * Same size.
+     * Plain.
+     * Blue.
+     * Stupid.
      */
 
     .spinning-jpeg {
-      width: 150px;
-      height: 150px;
 
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        150px;
 
-      background: #0000ff;
+      height:
+        150px;
 
-      color: white;
+      display:
+        inline-flex;
 
-      border: 2px solid #000080;
+      align-items:
+        center;
 
-      font-size: 4rem;
+      justify-content:
+        center;
 
-      cursor: pointer;
-      user-select: none;
+      background:
+        #0000ff;
 
-      box-shadow: none;
+      color:
+        white;
+
+      border:
+        2px solid #000080;
+
+      font-size:
+        4rem;
+
+      cursor:
+        pointer;
+
+      user-select:
+        none;
+
+      box-shadow:
+        none;
 
       animation:
         spin
@@ -405,20 +606,26 @@
         transform 0.05s;
     }
 
+
     .spinning-jpeg:hover {
-      box-shadow: none;
+      box-shadow:
+        none;
     }
+
 
     @keyframes spin {
 
       from {
-        transform: rotate(0deg);
+        transform:
+          rotate(0deg);
       }
 
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
     }
+
 
     /* =========================
        BLUE IMAGE GLITCH
@@ -431,6 +638,7 @@
         steps(2, end)
         !important;
     }
+
 
     @keyframes blueGlitch {
 
@@ -508,18 +716,20 @@
       }
     }
 
+
     /* =========================
        ESCAPE MESSAGE
        ========================= */
 
     #escapeMessage {
-      display: none;
+      display:
+        none;
 
       margin:
-        18px auto
-        0;
+        18px auto 0;
 
-      color: white;
+      color:
+        white;
 
       font-family:
         "Courier New",
@@ -532,43 +742,63 @@
           3rem
         );
 
-      font-weight: bold;
+      font-weight:
+        bold;
 
-      text-align: center;
+      text-align:
+        center;
 
       text-shadow:
         0 0 10px white,
         0 0 25px #00ffff;
     }
 
+
     #escapeMessage.show {
-      display: block;
+      display:
+        block;
     }
+
 
     /* =========================
        CRACKS + SCRATCHES
        ========================= */
 
     #crackOverlay {
-      position: fixed;
-      inset: 0;
+      position:
+        fixed;
 
-      z-index: 40000;
+      inset:
+        0;
 
-      display: none;
+      z-index:
+        40000;
 
-      pointer-events: none;
+      display:
+        none;
 
-      overflow: hidden;
+      pointer-events:
+        none;
 
-      opacity: 0;
+      overflow:
+        hidden;
+
+      opacity:
+        0;
 
       background:
-        rgba(0, 0, 0, 0.02);
+        rgba(
+          0,
+          0,
+          0,
+          0.02
+        );
     }
 
+
     #crackOverlay.active {
-      display: block;
+      display:
+        block;
 
       animation:
         crackDarken
@@ -577,38 +807,50 @@
         forwards;
     }
 
+
     @keyframes crackDarken {
 
       0% {
-        opacity: 0;
+        opacity:
+          0;
       }
 
       30% {
-        opacity: 0.07;
+        opacity:
+          0.07;
       }
 
       55% {
-        opacity: 0.16;
+        opacity:
+          0.16;
       }
 
       75% {
-        opacity: 0.26;
+        opacity:
+          0.26;
       }
 
       90% {
-        opacity: 0.38;
+        opacity:
+          0.38;
       }
 
       100% {
-        opacity: 0.52;
+        opacity:
+          0.52;
       }
     }
 
-    .crack-line {
-      position: absolute;
 
-      height: 2px;
-      width: var(--crack-length);
+    .crack-line {
+      position:
+        absolute;
+
+      height:
+        2px;
+
+      width:
+        var(--crack-length);
 
       left:
         var(--crack-left);
@@ -620,21 +862,39 @@
         left center;
 
       transform:
-        rotate(var(--crack-angle));
+        rotate(
+          var(--crack-angle)
+        );
 
       background:
         linear-gradient(
           90deg,
           transparent,
-          rgba(235, 255, 255, 0.95) 35%,
-          rgba(0, 0, 0, 0.95)
+          rgba(
+            235,
+            255,
+            255,
+            0.95
+          ) 35%,
+          rgba(
+            0,
+            0,
+            0,
+            0.95
+          )
         );
 
       box-shadow:
         0 0 5px
-        rgba(255, 255, 255, 0.55);
+        rgba(
+          255,
+          255,
+          255,
+          0.55
+        );
 
-      opacity: 0;
+      opacity:
+        0;
 
       animation:
         crackAppear
@@ -646,11 +906,16 @@
         blur(0.15px);
     }
 
-    .crack-branch {
-      position: absolute;
 
-      height: 1px;
-      width: var(--branch-length);
+    .crack-branch {
+      position:
+        absolute;
+
+      height:
+        1px;
+
+      width:
+        var(--branch-length);
 
       left:
         var(--branch-left);
@@ -662,16 +927,29 @@
         left center;
 
       transform:
-        rotate(var(--branch-angle));
+        rotate(
+          var(--branch-angle)
+        );
 
       background:
-        rgba(230, 255, 255, 0.85);
+        rgba(
+          230,
+          255,
+          255,
+          0.85
+        );
 
       box-shadow:
         0 0 4px
-        rgba(255, 255, 255, 0.45);
+        rgba(
+          255,
+          255,
+          255,
+          0.45
+        );
 
-      opacity: 0;
+      opacity:
+        0;
 
       animation:
         crackAppear
@@ -680,8 +958,10 @@
         forwards;
     }
 
+
     .scratch-line {
-      position: absolute;
+      position:
+        absolute;
 
       height:
         var(--scratch-height);
@@ -696,17 +976,25 @@
         var(--scratch-top);
 
       transform:
-        rotate(var(--scratch-angle));
+        rotate(
+          var(--scratch-angle)
+        );
 
       background:
         linear-gradient(
           90deg,
           transparent,
-          rgba(255, 255, 255, 0.72),
+          rgba(
+            255,
+            255,
+            255,
+            0.72
+          ),
           transparent
         );
 
-      opacity: 0;
+      opacity:
+        0;
 
       animation:
         scratchAppear
@@ -718,52 +1006,73 @@
         blur(0.2px);
     }
 
+
     @keyframes crackAppear {
 
       0% {
-        opacity: 0;
-        width: 0;
+        opacity:
+          0;
+
+        width:
+          0;
       }
 
       100% {
-        opacity: 0.85;
-        width: var(--crack-length);
+        opacity:
+          0.85;
+
+        width:
+          var(--crack-length);
       }
     }
+
 
     @keyframes scratchAppear {
 
       0% {
-        opacity: 0;
+        opacity:
+          0;
 
         transform:
-          rotate(var(--scratch-angle))
+          rotate(
+            var(--scratch-angle)
+          )
           scaleX(0);
       }
 
       100% {
-        opacity: 0.55;
+        opacity:
+          0.55;
 
         transform:
-          rotate(var(--scratch-angle))
+          rotate(
+            var(--scratch-angle)
+          )
           scaleX(1);
       }
     }
 
+
     /* =========================
        PHASE 2
-       BINARY / CODE TAKEOVER
+       BINARY TAKEOVER
        ========================= */
 
     #binaryVoid {
-      position: fixed;
-      inset: 0;
+      position:
+        fixed;
 
-      z-index: 45000;
+      inset:
+        0;
 
-      display: none;
+      z-index:
+        45000;
 
-      overflow: hidden;
+      display:
+        none;
+
+      overflow:
+        hidden;
 
       background:
         #303b31;
@@ -775,15 +1084,20 @@
         "Courier New",
         monospace;
 
-      opacity: 0;
+      opacity:
+        0;
 
-      isolation: isolate;
+      isolation:
+        isolate;
     }
 
-    #binaryVoid.active {
-      display: block;
 
-      opacity: 1;
+    #binaryVoid.active {
+      display:
+        block;
+
+      opacity:
+        1;
 
       animation:
         phaseTwoBackground
@@ -791,6 +1105,7 @@
         linear
         forwards;
     }
+
 
     @keyframes phaseTwoBackground {
 
@@ -821,16 +1136,18 @@
 
       100% {
         background:
-          #000 !important;
+          #000000;
       }
     }
+
 
     /* =========================
        PHASE 2 CODE
        ========================= */
 
     .binary-code {
-      position: absolute;
+      position:
+        absolute;
 
       left:
         var(--code-left);
@@ -859,18 +1176,25 @@
       letter-spacing:
         var(--code-spacing);
 
-      opacity: 0;
+      opacity:
+        0;
 
       filter:
-        blur(var(--code-blur));
+        blur(
+          var(--code-blur)
+        );
 
       transform:
         translate(
           -50%,
           -50%
         )
-        rotate(var(--code-angle))
-        scale(var(--code-scale));
+        rotate(
+          var(--code-angle)
+        )
+        scale(
+          var(--code-scale)
+        );
 
       text-shadow:
         0 0
@@ -905,6 +1229,7 @@
         var(--code-layer);
     }
 
+
     .binary-code.neat {
 
       font-family:
@@ -923,6 +1248,7 @@
         currentColor;
     }
 
+
     .binary-code.chunky {
 
       text-transform:
@@ -938,10 +1264,12 @@
         currentColor;
     }
 
+
     @keyframes codeMaterialize {
 
       0% {
-        opacity: 0;
+        opacity:
+          0;
       }
 
       100% {
@@ -950,23 +1278,29 @@
       }
     }
 
+
     /* =========================
        MUDDY GREEN
        ========================= */
 
     #binaryMud {
-      position: absolute;
+      position:
+        absolute;
 
-      inset: 0;
+      inset:
+        0;
 
-      z-index: 80;
+      z-index:
+        80;
 
-      pointer-events: none;
+      pointer-events:
+        none;
 
       background:
         #52633e;
 
-      opacity: 0;
+      opacity:
+        0;
 
       animation:
         muddyGreen
@@ -975,54 +1309,68 @@
         forwards;
     }
 
+
     @keyframes muddyGreen {
 
       0% {
-        opacity: 0;
+        opacity:
+          0;
       }
 
       55% {
-        opacity: 0;
+        opacity:
+          0;
       }
 
       68% {
-        opacity: 0.05;
+        opacity:
+          0.05;
       }
 
       78% {
-        opacity: 0.14;
+        opacity:
+          0.14;
       }
 
       86% {
-        opacity: 0.28;
+        opacity:
+          0.28;
       }
 
       92% {
-        opacity: 0.46;
+        opacity:
+          0.46;
       }
 
       100% {
-        opacity: 0.82;
+        opacity:
+          0.82;
       }
     }
+
 
     /* =========================
        PHASE 2 -> BLACK
        ========================= */
 
     #binaryFadeToBlack {
-      position: absolute;
+      position:
+        absolute;
 
-      inset: 0;
+      inset:
+        0;
 
-      z-index: 100;
+      z-index:
+        100;
 
-      pointer-events: none;
+      pointer-events:
+        none;
 
       background:
-        #000;
+        #000000;
 
-      opacity: 0;
+      opacity:
+        0;
 
       animation:
         binaryToBlack
@@ -1031,48 +1379,59 @@
         forwards;
     }
 
+
     @keyframes binaryToBlack {
 
       0% {
-        opacity: 0;
+        opacity:
+          0;
       }
 
       72% {
-        opacity: 0;
+        opacity:
+          0;
       }
 
       82% {
-        opacity: 0.04;
+        opacity:
+          0.04;
       }
 
       88% {
-        opacity: 0.14;
+        opacity:
+          0.14;
       }
 
       93% {
-        opacity: 0.30;
+        opacity:
+          0.30;
       }
 
       97% {
-        opacity: 0.58;
+        opacity:
+          0.58;
       }
 
       100% {
-        opacity: 1;
+        opacity:
+          1;
       }
     }
+
 
     /* =========================
        PHASE 3 BLACK CONTINUATION
        ========================= */
 
     #binaryVoid.phase-three {
-      display: block;
+      display:
+        block;
 
-      opacity: 1;
+      opacity:
+        1;
 
       background:
-        #000 !important;
+        #000000 !important;
 
       filter:
         none !important;
@@ -1081,38 +1440,59 @@
         none;
     }
 
+
     #binaryVoid.phase-three
     .binary-code,
+
     #binaryVoid.phase-three
     #binaryMud,
+
     #binaryVoid.phase-three
     #binaryFadeToBlack {
+
       opacity:
         0 !important;
     }
+
 
     /* =========================
        ESCAPED BLUE IMAGE
        ========================= */
 
     #escapedBlueImage {
-      position: fixed;
 
-      z-index: 49000;
+      position:
+        fixed;
 
-      left: 50%;
-      top: 50%;
+      z-index:
+        49000;
 
-      width: 150px;
-      height: 150px;
+      left:
+        50%;
+
+      top:
+        50%;
+
+      width:
+        150px;
+
+      height:
+        150px;
 
       transform:
-        translate(-50%, -50%);
+        translate(
+          -50%,
+          -50%
+        );
 
-      display: none;
+      display:
+        none;
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       background:
         #0000ff;
@@ -1130,8 +1510,11 @@
         none;
     }
 
+
     #escapedBlueImage.show {
-      display: flex;
+
+      display:
+        flex;
 
       animation:
         escapedImage
@@ -1140,53 +1523,448 @@
         forwards;
     }
 
+
     @keyframes escapedImage {
 
       0% {
-        opacity: 0;
+        opacity:
+          0;
 
         transform:
-          translate(-50%, -50%)
-          scale(0.6)
-          rotate(0deg);
+          translate(
+            -50%,
+            -50%
+          )
+          scale(
+            0.6
+          )
+          rotate(
+            0deg
+          );
       }
 
       18% {
-        opacity: 1;
+        opacity:
+          1;
       }
 
       55% {
-        opacity: 1;
+        opacity:
+          1;
 
         transform:
-          translate(-50%, -50%)
-          scale(1)
-          rotate(220deg);
+          translate(
+            -50%,
+            -50%
+          )
+          scale(
+            1
+          )
+          rotate(
+            220deg
+          );
       }
 
       100% {
-        opacity: 0;
+        opacity:
+          0;
 
         transform:
-          translate(-50%, -50%)
-          scale(0.86)
-          rotate(480deg);
+          translate(
+            -50%,
+            -50%
+          )
+          scale(
+            0.86
+          )
+          rotate(
+            480deg
+          );
       }
     }
 
+
     /* =========================
-       PHASE 4
+       BLU ESCALATION
        ========================= */
 
-    body.escape-finished
-      #blueImage {
+    :root {
+
+      --blu1:
+        #0000a0;
+
+      --blu2:
+        #0000c8;
+
+      --blu3:
+        #0000ff;
+
+      --blu4:
+        #0033ff;
+
+      --blu5:
+        #0055ff;
+
+      --blu6:
+        #0088ff;
+
+      --ultimate-blu:
+        #0055ff;
+    }
+
+
+    /*
+     * Stage 1
+     */
+
+    body.blu-stage-1 {
+
+      background:
+        #0000a0 !important;
+
+      background-image:
+        none !important;
+    }
+
+
+    body.blu-stage-1 .post,
+    body.blu-stage-1 .clutter-banner,
+    body.blu-stage-1 .danger-zone {
+
+      background:
+        #0000a0;
+    }
+
+
+    /*
+     * Stage 2
+     */
+
+    body.blu-stage-2 {
+
+      background:
+        #0000c8 !important;
+
+      background-image:
+        none !important;
+    }
+
+
+    body.blu-stage-2 .post,
+    body.blu-stage-2 .clutter-banner,
+    body.blu-stage-2 .danger-zone {
+
+      background:
+        #0000c8;
+    }
+
+
+    /*
+     * Stage 3
+     */
+
+    body.blu-stage-3 {
+
+      background:
+        #0000ff !important;
+
+      background-image:
+        none !important;
+    }
+
+
+    body.blu-stage-3 .post,
+    body.blu-stage-3 .clutter-banner,
+    body.blu-stage-3 .danger-zone {
+
+      background:
+        #0000ff;
+    }
+
+
+    /*
+     * Stage 4
+     */
+
+    body.blu-stage-4 {
+
+      background:
+        #0033ff !important;
+
+      background-image:
+        none !important;
+    }
+
+
+    body.blu-stage-4 .post,
+    body.blu-stage-4 .clutter-banner,
+    body.blu-stage-4 .danger-zone {
+
+      background:
+        #0033ff;
+    }
+
+
+    /*
+     * Stage 5
+     */
+
+    body.blu-stage-5 {
+
+      background:
+        #0055ff !important;
+
+      background-image:
+        none !important;
+    }
+
+
+    body.blu-stage-5 .post,
+    body.blu-stage-5 .clutter-banner,
+    body.blu-stage-5 .danger-zone {
+
+      background:
+        #0055ff;
+    }
+
+
+    /*
+     * Stage 6
+     */
+
+    body.blu-stage-6 {
+
+      background:
+        #0088ff !important;
+
+      background-image:
+        none !important;
+    }
+
+
+    body.blu-stage-6 .post,
+    body.blu-stage-6 .clutter-banner,
+    body.blu-stage-6 .danger-zone {
+
+      background:
+        #0088ff;
+    }
+
+
+    /* =========================
+       ULTIMATE BLU
+       ========================= */
+
+    body.ultimate-blu {
+
+      background:
+        #0055ff !important;
+
+      background-image:
+        none !important;
+
+      color:
+        #0055ff !important;
+    }
+
+
+    body.ultimate-blu header,
+    body.ultimate-blu main,
+    body.ultimate-blu footer,
+    body.ultimate-blu section,
+    body.ultimate-blu article,
+    body.ultimate-blu .post,
+    body.ultimate-blu .danger-zone,
+    body.ultimate-blu .counter-box,
+    body.ultimate-blu .clutter-banner {
+
+      color:
+        #0055ff !important;
+
+      background:
+        #0055ff !important;
+
+      border-color:
+        #0055ff !important;
+
+      box-shadow:
+        none !important;
+    }
+
+
+    body.ultimate-blu h1,
+    body.ultimate-blu h2,
+    body.ultimate-blu p,
+    body.ultimate-blu span,
+    body.ultimate-blu .date,
+    body.ultimate-blu .counter-label,
+    body.ultimate-blu nav a {
+
+      color:
+        #0055ff !important;
+
+      text-shadow:
+        none !important;
+    }
+
+
+    body.ultimate-blu .clutter-banner {
 
       animation:
-        spin
-        3s
-        linear
-        infinite;
+        none;
     }
+
+
+    body.ultimate-blu button {
+
+      background:
+        #0055ff !important;
+
+      color:
+        #0055ff !important;
+
+      border-color:
+        #0055ff !important;
+
+      box-shadow:
+        none !important;
+    }
+
+
+    body.ultimate-blu button:hover {
+
+      background:
+        #0055ff !important;
+
+      color:
+        #0055ff !important;
+    }
+
+
+    body.ultimate-blu #dangerButton {
+
+      animation:
+        none;
+
+      transform:
+        none !important;
+    }
+
+
+    body.ultimate-blu .counterapi {
+
+      background:
+        #0055ff !important;
+
+      color:
+        #0055ff !important;
+
+      border-color:
+        #0055ff !important;
+    }
+
+
+    /*
+     * Gerald remains Gerald.
+     */
+
+    body.ultimate-blu
+    .spinning-jpeg {
+
+      background:
+        #0055ff;
+
+      color:
+        #0055ff;
+
+      border-color:
+        #0055ff;
+
+      box-shadow:
+        none;
+    }
+
+
+    /*
+     * This is the deliberate exception.
+     * The reset button is MAROON.
+     */
+
+    #returnToNormal {
+
+      display:
+        none;
+
+      margin:
+        45px auto
+        20px;
+
+      padding:
+        14px 22px;
+
+      background:
+        #800000;
+
+      color:
+        white;
+
+      border:
+        3px outset #aa5555;
+
+      font-family:
+        "Comic Sans MS",
+        cursive;
+
+      font-size:
+        1rem;
+
+      font-weight:
+        bold;
+
+      cursor:
+        pointer;
+
+      box-shadow:
+        5px 5px #400000;
+    }
+
+
+    #returnToNormal:hover {
+
+      background:
+        #990000;
+
+      color:
+        white;
+    }
+
+
+    #returnToNormal:active {
+
+      border-style:
+        inset;
+    }
+
+
+    body.ultimate-blu
+    #returnToNormal {
+
+      display:
+        block;
+
+      background:
+        #800000 !important;
+
+      color:
+        white !important;
+
+      border-color:
+        #aa5555 !important;
+
+      box-shadow:
+        5px 5px #400000 !important;
+    }
+
 
     /* =========================
        VOID
@@ -1207,39 +1985,52 @@
         none;
     }
 
+
     body.escape-dead
-      > *:not(#escapedBlueImage):not(#binaryVoid) {
+    > *:not(#escapedBlueImage):not(#binaryVoid) {
 
       visibility:
         hidden !important;
     }
+
 
     /* =========================
        FOOTER
        ========================= */
 
     footer {
-      text-align: center;
 
-      padding: 30px;
+      text-align:
+        center;
 
-      color: #00ffff;
+      padding:
+        30px;
 
-      font-size: 0.8rem;
+      color:
+        #00ffff;
+
+      font-size:
+        0.8rem;
     }
+
 
     /* =========================
        STUPID CURSOR TRAIL
        ========================= */
 
     .cursor-dot {
-      position: fixed;
 
-      pointer-events: none;
+      position:
+        fixed;
 
-      z-index: 9999;
+      pointer-events:
+        none;
 
-      font-size: 18px;
+      z-index:
+        9999;
+
+      font-size:
+        18px;
 
       animation:
         stupidTrail
@@ -1248,10 +2039,13 @@
         forwards;
     }
 
+
     @keyframes stupidTrail {
 
       0% {
-        opacity: 1;
+
+        opacity:
+          1;
 
         transform:
           scale(1)
@@ -1259,7 +2053,9 @@
       }
 
       50% {
-        opacity: 1;
+
+        opacity:
+          1;
 
         transform:
           scale(2)
@@ -1267,7 +2063,9 @@
       }
 
       100% {
-        opacity: 0;
+
+        opacity:
+          0;
 
         transform:
           scale(0)
@@ -1275,18 +2073,24 @@
       }
     }
 
+
     /* =========================
        POLYESTER SPIDER-MAN EDITS
        ========================= */
 
     .spiderman-edit {
-      position: fixed;
 
-      z-index: 10000;
+      position:
+        fixed;
 
-      width: 300px;
+      z-index:
+        10000;
 
-      background: #000080;
+      width:
+        300px;
+
+      background:
+        #000080;
 
       border:
         4px dashed #00ffff;
@@ -1294,7 +2098,8 @@
       box-shadow:
         8px 8px #000066;
 
-      padding: 6px;
+      padding:
+        6px;
 
       animation:
         spiderAppear
@@ -1305,81 +2110,133 @@
         hidden;
     }
 
-    .spiderman-edit video {
-      display: block;
 
-      width: 100%;
-      height: auto;
+    .spiderman-edit video {
+
+      display:
+        block;
+
+      width:
+        100%;
+
+      height:
+        auto;
     }
+
 
     @keyframes spiderAppear {
 
       from {
+
         transform:
           scale(0)
           rotate(-15deg);
 
-        opacity: 0;
+        opacity:
+          0;
       }
 
       to {
+
         transform:
           scale(1)
           rotate(0deg);
 
-        opacity: 1;
+        opacity:
+          1;
       }
     }
+
 
     /* =========================
        PHONE STUFF
        ========================= */
 
-    @media (max-width: 600px) {
+    @media (
+      max-width: 600px
+    ) {
 
       header h1 {
-        font-size: 2.2rem;
+
+        font-size:
+          2.2rem;
       }
+
 
       .clutter-banner {
-        font-size: 1.6rem;
+
+        font-size:
+          1.6rem;
       }
+
 
       main {
-        padding-left: 12px;
-        padding-right: 12px;
+
+        padding-left:
+          12px;
+
+        padding-right:
+          12px;
       }
+
 
       .post {
-        padding: 16px;
+
+        padding:
+          16px;
       }
+
 
       .spiderman-edit {
-        width: 220px;
+
+        width:
+          220px;
       }
+
 
       #dangerButton {
-        width: 95%;
-        min-height: 120px;
-        font-size: 1.8rem;
+
+        width:
+          95%;
+
+        min-height:
+          120px;
+
+        font-size:
+          1.8rem;
       }
+
 
       .spinning-jpeg {
-        width: 120px;
-        height: 120px;
-        font-size: 3rem;
+
+        width:
+          120px;
+
+        height:
+          120px;
+
+        font-size:
+          3rem;
       }
 
+
       #escapedBlueImage {
-        width: 120px;
-        height: 120px;
-        font-size: 3rem;
+
+        width:
+          120px;
+
+        height:
+          120px;
+
+        font-size:
+          3rem;
       }
 
     }
 
   </style>
 </head>
+
 
 <body>
 
@@ -1689,6 +2546,18 @@
 
     </section>
 
+
+    <!-- =========================
+         RETURN TO NORMAL
+         ========================= -->
+
+    <button
+      id="returnToNormal"
+      onclick="returnToNormalBlu()"
+    >
+      RETURN TO NORMAL
+    </button>
+
   </main>
 
 
@@ -1715,6 +2584,7 @@
     id="crackOverlay"
   ></div>
 
+
   <div
     id="binaryVoid"
   >
@@ -1728,6 +2598,7 @@
     ></div>
 
   </div>
+
 
   <div
     id="escapedBlueImage"
@@ -2110,6 +2981,10 @@
        MAKE IT BLUER
        ========================= */
 
+    let bluStage =
+      0;
+
+
     function changeBlu() {
 
       if (
@@ -2124,33 +2999,228 @@
       }
 
 
-      const blues = [
+      if (
+        document.body.classList.contains(
+          "ultimate-blu"
+        )
+      ) {
 
-        "#000080",
+        return;
+      }
 
-        "#0000aa",
 
-        "#0000cc",
+      /*
+       * Stages 1 through 6
+       */
 
-        "#0000ff",
+      if (
+        bluStage < 6
+      ) {
 
-        "#001aff",
+        bluStage++;
 
-        "#000066"
+
+        document.body.classList.add(
+          `blu-stage-${bluStage}`
+        );
+
+
+        const button =
+          document.querySelector(
+            'button[onclick="changeBlu()"]'
+          );
+
+
+        if (button) {
+
+          const stageNames = [
+
+            "MAKE IT BLUER",
+
+            "MAKE IT EVEN BLUER",
+
+            "MAKE IT TOO BLUE",
+
+            "MAKE IT STUPIDLY BLUE",
+
+            "MAKE IT ABSURDLY BLUE",
+
+            "MAKE IT MAXIMALLY BLUE"
+          ];
+
+
+          button.textContent =
+            stageNames[
+              bluStage - 1
+            ];
+        }
+
+
+        return;
+      }
+
+
+      /*
+       * Stage 7:
+       *
+       * THE RITUAL
+       */
+
+      activateUltimateBluRitual();
+    }
+
+
+    /* =========================
+       ULTIMATE BLU RITUAL
+       ========================= */
+
+    function activateUltimateBluRitual() {
+
+      const warnings = [
+
+        "WARNING #1\n\nYou are approaching dangerous levels of blu.\n\nContinue?",
+
+        "WARNING #2\n\nThis website is becoming unnecessarily blue.\n\nContinue?",
+
+        "WARNING #3\n\nThere is no practical benefit to making this website bluer.\n\nContinue anyway?",
+
+        "WARNING #4\n\nYou may begin experiencing severe blue exposure.\n\nContinue?",
+
+        "WARNING #5\n\nThe website may become visually difficult to distinguish from the color blue.\n\nContinue?",
+
+        "WARNING #6\n\nYou are halfway to maximum blu.\n\nWhy are you still doing this?",
+
+        "WARNING #7\n\nFurther blu may have irreversible consequences for this website.\n\nContinue?",
+
+        "WARNING #8\n\nTHIS IS A REALLY STUPID IDEA.\n\nContinue?",
+
+        "WARNING #9\n\nFINAL CLICK WARNING.\n\nAfter this, there is one final confirmation.\n\nContinue?"
       ];
 
 
-      const random =
-        blues[
-          Math.floor(
-            Math.random() *
-            blues.length
-          )
-        ];
+      for (
+        let i = 0;
+        i < warnings.length;
+        i++
+      ) {
+
+        const confirmed =
+          window.confirm(
+            warnings[i]
+          );
 
 
-      document.body.style.background =
-        random;
+        if (!confirmed) {
+
+          return;
+        }
+      }
+
+
+      const finalAnswer =
+        window.prompt(
+          "FINAL WARNING.\n\n" +
+          "You are about to activate ULTIMATE BLU.\n\n" +
+          "Type YES to continue."
+        );
+
+
+      if (
+        finalAnswer !==
+        "YES"
+      ) {
+
+        window.alert(
+          "Ultimate Blu cancelled.\n\nYou have chosen wisely."
+        );
+
+        return;
+      }
+
+
+      activateUltimateBlu();
+    }
+
+
+    /* =========================
+       ACTIVATE ULTIMATE BLU
+       ========================= */
+
+    function activateUltimateBlu() {
+
+      for (
+        let i = 1;
+        i <= 6;
+        i++
+      ) {
+
+        document.body.classList.remove(
+          `blu-stage-${i}`
+        );
+      }
+
+
+      document.body.classList.add(
+        "ultimate-blu"
+      );
+
+
+      bluStage =
+        7;
+
+
+      const button =
+        document.querySelector(
+          'button[onclick="changeBlu()"]'
+        );
+
+
+      if (button) {
+
+        button.textContent =
+          "ULTIMATE BLU";
+      }
+    }
+
+
+    /* =========================
+       RETURN TO NORMAL BLU
+       ========================= */
+
+    function returnToNormalBlu() {
+
+      document.body.classList.remove(
+        "ultimate-blu"
+      );
+
+
+      for (
+        let i = 1;
+        i <= 6;
+        i++
+      ) {
+
+        document.body.classList.remove(
+          `blu-stage-${i}`
+        );
+      }
+
+
+      bluStage =
+        0;
+
+
+      const button =
+        document.querySelector(
+          'button[onclick="changeBlu()"]'
+        );
+
+
+      if (button) {
+
+        button.textContent =
+          "MAKE IT BLUER";
+      }
     }
 
 
@@ -2471,6 +3541,7 @@
       if (
         blueImageEscaped
       ) {
+
         return;
       }
 
@@ -2482,6 +3553,7 @@
 
 
       if (!image) {
+
         return;
       }
 
@@ -2517,6 +3589,7 @@
       if (
         blueImageEscaped
       ) {
+
         return;
       }
 
@@ -2549,6 +3622,7 @@
       if (
         blueImageEscaped
       ) {
+
         return;
       }
 
@@ -2621,12 +3695,14 @@
 
 
       if (!element) {
+
         return;
       }
 
 
       const reply =
-        Math.random() < 0.5
+        Math.random() <
+        0.5
 
           ? "RUN"
 
@@ -3343,6 +4419,7 @@
 
         code.style.setProperty(
           "--code-color",
+
           colors[
             Math.floor(
               Math.random() *
@@ -3615,6 +4692,13 @@
       0;
 
 
+    let blueImageEscaped =
+      false;
+
+
+    let glitchTimeout;
+
+
     let escapeTimers =
       [];
 
@@ -3649,6 +4733,7 @@
       if (
         blueImageEscaped
       ) {
+
         return;
       }
 
@@ -3858,8 +4943,10 @@
       document.body.style.background =
         "";
 
+
       document.body.style.color =
         "";
+
 
       document.body.style.cursor =
         "";
@@ -3868,11 +4955,14 @@
       image.style.opacity =
         "";
 
+
       image.style.animation =
         "";
 
+
       image.style.pointerEvents =
         "";
+
 
       image.classList.remove(
         "blue-glitch"
@@ -3897,9 +4987,11 @@
         "active"
       );
 
+
       binaryVoid.classList.remove(
         "phase-three"
       );
+
 
       binaryVoid.innerHTML =
         "";
@@ -3914,11 +5006,8 @@
 
 
       /*
-       * Permanent state:
-       *
-       * - JPEG cannot escape again.
-       * - JPEG cannot trigger another event.
-       * - JPEG glitches remain disabled.
+       * Gerald remains permanently
+       * non-escaping after the event.
        */
 
       escapePhase =
