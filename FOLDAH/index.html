@@ -210,7 +210,7 @@
     }
 
     /* =========================
-       BIG RED "DO NOT CLICK" BUTTON
+       BIG RED DO NOT CLICK
        ========================= */
 
     #dangerButton {
@@ -241,13 +241,13 @@
 
       cursor: pointer;
 
-      animation: dangerPulse 1s ease-in-out infinite;
+      animation:
+        dangerPulse 1s ease-in-out infinite;
     }
 
     #dangerButton:hover {
       background: #ff3333;
       color: white;
-
       transform: scale(1.05);
     }
 
@@ -324,7 +324,6 @@
     .jpeg-zone {
       text-align: center;
       margin: 30px 0;
-
       position: relative;
     }
 
@@ -332,7 +331,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
       min-height: 190px;
     }
 
@@ -361,7 +359,6 @@
       font-size: 4rem;
 
       cursor: pointer;
-
       user-select: none;
 
       box-shadow:
@@ -412,7 +409,8 @@
        ========================= */
 
     .blue-glitch {
-      animation: blueGlitch 0.12s steps(2, end) !important;
+      animation:
+        blueGlitch 0.12s steps(2, end) !important;
     }
 
     @keyframes blueGlitch {
@@ -427,10 +425,12 @@
         filter:
           hue-rotate(140deg)
           contrast(2);
+
         transform:
           rotate(7deg)
           translateX(-8px)
           skewX(12deg);
+
         clip-path:
           inset(20% 0 45% 0);
       }
@@ -439,10 +439,12 @@
         filter:
           invert(1)
           contrast(3);
+
         transform:
           rotate(-18deg)
           translateX(10px)
           scaleY(0.7);
+
         clip-path:
           inset(55% 0 10% 0);
       }
@@ -451,10 +453,12 @@
         filter:
           hue-rotate(280deg)
           saturate(5);
+
         transform:
           rotate(90deg)
           translateX(-5px)
           scaleX(1.3);
+
         clip-path:
           inset(5% 0 70% 0);
       }
@@ -463,9 +467,11 @@
         filter:
           grayscale(1)
           contrast(4);
+
         transform:
           rotate(-35deg)
           translateX(6px);
+
         clip-path:
           inset(35% 0 30% 0);
       }
@@ -474,6 +480,7 @@
         filter:
           hue-rotate(0deg)
           contrast(1);
+
         clip-path: inset(0);
       }
     }
@@ -484,7 +491,6 @@
 
     #escapeMessage {
       position: fixed;
-
       inset: 0;
 
       z-index: 50000;
@@ -502,21 +508,22 @@
         "Courier New",
         monospace;
 
-      font-size: clamp(
-        1.5rem,
-        5vw,
-        4rem
-      );
+      font-size:
+        clamp(
+          1.5rem,
+          5vw,
+          4rem
+        );
 
       font-weight: bold;
-
       text-align: center;
 
       text-shadow:
         0 0 10px white,
         0 0 25px #00ffff;
 
-      background: rgba(0, 0, 0, 0);
+      background:
+        rgba(0, 0, 0, 0);
 
       transition:
         opacity 2s ease;
@@ -524,7 +531,8 @@
 
     #escapeMessage.show {
       display: flex;
-      animation: escapeText 3s ease forwards;
+      animation:
+        escapeText 8s ease forwards;
     }
 
     @keyframes escapeText {
@@ -532,11 +540,11 @@
         opacity: 0;
       }
 
-      20% {
+      10% {
         opacity: 1;
       }
 
-      70% {
+      45% {
         opacity: 1;
       }
 
@@ -551,7 +559,6 @@
 
     #binaryVoid {
       position: fixed;
-
       inset: 0;
 
       z-index: 45000;
@@ -561,7 +568,6 @@
       overflow: hidden;
 
       background: #000;
-
       color: #00ff00;
 
       font-family:
@@ -583,7 +589,10 @@
 
       opacity: 0;
 
-      transition: opacity 3s ease;
+      transition:
+        opacity 8s ease,
+        filter 8s ease,
+        font-size 15s ease;
     }
 
     #binaryVoid.active {
@@ -593,7 +602,9 @@
 
     .binary-line {
       opacity: 0.85;
-      animation: binaryFlicker 0.7s infinite alternate;
+
+      animation:
+        binaryFlicker 0.7s infinite alternate;
     }
 
     .binary-line:nth-child(3n) {
@@ -661,26 +672,29 @@
       display: flex;
 
       animation:
-        escapedImage 2.5s ease-in-out forwards;
+        escapedImage 20s ease-in-out forwards;
     }
 
     @keyframes escapedImage {
       0% {
         opacity: 0;
+
         transform:
           translate(-50%, -50%)
           scale(0);
       }
 
-      30% {
+      15% {
         opacity: 1;
+
         transform:
           translate(-50%, -50%)
           scale(1);
       }
 
-      70% {
+      55% {
         opacity: 1;
+
         transform:
           translate(-50%, -50%)
           rotate(180deg)
@@ -689,6 +703,7 @@
 
       100% {
         opacity: 0;
+
         transform:
           translate(-50%, -50%)
           rotate(360deg)
@@ -697,12 +712,12 @@
     }
 
     /* =========================
-       COMPLETE VOID
+       WEBSITE DETERIORATION
        ========================= */
 
     body.escape-void {
-      background: #000 !important;
-      color: #000;
+      background: #111 !important;
+      color: #222;
 
       animation: none !important;
 
@@ -711,18 +726,23 @@
 
     body.escape-void > *:not(#binaryVoid):not(#escapedBlueImage):not(#escapeMessage) {
       transition:
-        opacity 4s ease,
-        filter 4s ease,
-        transform 4s ease !important;
+        opacity 20s ease,
+        filter 20s ease,
+        transform 20s ease !important;
 
       filter:
         grayscale(1)
-        brightness(0);
+        brightness(0.35);
 
-      opacity: 0;
+      opacity: 0.35;
 
-      pointer-events: none !important;
+      pointer-events:
+        none !important;
     }
+
+    /* =========================
+       COMPLETE DARKNESS
+       ========================= */
 
     body.escape-dead {
       background: #000 !important;
@@ -735,18 +755,12 @@
     }
 
     /* =========================
-       COMPLETELY USELESS SPINNING THING
-       ========================= */
-
-    /* Kept for compatibility with the
-       original class name. */
-
-    /* =========================
        FOOTER
        ========================= */
 
     footer {
       text-align: center;
+
       padding: 30px;
 
       color: #00ffff;
@@ -760,7 +774,9 @@
 
     .cursor-dot {
       position: fixed;
+
       pointer-events: none;
+
       z-index: 9999;
 
       font-size: 18px;
@@ -772,17 +788,26 @@
     @keyframes stupidTrail {
       0% {
         opacity: 1;
-        transform: scale(1) rotate(0deg);
+
+        transform:
+          scale(1)
+          rotate(0deg);
       }
 
       50% {
         opacity: 1;
-        transform: scale(2) rotate(180deg);
+
+        transform:
+          scale(2)
+          rotate(180deg);
       }
 
       100% {
         opacity: 0;
-        transform: scale(0) rotate(720deg);
+
+        transform:
+          scale(0)
+          rotate(720deg);
       }
     }
 
@@ -801,7 +826,8 @@
 
       border: 4px dashed #00ffff;
 
-      box-shadow: 8px 8px #000066;
+      box-shadow:
+        8px 8px #000066;
 
       padding: 6px;
 
@@ -815,7 +841,6 @@
       display: block;
 
       width: 100%;
-
       height: auto;
     }
 
@@ -881,11 +906,17 @@
 
 <body>
 
+  <!-- =========================
+       HEADER
+       ========================= -->
+
   <header>
 
     <h1>Hey ig. :l</h1>
 
-    <p>This is me being bored.</p>
+    <p>
+      This is me being bored.
+    </p>
 
     <div class="clutter-banner">
       🔵 CLUTTERFUNK 🔵
@@ -901,6 +932,10 @@
   </header>
 
 
+  <!-- =========================
+       MAIN
+       ========================= -->
+
   <main>
 
     <!-- ABOUT -->
@@ -908,13 +943,16 @@
     <section id="about" class="post">
 
       <h2>
-        Tidbits Into The Creation of This Website (aka about me)
+        Tidbits Into The Creation of This Website
+        (aka about me)
       </h2>
 
       <p>
-        This is now my personal corner of the internet that i do bored stuff on.
-        i may share the occasional post of whatever the absolute frick im doing
-        but i think this is about to be an abondoned website
+        This is now my personal corner of the internet
+        that i do bored stuff on. i may share the
+        occasional post of whatever the absolute frick
+        im doing but i think this is about to be an
+        abondoned website
       </p>
 
       <p>
@@ -939,8 +977,10 @@
         </h2>
 
         <p>
-          This is the first piece of "clutterfunk" im adding to the internet.
-          Think of it as a wonderous bit of malware-not-malware im adding to the internet
+          This is the first piece of "clutterfunk"
+          im adding to the internet. Think of it as a
+          wonderous bit of malware-not-malware im adding
+          to the internet
         </p>
 
         <button onclick="randomNonsense()">
@@ -963,14 +1003,17 @@
         </h2>
 
         <p>
-          Second piece of "clutterfunk" lol. omg im so boreddddd
+          Second piece of "clutterfunk" lol.
+          omg im so boreddddd
         </p>
 
         <button onclick="changeBlu()">
           MAKE IT BLUER
         </button>
 
-        <button onclick="alert('you clicked a button. congratulations.')">
+        <button
+          onclick="alert('you clicked a button. congratulations.')"
+        >
           USELESS BUTTON
         </button>
 
@@ -1002,7 +1045,9 @@
     </section>
 
 
-    <!-- BLUE IMAGE INCIDENT -->
+    <!-- =========================
+         BLUE IMAGE INCIDENT
+         ========================= -->
 
     <section class="post jpeg-zone">
 
@@ -1034,7 +1079,9 @@
     </section>
 
 
-    <!-- REAL VISITOR COUNTER -->
+    <!-- =========================
+         VISITOR COUNTER
+         ========================= -->
 
     <section class="post">
 
@@ -1069,7 +1116,9 @@
     </section>
 
 
-    <!-- MALWARE-NOT-MALWARE -->
+    <!-- =========================
+         FAKE MALWARE
+         ========================= -->
 
     <section id="danger" class="danger-zone">
 
@@ -1078,7 +1127,8 @@
       </h2>
 
       <p>
-        Download completely legitimate and absolutely normal clutterfunk.
+        Download completely legitimate and
+        absolutely normal clutterfunk.
       </p>
 
       <button onclick="fakeMalware()">
@@ -1090,7 +1140,9 @@
     </section>
 
 
-    <!-- DO NOT CLICK -->
+    <!-- =========================
+         DO NOT CLICK
+         ========================= -->
 
     <section class="post">
 
@@ -1116,6 +1168,10 @@
   </main>
 
 
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
   <footer>
 
     © 2026 HitGubUsr · Made with HTML & CSS · probably
@@ -1127,7 +1183,9 @@
   </footer>
 
 
-  <!-- ESCAPE EFFECT ELEMENTS -->
+  <!-- =========================
+       ESCAPE EFFECT ELEMENTS
+       ========================= -->
 
   <div id="escapeMessage">
     It has escaped...
@@ -1140,7 +1198,9 @@
   </div>
 
 
-  <!-- COUNTERAPI -->
+  <!-- =========================
+       COUNTERAPI
+       ========================= -->
 
   <script
     src="https://counterapi.com/c.js"
@@ -1391,7 +1451,6 @@
         result.style.padding =
           "0";
       }
-
     }
 
 
@@ -1466,7 +1525,9 @@
         link.download =
           "CLUTTERFUNK.txt";
 
-        document.body.appendChild(link);
+        document.body.appendChild(
+          link
+        );
 
         link.click();
 
@@ -1697,13 +1758,12 @@
         return;
       }
 
-      /*
-       * The vast majority of clicks
-       * are completely harmless.
-       */
-
       const escapeChance =
         Math.random();
+
+      /*
+       * 2% chance of escape.
+       */
 
       if (escapeChance < 0.02) {
 
@@ -1757,7 +1817,7 @@
 
       for (
         let i = 0;
-        i < 90;
+        i < 110;
         i++
       ) {
 
@@ -1773,7 +1833,7 @@
 
         for (
           let j = 0;
-          j < 80;
+          j < 100;
           j++
         ) {
 
@@ -1839,9 +1899,11 @@
         );
 
 
-      /*
-       * The image disappears.
-       */
+      /* =========================
+         PHASE 1
+         WEBSITE DETERIORATION
+         0:00 - 2:00
+         ========================= */
 
       image.style.animation =
         "none";
@@ -1853,17 +1915,13 @@
         "none";
 
 
-      /*
-       * Tell the visitor what happened.
-       */
-
       message.classList.add(
         "show"
       );
 
 
       /*
-       * Begin killing the website.
+       * Start the slow death.
        */
 
       setTimeout(() => {
@@ -1872,12 +1930,89 @@
           "escape-void"
         );
 
-      }, 1800);
+      }, 3000);
 
 
       /*
-       * Start revealing binary.
+       * Gradually make different
+       * pieces of the website fail.
        */
+
+      const deteriorationTimes = [
+        15000,
+        30000,
+        45000,
+        60000,
+        75000,
+        90000,
+        105000
+      ];
+
+
+      deteriorationTimes.forEach(
+        (time, index) => {
+
+          setTimeout(() => {
+
+            const elements =
+              document.querySelectorAll(
+                "header, main .post, footer"
+              );
+
+            elements.forEach(element => {
+
+              if (
+                Math.random() <
+                0.25 +
+                index * 0.08
+              ) {
+
+                element.style.opacity =
+                  Math.max(
+                    0.05,
+                    1 - index * 0.13
+                  );
+
+                element.style.filter =
+                  `grayscale(${Math.min(
+                    100,
+                    index * 15
+                  )}%)`;
+
+              }
+
+            });
+
+          }, time);
+
+        }
+      );
+
+
+      /*
+       * Kill interactivity after
+       * the deterioration has progressed.
+       */
+
+      setTimeout(() => {
+
+        document.querySelectorAll(
+          "button, a"
+        ).forEach(element => {
+
+          element.style.pointerEvents =
+            "none";
+
+        });
+
+      }, 90000);
+
+
+      /* =========================
+         PHASE 2
+         BINARY TAKEOVER
+         2:00 - 3:00
+         ========================= */
 
       setTimeout(() => {
 
@@ -1887,25 +2022,45 @@
           "active"
         );
 
-      }, 5000);
+      }, 120000);
 
 
       /*
-       * Remove the old website
-       * almost completely.
+       * Binary gets increasingly intense.
        */
 
       setTimeout(() => {
 
-        document.body.classList.add(
-          "escape-dead"
-        );
+        binaryVoid.style.fontSize =
+          "clamp(14px, 2vw, 26px)";
 
-      }, 8500);
+      }, 135000);
 
+
+      setTimeout(() => {
+
+        binaryVoid.style.filter =
+          "contrast(1.5)";
+
+      }, 150000);
+
+
+      setTimeout(() => {
+
+        binaryVoid.style.filter =
+          "contrast(2) brightness(1.3)";
+
+      }, 165000);
+
+
+      /* =========================
+         PHASE 3
+         VOID
+         3:00 - 4:00
+         ========================= */
 
       /*
-       * Binary begins disappearing.
+       * Begin erasing the binary.
        */
 
       setTimeout(() => {
@@ -1913,12 +2068,11 @@
         binaryVoid.style.opacity =
           "0";
 
-      }, 12500);
+      }, 180000);
 
 
       /*
-       * The blue image returns
-       * briefly from the void.
+       * The void is briefly empty.
        */
 
       setTimeout(() => {
@@ -1927,15 +2081,25 @@
           "active"
         );
 
+      }, 195000);
+
+
+      /*
+       * Then the escaped blue image
+       * appears from nowhere.
+       */
+
+      setTimeout(() => {
+
         escapedImage.classList.add(
           "show"
         );
 
-      }, 14500);
+      }, 198000);
 
 
       /*
-       * Everything becomes darkness.
+       * It slowly disappears again.
        */
 
       setTimeout(() => {
@@ -1947,20 +2111,46 @@
         document.body.style.background =
           "#000";
 
-      }, 17200);
+      }, 215000);
+
+
+      /* =========================
+         PHASE 4
+         DARKNESS
+         4:00 - 4:30
+         ========================= */
+
+      setTimeout(() => {
+
+        document.body.classList.add(
+          "escape-dead"
+        );
+
+        document.body.style.background =
+          "#000";
+
+        document.body.style.cursor =
+          "none";
+
+      }, 220000);
 
 
       /*
-       * Twenty seconds after the
-       * escape sequence begins,
-       * restore everything.
+       * Do absolutely nothing for
+       * another thirty seconds.
        */
+
+
+      /* =========================
+         RESURRECTION
+         4:30
+         ========================= */
 
       setTimeout(() => {
 
         restoreWebsite();
 
-      }, 20000);
+      }, 270000);
 
     }
 
@@ -2012,7 +2202,7 @@
 
 
       /*
-       * Reset all hidden website elements.
+       * Restore website elements.
        */
 
       document.querySelectorAll(
@@ -2032,7 +2222,21 @@
 
 
       /*
-       * Restore the original image.
+       * Restore buttons and links.
+       */
+
+      document.querySelectorAll(
+        "button, a"
+      ).forEach(element => {
+
+        element.style.pointerEvents =
+          "";
+
+      });
+
+
+      /*
+       * Restore the blue image.
        */
 
       image.style.opacity =
@@ -2049,10 +2253,18 @@
       );
 
 
+      /*
+       * Hide escape message.
+       */
+
       message.classList.remove(
         "show"
       );
 
+
+      /*
+       * Clear binary.
+       */
 
       binaryVoid.classList.remove(
         "active"
@@ -2061,9 +2273,19 @@
       binaryVoid.style.opacity =
         "";
 
+      binaryVoid.style.filter =
+        "";
+
+      binaryVoid.style.fontSize =
+        "";
+
       binaryVoid.innerHTML =
         "";
 
+
+      /*
+       * Hide the escaped image.
+       */
 
       escapedImage.classList.remove(
         "show"
@@ -2071,12 +2293,16 @@
 
 
       /*
-       * It is technically the same
-       * website again.
+       * Reset escape state.
        */
 
       blueImageEscaped =
         false;
+
+
+      /*
+       * Begin glitching again.
+       */
 
       scheduleBlueGlitch();
 
@@ -2084,7 +2310,7 @@
 
 
     /* =========================
-       START THE RANDOM GLITCHES
+       START RANDOM GLITCHES
        ========================= */
 
     scheduleBlueGlitch();
@@ -2109,18 +2335,20 @@
       "💾"
     ];
 
+
     document.addEventListener(
       "mousemove",
       function(event) {
 
         /*
-         * Don't keep generating cursor
-         * junk during the void.
+         * Stop making cursor junk
+         * during the escape.
          */
 
         if (blueImageEscaped) {
           return;
         }
+
 
         const dot =
           document.createElement(
@@ -2138,12 +2366,14 @@
             )
           ];
 
+
         dot.style.left =
           (
             event.clientX +
             Math.random() * 20 -
             10
           ) + "px";
+
 
         dot.style.top =
           (
@@ -2152,9 +2382,11 @@
             10
           ) + "px";
 
+
         document.body.appendChild(
           dot
         );
+
 
         setTimeout(() => {
 
