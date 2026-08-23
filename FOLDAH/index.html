@@ -369,6 +369,10 @@
       min-height: 190px;
     }
 
+    /*
+     * SIMPLE, UNASSUMING JPEG
+     */
+
     .spinning-jpeg {
       width: 150px;
       height: 150px;
@@ -377,37 +381,23 @@
       align-items: center;
       justify-content: center;
 
-      background:
-        linear-gradient(
-          135deg,
-          #000080,
-          #0000ff,
-          #00b8b8,
-          #0000ff,
-          #000080
-        );
+      background: #0000ff;
 
-      color: #00ffff;
+      color: white;
 
-      border: 5px solid #00ffff;
+      border: 2px solid #000080;
 
       font-size: 4rem;
 
       cursor: pointer;
       user-select: none;
 
-      box-shadow:
-        0 0 15px #0000ff,
-        0 0 30px rgba(0, 255, 255, 0.35);
+      box-shadow: none;
 
       animation:
         spin
         3s
         linear
-        infinite,
-        blueImagePulse
-        2.5s
-        ease-in-out
         infinite;
 
       transition:
@@ -416,9 +406,7 @@
     }
 
     .spinning-jpeg:hover {
-      box-shadow:
-        0 0 20px #00ffff,
-        0 0 45px #0000ff;
+      box-shadow: none;
     }
 
     @keyframes spin {
@@ -429,22 +417,6 @@
 
       to {
         transform: rotate(360deg);
-      }
-    }
-
-    @keyframes blueImagePulse {
-
-      0%,
-      100% {
-        box-shadow:
-          0 0 15px #0000ff,
-          0 0 30px rgba(0, 255, 255, 0.35);
-      }
-
-      50% {
-        box-shadow:
-          0 0 25px #0000ff,
-          0 0 45px rgba(0, 255, 255, 0.5);
       }
     }
 
@@ -822,11 +794,6 @@
 
     @keyframes phaseTwoBackground {
 
-      /*
-       * Starts as the blank green-grey
-       * field.
-       */
-
       0% {
         background:
           #303b31;
@@ -836,12 +803,6 @@
         background:
           #33412f;
       }
-
-      /*
-       * As the screen fills,
-       * the underlying field becomes
-       * slightly more yellow-green.
-       */
 
       60% {
         background:
@@ -853,10 +814,6 @@
           #4b5332;
       }
 
-      /*
-       * Final stage begins turning muddy.
-       */
-
       88% {
         background:
           #3c4331;
@@ -864,7 +821,7 @@
 
       100% {
         background:
-          #191d18;
+          #000 !important;
       }
     }
 
@@ -907,13 +864,6 @@
       filter:
         blur(var(--code-blur));
 
-      /*
-       * FINAL POSITION.
-       *
-       * Nothing here animates
-       * toward the viewer.
-       */
-
       transform:
         translate(
           -50%,
@@ -938,13 +888,6 @@
 
       word-break:
         break-all;
-
-      /*
-       * ONLY APPEARS.
-       *
-       * Once visible, it remains
-       * where it spawned.
-       */
 
       animation:
         codeMaterialize
@@ -995,11 +938,6 @@
         currentColor;
     }
 
-    /*
-     * This is intentionally ONLY
-     * an opacity animation.
-     */
-
     @keyframes codeMaterialize {
 
       0% {
@@ -1013,7 +951,7 @@
     }
 
     /* =========================
-       MUDDY GREEN OVERLAY
+       MUDDY GREEN
        ========================= */
 
     #binaryMud {
@@ -1039,11 +977,6 @@
 
     @keyframes muddyGreen {
 
-      /*
-       * Code is still bright and
-       * readable-ish.
-       */
-
       0% {
         opacity: 0;
       }
@@ -1051,11 +984,6 @@
       55% {
         opacity: 0;
       }
-
-      /*
-       * The accumulated code begins
-       * looking like one giant mass.
-       */
 
       68% {
         opacity: 0.05;
@@ -1068,11 +996,6 @@
       86% {
         opacity: 0.28;
       }
-
-      /*
-       * This is the muddy green
-       * stage immediately before black.
-       */
 
       92% {
         opacity: 0.46;
@@ -1110,12 +1033,6 @@
 
     @keyframes binaryToBlack {
 
-      /*
-       * The code is untouched.
-       * Black only begins taking over
-       * near the end.
-       */
-
       0% {
         opacity: 0;
       }
@@ -1146,6 +1063,35 @@
     }
 
     /* =========================
+       PHASE 3 BLACK CONTINUATION
+       ========================= */
+
+    #binaryVoid.phase-three {
+      display: block;
+
+      opacity: 1;
+
+      background:
+        #000 !important;
+
+      filter:
+        none !important;
+
+      animation:
+        none;
+    }
+
+    #binaryVoid.phase-three
+    .binary-code,
+    #binaryVoid.phase-three
+    #binaryMud,
+    #binaryVoid.phase-three
+    #binaryFadeToBlack {
+      opacity:
+        0 !important;
+    }
+
+    /* =========================
        ESCAPED BLUE IMAGE
        ========================= */
 
@@ -1169,26 +1115,19 @@
       justify-content: center;
 
       background:
-        linear-gradient(
-          135deg,
-          #000080,
-          #0000ff,
-          #00ffff,
-          #000080
-        );
+        #0000ff;
 
       border:
-        5px solid #00ffff;
+        2px solid #000080;
 
       color:
-        #00ffff;
+        white;
 
       font-size:
         4rem;
 
       box-shadow:
-        0 0 30px #0000ff,
-        0 0 80px #00ffff;
+        none;
     }
 
     #escapedBlueImage.show {
@@ -1246,11 +1185,6 @@
         spin
         3s
         linear
-        infinite,
-
-        blueImagePulse
-        2.5s
-        ease-in-out
         infinite;
     }
 
@@ -1274,7 +1208,7 @@
     }
 
     body.escape-dead
-      > *:not(#escapedBlueImage) {
+      > *:not(#escapedBlueImage):not(#binaryVoid) {
 
       visibility:
         hidden !important;
@@ -3078,7 +3012,8 @@
         `${words[0]} ${words[1]} ${words[2]}`,
 
         `0x${Math.floor(
-          Math.random() * 9999
+          Math.random() *
+          9999
         ).toString(16).toUpperCase()} ${binary}`,
 
         `10101010 :: ${words[0]} :: NULL :: ${binary}`,
@@ -3219,14 +3154,6 @@
                 35;
 
 
-        /*
-         * FINAL LOCATION.
-         *
-         * This is where the code
-         * remains for the rest
-         * of Phase 2.
-         */
-
         const x =
           Math.random() *
           110 -
@@ -3256,12 +3183,6 @@
               Math.random() *
               0.35;
 
-
-        /*
-         * Later pieces appear later
-         * and pile on top of earlier
-         * pieces.
-         */
 
         const delay =
           Math.random() *
@@ -3322,13 +3243,6 @@
                 0.05
               );
 
-
-        /*
-         * Very short materialization.
-         *
-         * Once complete, the element
-         * stays there permanently.
-         */
 
         const duration =
           0.08 +
@@ -3853,18 +3767,9 @@
           3;
 
 
-        /*
-         * Phase 2 has naturally
-         * become black.
-         */
-
-        binaryVoid.classList.remove(
-          "active"
+        binaryVoid.classList.add(
+          "phase-three"
         );
-
-
-        binaryVoid.innerHTML =
-          "";
 
 
         document.body.classList.add(
@@ -3883,11 +3788,6 @@
 
           await runEscapedImageSequence();
 
-
-          /*
-           * Two seconds of darkness
-           * after final JPEG.
-           */
 
           await new Promise(
             resolve => {
@@ -3997,6 +3897,9 @@
         "active"
       );
 
+      binaryVoid.classList.remove(
+        "phase-three"
+      );
 
       binaryVoid.innerHTML =
         "";
@@ -4007,24 +3910,15 @@
       );
 
 
-      /*
-       * The page looks normal again,
-       * apart from the deliberately
-       * permanent JPEG behavior.
-       */
-
       restoreNormalMessages();
 
 
       /*
        * Permanent state:
        *
-       * blueImageEscaped remains TRUE.
-       *
-       * Therefore:
-       * - JPEG cannot escape again
-       * - JPEG cannot trigger another event
-       * - JPEG glitches stay disabled
+       * - JPEG cannot escape again.
+       * - JPEG cannot trigger another event.
+       * - JPEG glitches remain disabled.
        */
 
       escapePhase =
