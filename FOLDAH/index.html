@@ -490,17 +490,11 @@
        ========================= */
 
     #escapeMessage {
-      position: fixed;
-      inset: 0;
-
-      z-index: 50000;
-
       display: none;
 
-      align-items: center;
-      justify-content: center;
-
-      pointer-events: none;
+      margin:
+        18px auto
+        0;
 
       color: white;
 
@@ -510,68 +504,49 @@
 
       font-size:
         clamp(
-          1.5rem,
-          5vw,
-          4rem
+          1.4rem,
+          4vw,
+          3rem
         );
 
       font-weight: bold;
+
       text-align: center;
 
       text-shadow:
         0 0 10px white,
         0 0 25px #00ffff;
-
-      background:
-        rgba(0, 0, 0, 0);
     }
 
     #escapeMessage.show {
-      display: flex;
-      animation:
-        escapeText 4s ease-in-out infinite;
-    }
-
-    @keyframes escapeText {
-      0%, 100% {
-        opacity: 0;
-      }
-
-      18%, 70% {
-        opacity: 1;
-      }
+      display: block;
     }
 
     /* =========================
-       CRACK OVERLAY
+       CRACK + SCRATCH OVERLAY
        ========================= */
 
     #crackOverlay {
       position: fixed;
       inset: 0;
+
       z-index: 40000;
 
       display: none;
 
       pointer-events: none;
+
       overflow: hidden;
 
       opacity: 0;
 
       background:
-        radial-gradient(
-          circle at 50% 50%,
-          transparent 0 35%,
-          rgba(0, 0, 0, 0.18) 100%
-        );
-
-      transition:
-        opacity 2s ease,
-        filter 2s ease;
+        rgba(0, 0, 0, 0.02);
     }
 
     #crackOverlay.active {
       display: block;
+
       animation:
         crackDarken 20s linear forwards;
     }
@@ -579,29 +554,38 @@
     @keyframes crackDarken {
       0% {
         opacity: 0;
-        filter: brightness(1);
       }
 
-      45% {
-        opacity: 0.25;
-        filter: brightness(0.9);
+      25% {
+        opacity: 0.08;
+      }
+
+      55% {
+        opacity: 0.2;
+      }
+
+      80% {
+        opacity: 0.34;
       }
 
       100% {
-        opacity: 0.7;
-        filter: brightness(0.6);
+        opacity: 0.48;
       }
     }
 
     .crack-line {
       position: absolute;
+
       height: 2px;
       width: var(--crack-length);
+
       left: var(--crack-left);
       top: var(--crack-top);
 
       transform-origin: left center;
-      transform: rotate(var(--crack-angle));
+
+      transform:
+        rotate(var(--crack-angle));
 
       background:
         linear-gradient(
@@ -612,36 +596,81 @@
         );
 
       box-shadow:
-        0 0 5px rgba(255, 255, 255, 0.55);
+        0 0 5px
+        rgba(255, 255, 255, 0.55);
 
       opacity: 0;
 
       animation:
-        crackAppear 1.4s ease forwards;
+        crackAppear
+        1.2s
+        ease
+        forwards;
 
-      filter: blur(0.15px);
+      filter:
+        blur(0.15px);
     }
 
     .crack-branch {
       position: absolute;
+
       height: 1px;
       width: var(--branch-length);
+
       left: var(--branch-left);
       top: var(--branch-top);
 
       transform-origin: left center;
-      transform: rotate(var(--branch-angle));
+
+      transform:
+        rotate(var(--branch-angle));
 
       background:
         rgba(230, 255, 255, 0.85);
 
       box-shadow:
-        0 0 4px rgba(255, 255, 255, 0.45);
+        0 0 4px
+        rgba(255, 255, 255, 0.45);
 
       opacity: 0;
 
       animation:
-        crackAppear 1s ease forwards;
+        crackAppear
+        0.9s
+        ease
+        forwards;
+    }
+
+    .scratch-line {
+      position: absolute;
+
+      height: var(--scratch-height);
+      width: var(--scratch-width);
+
+      left: var(--scratch-left);
+      top: var(--scratch-top);
+
+      transform:
+        rotate(var(--scratch-angle));
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.7),
+          transparent
+        );
+
+      opacity: 0;
+
+      animation:
+        scratchAppear
+        0.7s
+        ease
+        forwards;
+
+      filter:
+        blur(0.2px);
     }
 
     @keyframes crackAppear {
@@ -656,37 +685,47 @@
       }
     }
 
+    @keyframes scratchAppear {
+      0% {
+        opacity: 0;
+        transform:
+          rotate(var(--scratch-angle))
+          scaleX(0);
+      }
+
+      100% {
+        opacity: 0.55;
+        transform:
+          rotate(var(--scratch-angle))
+          scaleX(1);
+      }
+    }
+
     /* =========================
        BINARY TAKEOVER
        ========================= */
 
     #binaryVoid {
       position: fixed;
+
       inset: 0;
+
       z-index: 45000;
 
       display: none;
+
       overflow: hidden;
 
       background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(170, 255, 0, 0.12),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 80% 60%,
-          rgba(0, 255, 120, 0.11),
-          transparent 34%
-        ),
         linear-gradient(
           135deg,
-          #182018,
-          #252b20 45%,
-          #151a15
+          #233823,
+          #334c2c,
+          #263d25
         );
 
-      color: #a8ff00;
+      color:
+        #77ff00;
 
       font-family:
         "Courier New",
@@ -700,6 +739,7 @@
         );
 
       line-height: 1.05;
+
       word-break: break-all;
 
       padding: 14px;
@@ -708,101 +748,207 @@
 
       filter:
         blur(0.2px)
-        saturate(0.9)
-        contrast(1.05);
+        saturate(0.8)
+        contrast(1);
+
+      isolation: isolate;
     }
 
     #binaryVoid.active {
       display: block;
+
       opacity: 1;
 
       animation:
-        takeoverGrow 30s steps(12, end) forwards;
+        takeoverVisual
+        10s
+        linear
+        forwards;
     }
 
-    @keyframes takeoverGrow {
+    #binaryVoid::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: 20;
+
+      pointer-events: none;
+
+      background:
+        #000;
+
+      opacity: 0;
+
+      animation:
+        takeoverToBlack
+        10s
+        linear
+        forwards;
+    }
+
+    @keyframes takeoverVisual {
+
       0% {
         filter:
-          blur(0.2px)
-          saturate(0.9)
-          contrast(1.05);
+          blur(0)
+          saturate(0.8)
+          contrast(1);
+
+        transform:
+          scale(1);
       }
 
-      35% {
+      28% {
         filter:
           blur(0.2px)
-          saturate(1.2)
+          saturate(1.1)
           contrast(1.15);
+
+        transform:
+          scale(1.005);
       }
 
-      70% {
+      55% {
         filter:
-          blur(1px)
-          saturate(1.7)
-          contrast(1.45)
-          brightness(1.05);
+          blur(0.6px)
+          saturate(1.5)
+          contrast(1.35);
+
+        transform:
+          scale(1.01);
+      }
+
+      76% {
+        filter:
+          blur(2px)
+          saturate(2)
+          contrast(1.6)
+          brightness(1.08);
+
+        transform:
+          scale(1.02);
       }
 
       100% {
         filter:
-          blur(2px)
-          saturate(2.3)
+          blur(8px)
+          saturate(2.7)
           contrast(1.8)
-          brightness(1.1);
+          brightness(0.9);
+
+        transform:
+          scale(1.04);
+      }
+    }
+
+    @keyframes takeoverToBlack {
+
+      0% {
+        opacity: 0;
+      }
+
+      58% {
+        opacity: 0;
+      }
+
+      72% {
+        opacity: 0.08;
+      }
+
+      84% {
+        opacity: 0.3;
+      }
+
+      94% {
+        opacity: 0.65;
+      }
+
+      100% {
+        opacity: 1;
       }
     }
 
     .binary-line {
       position: relative;
-      margin: 0;
-      min-height: 1em;
 
-      opacity: 0.9;
+      z-index: 4;
+
+      margin: 0;
+
+      min-height:
+        1em;
+
+      opacity:
+        0.9;
 
       transform:
-        translate3d(var(--drift), 0, 0)
+        translate3d(
+          var(--drift),
+          0,
+          0
+        )
         rotate(var(--tilt));
 
-      color: var(--line-color);
+      color:
+        var(--line-color);
 
       text-shadow:
-        0 0 7px currentColor;
+        0 0 7px
+        currentColor;
 
       animation:
         binaryFlicker
         var(--flicker-time)
         steps(2, end)
-        infinite alternate;
+        infinite
+        alternate;
     }
 
     .binary-line:nth-child(3n) {
-      color: #5ccf00;
+      color:
+        #59cc00;
     }
 
     .binary-line:nth-child(5n) {
-      color: #d6e900;
+      color:
+        #dfff00;
     }
 
     .binary-line:nth-child(7n) {
-      color: #94ff00;
+      color:
+        #8dff00;
     }
 
     .binary-stain {
       position: absolute;
 
-      width: var(--stain-size);
-      height: var(--stain-size);
+      z-index: 2;
 
-      left: var(--stain-left);
-      top: var(--stain-top);
+      width:
+        var(--stain-size);
 
-      border-radius: var(--stain-radius);
+      height:
+        var(--stain-size);
 
-      background: var(--stain-color);
+      left:
+        var(--stain-left);
 
-      opacity: var(--stain-opacity);
+      top:
+        var(--stain-top);
 
-      mix-blend-mode: screen;
+      border-radius:
+        var(--stain-radius);
+
+      background:
+        var(--stain-color);
+
+      opacity:
+        var(--stain-opacity);
+
+      mix-blend-mode:
+        screen;
 
       filter:
         blur(var(--stain-blur));
@@ -814,12 +960,14 @@
         stainPulse
         var(--stain-speed)
         steps(2, end)
-        infinite alternate;
+        infinite
+        alternate;
     }
 
     @keyframes binaryFlicker {
+
       from {
-        opacity: 0.45;
+        opacity: 0.35;
       }
 
       to {
@@ -828,23 +976,28 @@
     }
 
     @keyframes stainPulse {
+
       from {
         transform:
           rotate(var(--stain-rotate))
-          scale(0.9);
+          scale(0.88);
 
         opacity:
-          calc(var(--stain-opacity) * 0.6);
+          calc(
+            var(--stain-opacity) *
+            0.55
+          );
       }
 
       to {
         transform:
           rotate(
             calc(
-              var(--stain-rotate) + 7deg
+              var(--stain-rotate) +
+              8deg
             )
           )
-          scale(1.08);
+          scale(1.12);
 
         opacity:
           var(--stain-opacity);
@@ -883,11 +1036,14 @@
           #000080
         );
 
-      border: 5px solid #00ffff;
+      border:
+        5px solid #00ffff;
 
-      color: #00ffff;
+      color:
+        #00ffff;
 
-      font-size: 4rem;
+      font-size:
+        4rem;
 
       box-shadow:
         0 0 30px #0000ff,
@@ -905,6 +1061,7 @@
     }
 
     @keyframes escapedImage {
+
       0% {
         opacity: 0;
 
@@ -938,12 +1095,14 @@
     }
 
     /* =========================
-       PHASE 4: NORMAL AGAIN
+       PHASE 4
        ========================= */
 
-    body.escape-finished #blueImage {
+    body.escape-finished
+      #blueImage {
       animation:
-        spin 3s linear infinite;
+        spin 3s linear infinite,
+        blueImagePulse 2.5s ease-in-out infinite;
     }
 
     /* =========================
@@ -951,15 +1110,23 @@
        ========================= */
 
     body.escape-dead {
-      background: #000 !important;
-      color: #000 !important;
+      background:
+        #000 !important;
 
-      overflow: hidden;
-      cursor: none;
+      color:
+        #000 !important;
+
+      overflow:
+        hidden;
+
+      cursor:
+        none;
     }
 
-    body.escape-dead > *:not(#escapedBlueImage) {
-      visibility: hidden !important;
+    body.escape-dead
+      > *:not(#escapedBlueImage) {
+      visibility:
+        hidden !important;
     }
 
     /* =========================
@@ -994,6 +1161,7 @@
     }
 
     @keyframes stupidTrail {
+
       0% {
         opacity: 1;
 
@@ -1053,6 +1221,7 @@
     }
 
     @keyframes spiderAppear {
+
       from {
         transform:
           scale(0)
@@ -1288,6 +1457,10 @@
         why is it spinning
       </p>
 
+      <p id="escapeMessage">
+        It has escaped...
+      </p>
+
     </section>
 
 
@@ -1399,10 +1572,6 @@
        ESCAPE EFFECT ELEMENTS
        ========================= -->
 
-  <div id="escapeMessage">
-    It has escaped...
-  </div>
-
   <div id="crackOverlay"></div>
 
   <div id="binaryVoid"></div>
@@ -1428,33 +1597,40 @@
        RANDOM CRAP
        ========================= */
 
+    const randomNonsenseMessages = [
+      "you have been clutterfunk'd",
+      "blu",
+      "why did you click that",
+      "congratulations. nothing happened.",
+      "this website has achieved absolutely nothing",
+      "ERROR: boredom detected",
+      "have you considered going outside",
+      "CLUTTERFUNK LEVEL: 87%",
+      "the blue knows",
+      "i forgot what this button does"
+    ];
+
+
     function randomNonsense() {
 
       if (escapePhase === 1) {
-        setEscapeReply("randomResult");
+
+        setEscapeReply(
+          "randomResult"
+        );
+
         return;
       }
 
-      const things = [
-        "you have been clutterfunk'd",
-        "blu",
-        "why did you click that",
-        "congratulations. nothing happened.",
-        "this website has achieved absolutely nothing",
-        "ERROR: boredom detected",
-        "have you considered going outside",
-        "CLUTTERFUNK LEVEL: 87%",
-        "the blue knows",
-        "i forgot what this button does"
-      ];
 
       const random =
-        things[
+        randomNonsenseMessages[
           Math.floor(
             Math.random() *
-            things.length
+            randomNonsenseMessages.length
           )
         ];
+
 
       const result =
         document.getElementById(
@@ -1680,9 +1856,14 @@
     function changeBlu() {
 
       if (escapePhase === 1) {
-        setEscapeReply("randomResult");
+
+        setEscapeReply(
+          "randomResult"
+        );
+
         return;
       }
+
 
       const blues = [
         "#000080",
@@ -1701,6 +1882,7 @@
           )
         ];
 
+
       document.body.style.background =
         random;
     }
@@ -1713,9 +1895,14 @@
     function uselessButton() {
 
       if (escapePhase === 1) {
-        setEscapeReply("randomResult");
+
+        setEscapeReply(
+          "randomResult"
+        );
+
         return;
       }
+
 
       alert(
         "you clicked a button. congratulations."
@@ -1727,20 +1914,33 @@
        FAKE MALWARE
        ========================= */
 
+    const downloadMessages = [
+      "DOWNLOADING CLUTTERFUNK... 3%... 17%... 99%... wait never mind lol",
+      "download complete. your computer is probably fine lol"
+    ];
+
+
     function fakeMalware() {
 
       if (escapePhase === 1) {
-        setEscapeReply("downloadMessage");
+
+        setEscapeReply(
+          "downloadMessage"
+        );
+
         return;
       }
+
 
       const message =
         document.getElementById(
           "downloadMessage"
         );
 
+
       message.textContent =
-        "DOWNLOADING CLUTTERFUNK... 3%... 17%... 99%... wait never mind lol";
+        downloadMessages[0];
+
 
       setTimeout(() => {
 
@@ -1755,15 +1955,20 @@
           new Blob(
             [fileContent],
             {
-              type: "text/plain"
+              type:
+                "text/plain"
             }
           );
 
         const url =
-          URL.createObjectURL(blob);
+          URL.createObjectURL(
+            blob
+          );
 
         const link =
-          document.createElement("a");
+          document.createElement(
+            "a"
+          );
 
         link.href =
           url;
@@ -1779,10 +1984,13 @@
 
         link.remove();
 
-        URL.revokeObjectURL(url);
+        URL.revokeObjectURL(
+          url
+        );
+
 
         message.textContent =
-          "download complete. your computer is probably fine lol";
+          downloadMessages[1];
 
       }, 1500);
     }
@@ -1792,32 +2000,39 @@
        DO NOT CLICK
        ========================= */
 
+    const doNotClickMessages = [
+      "i told you not to click it",
+      "why",
+      "you had ONE JOB",
+      "bruh",
+      "the button has been clicked",
+      "this changes nothing",
+      "congratulations on your poor decision",
+      "CLUTTERFUNK ACTIVATED",
+      "okay now stop clicking it"
+    ];
+
+
     function doNotClick() {
 
       if (escapePhase === 1) {
-        setEscapeReply("dontClickMessage");
+
+        setEscapeReply(
+          "dontClickMessage"
+        );
+
         return;
       }
 
-      const messages = [
-        "i told you not to click it",
-        "why",
-        "you had ONE JOB",
-        "bruh",
-        "the button has been clicked",
-        "this changes nothing",
-        "congratulations on your poor decision",
-        "CLUTTERFUNK ACTIVATED",
-        "okay now stop clicking it"
-      ];
 
       const random =
-        messages[
+        doNotClickMessages[
           Math.floor(
             Math.random() *
-            messages.length
+            doNotClickMessages.length
           )
         ];
+
 
       document.getElementById(
         "dontClickMessage"
@@ -1833,7 +2048,9 @@
     function spawnSpiderManEdit() {
 
       const spider =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
       spider.className =
         "spiderman-edit";
@@ -1849,6 +2066,7 @@
         </video>
       `;
 
+
       document.body.appendChild(
         spider
       );
@@ -1856,7 +2074,8 @@
 
       requestAnimationFrame(() => {
 
-        const margin = 10;
+        const margin =
+          10;
 
         const maxX =
           Math.max(
@@ -1889,6 +2108,7 @@
             0,
             maxY - margin
           );
+
 
         spider.style.left =
           randomX + "px";
@@ -1925,7 +2145,6 @@
 
         }
       );
-
     }
 
 
@@ -1945,24 +2164,30 @@
         return;
       }
 
+
       const image =
         document.getElementById(
           "blueImage"
         );
 
+
       if (!image) {
         return;
       }
+
 
       image.classList.remove(
         "blue-glitch"
       );
 
+
       void image.offsetWidth;
+
 
       image.classList.add(
         "blue-glitch"
       );
+
 
       setTimeout(() => {
 
@@ -1972,8 +2197,8 @@
 
       }, 140);
 
-      scheduleBlueGlitch();
 
+      scheduleBlueGlitch();
     }
 
 
@@ -1983,13 +2208,17 @@
         return;
       }
 
+
       clearTimeout(
         glitchTimeout
       );
 
+
       const delay =
         3500 +
-        Math.random() * 9000;
+        Math.random() *
+        9000;
+
 
       glitchTimeout =
         setTimeout(
@@ -2009,18 +2238,18 @@
         return;
       }
 
-      if (escapePhase === 4) {
-        return;
-      }
 
       const escapeChance =
         Math.random();
+
 
       /*
        * 2% chance of escape.
        */
 
-      if (escapeChance < 0.02) {
+      if (
+        escapeChance < 0.02
+      ) {
 
         escapeBlueImage();
 
@@ -2032,6 +2261,7 @@
         document.getElementById(
           "blueImageMessage"
         );
+
 
       const harmlessMessages = [
         "you touched the JPEG.",
@@ -2045,6 +2275,7 @@
         "why did you click that"
       ];
 
+
       message.textContent =
         harmlessMessages[
           Math.floor(
@@ -2052,7 +2283,6 @@
             harmlessMessages.length
           )
         ];
-
     }
 
 
@@ -2060,21 +2290,26 @@
        ESCAPE REPLIES
        ========================= */
 
-    function setEscapeReply(elementId) {
+    function setEscapeReply(
+      elementId
+    ) {
 
       const element =
         document.getElementById(
           elementId
         );
 
+
       if (!element) {
         return;
       }
+
 
       const reply =
         Math.random() < 0.5
           ? "RUN"
           : "it has escaped...";
+
 
       element.textContent =
         reply;
@@ -2082,7 +2317,7 @@
 
 
     /* =========================
-       CRACKS
+       CRACKS + SCRATCHES
        ========================= */
 
     function generateCracks() {
@@ -2092,11 +2327,18 @@
           "crackOverlay"
         );
 
+
       overlay.innerHTML =
         "";
 
+
+      /* =========================
+         MAIN CRACKS
+         ========================= */
+
       const crackCount =
-        11;
+        13;
+
 
       for (
         let i = 0;
@@ -2109,38 +2351,50 @@
             "div"
           );
 
+
         line.className =
           "crack-line";
 
+
         line.style.setProperty(
           "--crack-length",
-          `${120 + Math.random() * 380}px`
+          `${140 + Math.random() * 420}px`
         );
+
 
         line.style.setProperty(
           "--crack-left",
           `${Math.random() * 100}%`
         );
 
+
         line.style.setProperty(
           "--crack-top",
           `${Math.random() * 100}%`
         );
+
 
         line.style.setProperty(
           "--crack-angle",
           `${-75 + Math.random() * 150}deg`
         );
 
+
         line.style.animationDelay =
-          `${Math.random() * 18}s`;
+          `${Math.random() * 16}s`;
+
 
         overlay.appendChild(
           line
         );
 
+
         const branchCount =
-          2 + Math.floor(Math.random() * 3);
+          2 +
+          Math.floor(
+            Math.random() * 4
+          );
+
 
         for (
           let j = 0;
@@ -2153,36 +2407,107 @@
               "div"
             );
 
+
           branch.className =
             "crack-branch";
 
+
           branch.style.setProperty(
             "--branch-length",
-            `${40 + Math.random() * 130}px`
+            `${40 + Math.random() * 150}px`
           );
+
 
           branch.style.setProperty(
             "--branch-left",
             `${Math.random() * 100}%`
           );
 
+
           branch.style.setProperty(
             "--branch-top",
             `${Math.random() * 100}%`
           );
+
 
           branch.style.setProperty(
             "--branch-angle",
             `${-110 + Math.random() * 220}deg`
           );
 
+
           branch.style.animationDelay =
-            `${4 + Math.random() * 16}s`;
+            `${4 + Math.random() * 15}s`;
+
 
           overlay.appendChild(
             branch
           );
         }
+      }
+
+
+      /* =========================
+         SCRATCHES
+         ========================= */
+
+      const scratchCount =
+        34;
+
+
+      for (
+        let i = 0;
+        i < scratchCount;
+        i++
+      ) {
+
+        const scratch =
+          document.createElement(
+            "div"
+          );
+
+
+        scratch.className =
+          "scratch-line";
+
+
+        scratch.style.setProperty(
+          "--scratch-height",
+          `${1 + Math.random() * 2}px`
+        );
+
+
+        scratch.style.setProperty(
+          "--scratch-width",
+          `${25 + Math.random() * 180}px`
+        );
+
+
+        scratch.style.setProperty(
+          "--scratch-left",
+          `${Math.random() * 100}%`
+        );
+
+
+        scratch.style.setProperty(
+          "--scratch-top",
+          `${Math.random() * 100}%`
+        );
+
+
+        scratch.style.setProperty(
+          "--scratch-angle",
+          `${-25 + Math.random() * 50}deg`
+        );
+
+
+        scratch.style.animationDelay =
+          `${Math.random() * 18}s`;
+
+
+        overlay.appendChild(
+          scratch
+        );
       }
     }
 
@@ -2191,9 +2516,13 @@
        BINARY TAKEOVER
        ========================= */
 
-    function randomBinaryString(length) {
+    function randomBinaryString(
+      length
+    ) {
 
-      let text = "";
+      let text =
+        "";
+
 
       for (
         let i = 0;
@@ -2206,10 +2535,16 @@
             ? "0"
             : "1";
 
-        if (Math.random() < 0.045) {
-          text += " ";
+
+        if (
+          Math.random() < 0.045
+        ) {
+
+          text +=
+            " ";
         }
       }
+
 
       return text;
     }
@@ -2237,8 +2572,13 @@
         "CONTROL",
         "FAIL",
         "STOP",
-        "DETECTED"
+        "DETECTED",
+        "MELT",
+        "FALL",
+        "OVERFLOW",
+        "NO"
       ];
+
 
       return words[
         Math.floor(
@@ -2256,13 +2596,16 @@
           "binaryVoid"
         );
 
+
       binaryVoid.innerHTML =
         "";
 
+
       const lineCount =
         Math.ceil(
-          window.innerHeight / 22
-        ) + 18;
+          window.innerHeight / 19
+        ) + 24;
+
 
       for (
         let i = 0;
@@ -2275,63 +2618,88 @@
             "div"
           );
 
+
         line.className =
           "binary-line";
+
 
         const mode =
           Math.random();
 
-        if (mode < 0.58) {
+
+        if (
+          mode < 0.45
+        ) {
 
           line.textContent =
             randomBinaryString(
-              70 +
+              75 +
               Math.floor(
-                Math.random() * 90
+                Math.random() * 110
               )
             );
 
-        } else if (mode < 0.83) {
+        } else if (
+          mode < 0.72
+        ) {
 
           line.textContent =
             randomTakeoverText() +
             "   " +
             randomBinaryString(
-              18 +
+              25 +
               Math.floor(
-                Math.random() * 50
+                Math.random() * 70
+              )
+            );
+
+        } else if (
+          mode < 0.9
+        ) {
+
+          line.textContent =
+            randomTakeoverText() +
+            " " +
+            randomTakeoverText() +
+            " " +
+            randomTakeoverText() +
+            " " +
+            randomBinaryString(
+              25 +
+              Math.floor(
+                Math.random() * 85
               )
             );
 
         } else {
 
           line.textContent =
-            randomTakeoverText() +
-            " " +
-            randomTakeoverText() +
-            " " +
             randomBinaryString(
-              20 +
+              150 +
               Math.floor(
-                Math.random() * 70
+                Math.random() * 130
               )
             );
         }
 
+
         line.style.setProperty(
           "--drift",
-          `${-14 + Math.random() * 28}px`
+          `${-35 + Math.random() * 70}px`
         );
+
 
         line.style.setProperty(
           "--tilt",
-          `${-1.5 + Math.random() * 3}deg`
+          `${-2 + Math.random() * 4}deg`
         );
+
 
         line.style.setProperty(
           "--flicker-time",
-          `${0.16 + Math.random() * 0.8}s`
+          `${0.1 + Math.random() * 0.7}s`
         );
+
 
         binaryVoid.appendChild(
           line
@@ -2339,8 +2707,13 @@
       }
 
 
+      /* =========================
+         GLOWING RESIDUE
+         ========================= */
+
       const stainCount =
-        18;
+        28;
+
 
       for (
         let i = 0;
@@ -2353,38 +2726,47 @@
             "div"
           );
 
+
         stain.className =
           "binary-stain";
 
+
         const colors = [
-          "#365d30",
-          "#5c7a29",
-          "#8b9f14",
-          "#b7d300",
+          "#294d25",
+          "#416b24",
+          "#637d1c",
+          "#8da80e",
+          "#b9d600",
           "#dfff00",
           "#6dff00",
-          "#3f8f3f"
+          "#48ff00",
+          "#a2ff00"
         ];
+
 
         stain.style.setProperty(
           "--stain-size",
-          `${90 + Math.random() * 420}px`
+          `${100 + Math.random() * 500}px`
         );
+
 
         stain.style.setProperty(
           "--stain-left",
-          `${-10 + Math.random() * 110}%`
-        );
-
-        stain.style.setProperty(
-          "--stain-top",
           `${-15 + Math.random() * 120}%`
         );
 
+
+        stain.style.setProperty(
+          "--stain-top",
+          `${-20 + Math.random() * 130}%`
+        );
+
+
         stain.style.setProperty(
           "--stain-radius",
-          `${20 + Math.random() * 45}% ${45 + Math.random() * 35}% ${25 + Math.random() * 55}% ${30 + Math.random() * 45}%`
+          `${20 + Math.random() * 55}% ${35 + Math.random() * 50}% ${20 + Math.random() * 65}% ${25 + Math.random() * 55}%`
         );
+
 
         stain.style.setProperty(
           "--stain-color",
@@ -2396,25 +2778,30 @@
           ]
         );
 
+
         stain.style.setProperty(
           "--stain-opacity",
-          `${0.08 + Math.random() * 0.24}`
+          `${0.08 + Math.random() * 0.26}`
         );
+
 
         stain.style.setProperty(
           "--stain-blur",
-          `${4 + Math.random() * 18}px`
+          `${5 + Math.random() * 22}px`
         );
+
 
         stain.style.setProperty(
           "--stain-rotate",
           `${Math.random() * 360}deg`
         );
 
+
         stain.style.setProperty(
           "--stain-speed",
-          `${0.15 + Math.random() * 0.8}s`
+          `${0.1 + Math.random() * 0.8}s`
         );
+
 
         binaryVoid.appendChild(
           stain
@@ -2429,42 +2816,50 @@
 
     function showEscapedImageOnce() {
 
-      return new Promise(resolve => {
+      return new Promise(
+        resolve => {
 
-        const escapedImage =
-          document.getElementById(
-            "escapedBlueImage"
-          );
+          const escapedImage =
+            document.getElementById(
+              "escapedBlueImage"
+            );
 
-        const appearanceTime =
-          800 +
-          Math.random() * 1200;
 
-        escapedImage.classList.remove(
-          "show"
-        );
+          const appearanceTime =
+            700 +
+            Math.random() * 900;
 
-        void escapedImage.offsetWidth;
-
-        escapedImage.classList.add(
-          "show"
-        );
-
-        setTimeout(() => {
 
           escapedImage.classList.remove(
             "show"
           );
 
-          setTimeout(
-            resolve,
-            180 +
-            Math.random() * 700
+
+          void escapedImage.offsetWidth;
+
+
+          escapedImage.classList.add(
+            "show"
           );
 
-        }, appearanceTime);
 
-      });
+          setTimeout(() => {
+
+            escapedImage.classList.remove(
+              "show"
+            );
+
+
+            setTimeout(
+              resolve,
+              120 +
+              Math.random() * 450
+            );
+
+          }, appearanceTime);
+
+        }
+      );
     }
 
 
@@ -2476,6 +2871,7 @@
           Math.random() * 6
         );
 
+
       for (
         let i = 0;
         i < appearances;
@@ -2483,8 +2879,173 @@
       ) {
 
         await showEscapedImageOnce();
-
       }
+    }
+
+
+    /* =========================
+       PHASE 4 MESSAGE RESET
+       ========================= */
+
+    const harmlessImageMessages = [
+      "you touched the JPEG.",
+      "nothing happened.",
+      "the JPEG remains contained.",
+      "please stop touching the image.",
+      "it noticed you.",
+      "blu.",
+      "...",
+      "JPEG STATUS: NORMAL",
+      "why did you click that"
+    ];
+
+
+    function resetRandomResultStyle() {
+
+      const result =
+        document.getElementById(
+          "randomResult"
+        );
+
+
+      result.style.display =
+        "";
+
+      result.style.position =
+        "";
+
+      result.style.fontFamily =
+        "";
+
+      result.style.fontSize =
+        "";
+
+      result.style.fontWeight =
+        "";
+
+      result.style.fontStyle =
+        "";
+
+      result.style.color =
+        "";
+
+      result.style.textTransform =
+        "";
+
+      result.style.textDecoration =
+        "";
+
+      result.style.textAlign =
+        "";
+
+      result.style.letterSpacing =
+        "";
+
+      result.style.wordSpacing =
+        "";
+
+      result.style.opacity =
+        "";
+
+      result.style.transform =
+        "";
+
+      result.style.textShadow =
+        "";
+
+      result.style.left =
+        "";
+
+      result.style.top =
+        "";
+
+      result.style.border =
+        "";
+
+      result.style.padding =
+        "";
+    }
+
+
+    function restoreNormalMessages() {
+
+      /*
+       * Random Crap message
+       */
+
+      resetRandomResultStyle();
+
+
+      const randomResult =
+        document.getElementById(
+          "randomResult"
+        );
+
+
+      randomResult.textContent =
+        randomNonsenseMessages[
+          Math.floor(
+            Math.random() *
+            randomNonsenseMessages.length
+          )
+        ];
+
+
+      /*
+       * Download message
+       */
+
+      const downloadMessage =
+        document.getElementById(
+          "downloadMessage"
+        );
+
+
+      downloadMessage.textContent =
+        downloadMessages[
+          Math.floor(
+            Math.random() *
+            downloadMessages.length
+          )
+        ];
+
+
+      /*
+       * Do Not Click message
+       */
+
+      const dontClickMessage =
+        document.getElementById(
+          "dontClickMessage"
+        );
+
+
+      dontClickMessage.textContent =
+        doNotClickMessages[
+          Math.floor(
+            Math.random() *
+            doNotClickMessages.length
+          )
+        ];
+
+
+      /*
+       * Blue JPEG message
+       */
+
+      const blueImageMessage =
+        document.getElementById(
+          "blueImageMessage"
+        );
+
+
+      blueImageMessage.textContent =
+        harmlessImageMessages[
+          Math.floor(
+            Math.random() *
+            harmlessImageMessages.length
+          )
+        ];
     }
 
 
@@ -2498,7 +3059,10 @@
     let escapeTimers = [];
 
 
-    function later(callback, delay) {
+    function later(
+      callback,
+      delay
+    ) {
 
       const timer =
         setTimeout(
@@ -2506,9 +3070,11 @@
           delay
         );
 
+
       escapeTimers.push(
         timer
       );
+
 
       return timer;
     }
@@ -2520,11 +3086,14 @@
         return;
       }
 
+
       blueImageEscaped =
         true;
 
+
       escapePhase =
         1;
+
 
       clearTimeout(
         glitchTimeout
@@ -2541,15 +3110,18 @@
           "blueImage"
         );
 
+
       const message =
         document.getElementById(
           "escapeMessage"
         );
 
+
       const crackOverlay =
         document.getElementById(
           "crackOverlay"
         );
+
 
       const binaryVoid =
         document.getElementById(
@@ -2557,67 +3129,60 @@
         );
 
 
+      /*
+       * Remove the JPEG from its
+       * original spot.
+       */
+
       image.style.opacity =
         "0";
+
 
       image.style.pointerEvents =
         "none";
 
+
+      /*
+       * Put the escape message
+       * into the JPEG's old territory.
+       */
 
       message.classList.add(
         "show"
       );
 
 
+      /*
+       * Generate cracks and scratches
+       * immediately, then let them grow.
+       */
+
+      generateCracks();
+
+
+      crackOverlay.classList.add(
+        "active"
+      );
+
+
       /* =========================
          PHASE 1
-         0:00 - 1:00
+         0:00 - 0:20
          ========================= */
 
       later(() => {
 
         /*
-         * Keep the page fully interactive.
-         * Only visual response text is corrupted.
+         * Message stays static.
+         * Page remains interactive.
          */
-
-        const buttons =
-          document.querySelectorAll(
-            "button"
-          );
-
-        buttons.forEach(button => {
-
-          button.dataset.escapeCorrupted =
-            "true";
-
-        });
 
       }, 100);
 
 
       /* =========================
-         CRACKING
-         1:00 - 1:20
-         ========================= */
-
-      later(() => {
-
-        escapePhase =
-          1;
-
-        generateCracks();
-
-        crackOverlay.classList.add(
-          "active"
-        );
-
-      }, 60000);
-
-
-      /* =========================
          PHASE 2
-         1:20 - 1:50
+         0:20 - 0:30
          ========================= */
 
       later(() => {
@@ -2625,26 +3190,40 @@
         escapePhase =
           2;
 
+
+        /*
+         * The original message and
+         * cracks disappear as the
+         * takeover begins.
+         */
+
         message.classList.remove(
           "show"
         );
+
 
         crackOverlay.classList.remove(
           "active"
         );
 
+
+        crackOverlay.innerHTML =
+          "";
+
+
         generateBinaryTakeover();
+
 
         binaryVoid.classList.add(
           "active"
         );
 
-      }, 80000);
+      }, 20000);
 
 
       /* =========================
          PHASE 3
-         1:50 - 2:00+
+         0:30 - 0:40
          ========================= */
 
       later(() => {
@@ -2652,54 +3231,57 @@
         escapePhase =
           3;
 
+
+        /*
+         * Phase 2 has already faded
+         * itself completely to black.
+         */
+
         binaryVoid.classList.remove(
           "active"
         );
 
+
         binaryVoid.innerHTML =
           "";
+
 
         document.body.classList.add(
           "escape-dead"
         );
 
-      }, 110000);
+      }, 30000);
 
 
       /* =========================
-         JPEG RETURNS + PHASE 4
+         JPEG RETURNS
          ========================= */
 
       later(async () => {
-
-        /*
-         * Keep the real website hidden
-         * during the JPEG sequence.
-         * Only the escaped image is allowed
-         * through the void.
-         */
 
         await runEscapedImageSequence();
 
 
         /*
-         * Keep the void for a full 10 seconds
+         * Only 2 seconds of silence
          * after the final JPEG.
          */
 
-        await new Promise(resolve => {
+        await new Promise(
+          resolve => {
 
-          setTimeout(
-            resolve,
-            10000
-          );
+            setTimeout(
+              resolve,
+              2000
+            );
 
-        });
+          }
+        );
 
 
         restoreWebsiteAfterEscape();
 
-      }, 120000);
+      }, 40000);
 
     }
 
@@ -2715,20 +3297,24 @@
           "blueImage"
         );
 
+
       const message =
         document.getElementById(
           "escapeMessage"
         );
+
 
       const crackOverlay =
         document.getElementById(
           "crackOverlay"
         );
 
+
       const binaryVoid =
         document.getElementById(
           "binaryVoid"
         );
+
 
       const escapedImage =
         document.getElementById(
@@ -2736,9 +3322,14 @@
         );
 
 
+      /*
+       * Remove the void.
+       */
+
       document.body.classList.remove(
         "escape-dead"
       );
+
 
       document.body.classList.add(
         "escape-finished"
@@ -2755,6 +3346,14 @@
         "";
 
 
+      /*
+       * Restore original JPEG.
+       *
+       * It can no longer trigger
+       * escape because the click
+       * handler sees blueImageEscaped.
+       */
+
       image.style.opacity =
         "";
 
@@ -2769,10 +3368,18 @@
       );
 
 
+      /*
+       * Hide escape message.
+       */
+
       message.classList.remove(
         "show"
       );
 
+
+      /*
+       * Remove cracks.
+       */
 
       crackOverlay.classList.remove(
         "active"
@@ -2782,6 +3389,10 @@
         "";
 
 
+      /*
+       * Remove takeover.
+       */
+
       binaryVoid.classList.remove(
         "active"
       );
@@ -2790,34 +3401,37 @@
         "";
 
 
+      /*
+       * Hide escaped JPEG.
+       */
+
       escapedImage.classList.remove(
         "show"
       );
 
 
       /*
-       * Permanent post-escape state:
-       *
-       * - JPEG click no longer does anything.
-       * - JPEG glitch system remains disabled.
+       * Replace any RUN /
+       * it has escaped...
+       * messages with ordinary
+       * random messages.
        */
 
-      document.querySelectorAll(
-        "button"
-      ).forEach(button => {
-
-        delete button.dataset.escapeCorrupted;
-
-      });
-
-
-      escapePhase =
-        4;
+      restoreNormalMessages();
 
 
       /*
-       * No glitch rescheduling here.
+       * Permanent post-escape state:
+       *
+       * blueImageEscaped remains TRUE.
+       *
+       * Therefore:
+       * - clicking the JPEG does nothing
+       * - random JPEG glitches stay disabled
        */
+
+      escapePhase =
+        4;
 
     }
 
@@ -2853,13 +3467,21 @@
       "mousemove",
       function(event) {
 
+        /*
+         * Keep the cursor trail
+         * during the normal page and
+         * Phase 1.
+         */
+
         const dot =
           document.createElement(
             "div"
           );
 
+
         dot.className =
           "cursor-dot";
+
 
         dot.textContent =
           stupidThings[
@@ -2873,7 +3495,8 @@
         dot.style.left =
           (
             event.clientX +
-            Math.random() * 20 -
+            Math.random() *
+            20 -
             10
           ) + "px";
 
@@ -2881,7 +3504,8 @@
         dot.style.top =
           (
             event.clientY +
-            Math.random() * 20 -
+            Math.random() *
+            20 -
             10
           ) + "px";
 
