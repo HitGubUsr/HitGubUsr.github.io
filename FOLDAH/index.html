@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,10 +10,11 @@
 
   <title>JZ's Wonderously Bored Website</title>
 
-  <meta
-    name="description"
-    content="JZ's personal bored crap lol"
-  >
+<meta
+name="description"
+content="JZ's personal bored crap lol"
+
+>
 
   <style>
 
@@ -1760,13 +1762,6 @@
     }
 
 
-    /*
-     * IMPORTANT:
-     *
-     * Buttons remain visible,
-     * clickable and usable.
-     */
-
     body.ultimate-blu button {
 
       background:
@@ -1809,10 +1804,6 @@
     }
 
 
-    /*
-     * Gerald remains simple.
-     */
-
     body.ultimate-blu
     .spinning-jpeg {
 
@@ -1830,9 +1821,9 @@
     }
 
 
-    /*
-     * MAROON RESET BUTTON
-     */
+    /* =========================
+       MAROON RESET BUTTON
+       ========================= */
 
     #returnToNormal {
 
@@ -1940,10 +1931,498 @@
 
 
     body.escape-dead
-    > *:not(#escapedBlueImage):not(#binaryVoid) {
+    > *:not(#escapedBlueImage):not(#binaryVoid):not(#ultimateBluFailure) {
 
       visibility:
         hidden !important;
+    }
+
+
+    /* =========================
+       ULTIMATE BLU FAILURE
+       ========================= */
+
+    #ultimateBluFailure {
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      z-index:
+        60000;
+
+      display:
+        none;
+
+      background:
+        white;
+
+      color:
+        black;
+
+      overflow:
+        hidden;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      cursor:
+        default;
+
+      user-select:
+        none;
+    }
+
+
+    #ultimateBluFailure.active {
+
+      display:
+        block;
+    }
+
+
+    #ultimateBluFailure.frozen {
+
+      pointer-events:
+        none;
+
+      cursor:
+        wait;
+    }
+
+
+    #failureDialogue {
+
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      width:
+        min(
+          760px,
+          88vw
+        );
+
+      max-height:
+        80vh;
+
+      overflow:
+        hidden;
+
+      font-size:
+        12px;
+
+      line-height:
+        1.55;
+
+      white-space:
+        pre-wrap;
+
+      word-break:
+        break-word;
+    }
+
+
+    .failure-line {
+
+      margin:
+        0 0 18px;
+
+      min-height:
+        1.55em;
+    }
+
+
+    .failure-line.website {
+
+      color:
+        #0055ff;
+    }
+
+
+    .failure-line.dev {
+
+      color:
+        #000000;
+    }
+
+
+    .failure-cursor {
+
+      display:
+        inline-block;
+
+      width:
+        7px;
+
+      height:
+        12px;
+
+      background:
+        currentColor;
+
+      vertical-align:
+        -2px;
+
+      opacity:
+        0.8;
+
+      animation:
+        typewriterCursor
+        0.7s
+        steps(1)
+        infinite;
+    }
+
+
+    @keyframes typewriterCursor {
+
+      50% {
+        opacity:
+          0;
+      }
+    }
+
+
+    #failureFinalMessage {
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        7vw;
+
+      color:
+        #0055ff;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        clamp(
+          2.5rem,
+          7vw,
+          7rem
+        );
+
+      font-weight:
+        bold;
+
+      line-height:
+        0.98;
+
+      text-align:
+        center;
+
+      white-space:
+        pre-wrap;
+
+      word-break:
+        break-word;
+
+      opacity:
+        0;
+    }
+
+
+    #failureFinalMessage.show {
+
+      opacity:
+        1;
+    }
+
+
+    /* =========================
+       SKY
+       ========================= */
+
+    #skyEscape {
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      z-index:
+        65000;
+
+      display:
+        none;
+
+      overflow:
+        hidden;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #4da6ff 0%,
+          #69b5ff 48%,
+          #b8ddff 100%
+        );
+
+      cursor:
+        pointer;
+
+      user-select:
+        none;
+    }
+
+
+    #skyEscape.active {
+
+      display:
+        block;
+    }
+
+
+    .sky-cloud {
+
+      position:
+        absolute;
+
+      width:
+        var(--cloud-width);
+
+      height:
+        var(--cloud-height);
+
+      left:
+        var(--cloud-left);
+
+      top:
+        var(--cloud-top);
+
+      opacity:
+        var(--cloud-opacity);
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.9
+        );
+
+      border-radius:
+        999px;
+
+      filter:
+        blur(
+          var(--cloud-blur)
+        );
+
+      animation:
+        cloudDrift
+        var(--cloud-duration)
+        linear
+        infinite;
+    }
+
+
+    .sky-cloud::before,
+    .sky-cloud::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      background:
+        inherit;
+
+      border-radius:
+        50%;
+    }
+
+
+    .sky-cloud::before {
+
+      width:
+        45%;
+
+      height:
+        140%;
+
+      left:
+        17%;
+
+      bottom:
+        5%;
+    }
+
+
+    .sky-cloud::after {
+
+      width:
+        38%;
+
+      height:
+        120%;
+
+      left:
+        49%;
+
+      bottom:
+        2%;
+    }
+
+
+    @keyframes cloudDrift {
+
+      from {
+        transform:
+          translateX(
+            -12vw
+          );
+      }
+
+      to {
+        transform:
+          translateX(
+            112vw
+          );
+      }
+    }
+
+
+    .sky-bird {
+
+      position:
+        absolute;
+
+      width:
+        var(--bird-width);
+
+      height:
+        auto;
+
+      left:
+        -18vw;
+
+      top:
+        var(--bird-top);
+
+      opacity:
+        var(--bird-opacity);
+
+      pointer-events:
+        none;
+
+      user-select:
+        none;
+
+      filter:
+        drop-shadow(
+          0 2px 2px
+          rgba(
+            0,
+            0,
+            0,
+            0.18
+          )
+        );
+
+      animation:
+        birdFly
+        var(--bird-duration)
+        linear
+        forwards;
+    }
+
+
+    .sky-bird.reverse {
+
+      left:
+        auto;
+
+      right:
+        -18vw;
+
+      transform:
+        scaleX(-1);
+
+      animation-name:
+        birdFlyReverse;
+    }
+
+
+    @keyframes birdFly {
+
+      from {
+        transform:
+          translateX(0)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          translateX(58vw)
+          translateY(
+            var(--bird-wave)
+          );
+      }
+
+      to {
+        transform:
+          translateX(138vw)
+          translateY(0);
+      }
+    }
+
+
+    @keyframes birdFlyReverse {
+
+      from {
+        transform:
+          scaleX(-1)
+          translateX(0)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          scaleX(-1)
+          translateX(58vw)
+          translateY(
+            var(--bird-wave)
+          );
+      }
+
+      to {
+        transform:
+          scaleX(-1)
+          translateX(138vw)
+          translateY(0);
+      }
     }
 
 
@@ -2185,11 +2664,35 @@
           3rem;
       }
 
+
+      #failureDialogue {
+
+        width:
+          88vw;
+
+        font-size:
+          12px;
+      }
+
+
+      #failureFinalMessage {
+
+        font-size:
+          clamp(
+            2rem,
+            10vw,
+            4.5rem
+          );
+
+        padding:
+          5vw;
+      }
+
     }
 
   </style>
-</head>
 
+</head>
 
 <body>
 
@@ -2199,40 +2702,41 @@
 
   <header>
 
-    <h1>
-      Hey ig. :l
-    </h1>
+```
+<h1>
+  Hey ig. :l
+</h1>
 
-    <p>
-      This is me being bored.
-    </p>
+<p>
+  This is me being bored.
+</p>
 
-    <div class="clutter-banner">
-      🔵 CLUTTERFUNK 🔵
-    </div>
+<div class="clutter-banner">
+  🔵 CLUTTERFUNK 🔵
+</div>
 
-    <nav>
+<nav>
 
-      <a href="index.html">
-        Home
-      </a>
+  <a href="index.html">
+    Home
+  </a>
 
-      <a href="#about">
-        About
-      </a>
+  <a href="#about">
+    About
+  </a>
 
-      <a href="#posts">
-        Posts
-      </a>
+  <a href="#posts">
+    Posts
+  </a>
 
-      <a href="#danger">
-        DO NOT CLICK
-      </a>
+  <a href="#danger">
+    DO NOT CLICK
+  </a>
 
-    </nav>
+</nav>
+```
 
   </header>
-
 
   <!-- =========================
        MAIN
@@ -2240,279 +2744,280 @@
 
   <main>
 
-    <!-- ABOUT -->
+```
+<!-- ABOUT -->
 
-    <section
-      id="about"
-      class="post"
-    >
+<section
+  id="about"
+  class="post"
+>
 
-      <h2>
-        Tidbits Into The Creation of This Website
-        (aka about me)
-      </h2>
+  <h2>
+    Tidbits Into The Creation of This Website
+    (aka about me)
+  </h2>
 
-      <p>
-        This is now my personal corner of the internet
-        that i do bored stuff on. i may share the
-        occasional post of whatever the absolute frick
-        im doing but i think this is about to be an
-        abondoned website
-      </p>
+  <p>
+    This is now my personal corner of the internet
+    that i do bored stuff on. i may share the
+    occasional post of whatever the absolute frick
+    im doing but i think this is about to be an
+    abondoned website
+  </p>
 
-      <p>
-        anyway welcome to clutterfunk
-      </p>
+  <p>
+    anyway welcome to clutterfunk
+  </p>
 
-    </section>
+</section>
 
 
-    <!-- POSTS -->
+<!-- POSTS -->
 
-    <section id="posts">
+<section id="posts">
 
-      <article class="post">
+  <article class="post">
 
-        <span class="date">
-          August 16, 2026
-        </span>
+    <span class="date">
+      August 16, 2026
+    </span>
 
-        <h2>
-          Post 1: "ClutterFunk"
-        </h2>
+    <h2>
+      Post 1: "ClutterFunk"
+    </h2>
 
-        <p>
-          This is the first piece of "clutterfunk"
-          im adding to the internet. Think of it as a
-          wonderous bit of malware-not-malware im adding
-          to the internet
-        </p>
-
-        <button
-          onclick="randomNonsense()"
-        >
-          CLICK FOR RANDOM CRAP
-        </button>
-
-        <p id="randomResult"></p>
-
-      </article>
-
-
-      <article class="post">
-
-        <span class="date">
-          August 16, 2026
-        </span>
-
-        <h2>
-          Post 2: More "ClutterFunk"
-        </h2>
-
-        <p>
-          Second piece of "clutterfunk" lol.
-          omg im so boreddddd
-        </p>
-
-        <button
-          onclick="changeBlu()"
-        >
-          MAKE IT BLUER
-        </button>
-
-        <button
-          onclick="uselessButton()"
-        >
-          USELESS BUTTON
-        </button>
-
-      </article>
-
-
-      <article class="post">
-
-        <span class="date">
-          August 16, 2026
-        </span>
-
-        <h2>
-          Post 3: Why Is This Here
-        </h2>
-
-        <p>
-          i genuinely have no idea what im doing anymore
-        </p>
-
-        <button
-          onclick="spawnSpiderManEdit()"
-        >
-          NO TOUCHIE, this is my no-no square
-        </button>
-
-        <p id="dontTouchMessage"></p>
-
-      </article>
-
-    </section>
-
-
-    <!-- =========================
-         BLUE IMAGE INCIDENT
-         ========================= -->
-
-    <section
-      class="post jpeg-zone"
-    >
-
-      <h2>
-        🔵 IMPORTANT IMAGE 🔵
-      </h2>
-
-      <p>
-        this serves absolutely no purpose
-      </p>
-
-      <div
-        class="blue-image-wrapper"
-      >
-
-        <div
-          id="blueImage"
-          class="spinning-jpeg"
-          title="this is not a JPEG"
-          onclick="blueImageClicked()"
-        >
-          🔵
-        </div>
-
-      </div>
-
-      <p id="blueImageMessage">
-        why is it spinning
-      </p>
-
-      <p
-        id="escapeMessage"
-      >
-        It has escaped...
-      </p>
-
-    </section>
-
-
-    <!-- =========================
-         VISITOR COUNTER
-         ========================= -->
-
-    <section
-      class="post"
-    >
-
-      <h2>
-        Totally Real Visitor Counter
-      </h2>
-
-      <div
-        class="counter-box"
-      >
-
-        <div
-          class="counter-label"
-        >
-          You are visitor:
-        </div>
-
-        <div
-          class="counterapi"
-          ns="jzs-wonderously-bored-website"
-          action="view"
-          key="homepage"
-          noIcon="true"
-          noLink="true"
-          noCss="true"
-          color="#00ff00"
-          bg="black"
-        ></div>
-
-        <p>
-          probably
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         FAKE MALWARE
-         ========================= -->
-
-    <section
-      id="danger"
-      class="danger-zone"
-    >
-
-      <h2>
-        ⚠️ VERY NORMAL DOWNLOAD ZONE ⚠️
-      </h2>
-
-      <p>
-        Download completely legitimate and
-        absolutely normal clutterfunk.
-      </p>
-
-      <button
-        onclick="fakeMalware()"
-      >
-        💾 DOWNLOAD CLUTTERFUNK.EXE
-      </button>
-
-      <p id="downloadMessage"></p>
-
-    </section>
-
-
-    <!-- =========================
-         DO NOT CLICK
-         ========================= -->
-
-    <section
-      class="post"
-    >
-
-      <h2>
-        🚫 DO NOT CLICK 🚫
-      </h2>
-
-      <p>
-        seriously
-      </p>
-
-      <button
-        id="dangerButton"
-        onclick="doNotClick()"
-      >
-        🚨 DO NOT CLICK THIS BUTTON 🚨
-      </button>
-
-      <p id="dontClickMessage"></p>
-
-    </section>
-
-
-    <!-- =========================
-         RETURN TO NORMAL
-         ========================= -->
+    <p>
+      This is the first piece of "clutterfunk"
+      im adding to the internet. Think of it as a
+      wonderous bit of malware-not-malware im adding
+      to the internet
+    </p>
 
     <button
-      id="returnToNormal"
-      onclick="returnToNormalBlu()"
+      onclick="randomNonsense()"
     >
-      RETURN TO NORMAL
+      CLICK FOR RANDOM CRAP
     </button>
 
-  </main>
+    <p id="randomResult"></p>
 
+  </article>
+
+
+  <article class="post">
+
+    <span class="date">
+      August 16, 2026
+    </span>
+
+    <h2>
+      Post 2: More "ClutterFunk"
+    </h2>
+
+    <p>
+      Second piece of "clutterfunk" lol.
+      omg im so boreddddd
+    </p>
+
+    <button
+      onclick="changeBlu()"
+    >
+      MAKE IT BLUER
+    </button>
+
+    <button
+      onclick="uselessButton()"
+    >
+      USELESS BUTTON
+    </button>
+
+  </article>
+
+
+  <article class="post">
+
+    <span class="date">
+      August 16, 2026
+    </span>
+
+    <h2>
+      Post 3: Why Is This Here
+    </h2>
+
+    <p>
+      i genuinely have no idea what im doing anymore
+    </p>
+
+    <button
+      onclick="spawnSpiderManEdit()"
+    >
+      NO TOUCHIE, this is my no-no square
+    </button>
+
+    <p id="dontTouchMessage"></p>
+
+  </article>
+
+</section>
+
+
+<!-- =========================
+     BLUE IMAGE INCIDENT
+     ========================= -->
+
+<section
+  class="post jpeg-zone"
+>
+
+  <h2>
+    🔵 IMPORTANT IMAGE 🔵
+  </h2>
+
+  <p>
+    this serves absolutely no purpose
+  </p>
+
+  <div
+    class="blue-image-wrapper"
+  >
+
+    <div
+      id="blueImage"
+      class="spinning-jpeg"
+      title="this is not a JPEG"
+      onclick="blueImageClicked()"
+    >
+      🔵
+    </div>
+
+  </div>
+
+  <p id="blueImageMessage">
+    why is it spinning
+  </p>
+
+  <p
+    id="escapeMessage"
+  >
+    It has escaped...
+  </p>
+
+</section>
+
+
+<!-- =========================
+     VISITOR COUNTER
+     ========================= -->
+
+<section
+  class="post"
+>
+
+  <h2>
+    Totally Real Visitor Counter
+  </h2>
+
+  <div
+    class="counter-box"
+  >
+
+    <div
+      class="counter-label"
+    >
+      You are visitor:
+    </div>
+
+    <div
+      class="counterapi"
+      ns="jzs-wonderously-bored-website"
+      action="view"
+      key="homepage"
+      noIcon="true"
+      noLink="true"
+      noCss="true"
+      color="#00ff00"
+      bg="black"
+    ></div>
+
+    <p>
+      probably
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FAKE MALWARE
+     ========================= -->
+
+<section
+  id="danger"
+  class="danger-zone"
+>
+
+  <h2>
+    ⚠️ VERY NORMAL DOWNLOAD ZONE ⚠️
+  </h2>
+
+  <p>
+    Download completely legitimate and
+    absolutely normal clutterfunk.
+  </p>
+
+  <button
+    onclick="fakeMalware()"
+  >
+    💾 DOWNLOAD CLUTTERFUNK.EXE
+  </button>
+
+  <p id="downloadMessage"></p>
+
+</section>
+
+
+<!-- =========================
+     DO NOT CLICK
+     ========================= -->
+
+<section
+  class="post"
+>
+
+  <h2>
+    🚫 DO NOT CLICK 🚫
+  </h2>
+
+  <p>
+    seriously
+  </p>
+
+  <button
+    id="dangerButton"
+    onclick="doNotClick()"
+  >
+    🚨 DO NOT CLICK THIS BUTTON 🚨
+  </button>
+
+  <p id="dontClickMessage"></p>
+
+</section>
+
+
+<!-- =========================
+     RETURN TO NORMAL
+     ========================= -->
+
+<button
+  id="returnToNormal"
+  onclick="returnToNormalBlu()"
+>
+  RETURN TO NORMAL
+</button>
+```
+
+  </main>
 
   <!-- =========================
        FOOTER
@@ -2520,14 +3025,15 @@
 
   <footer>
 
-    © 2026 HitGubUsr · Made with HTML & CSS · probably
+```
+© 2026 HitGubUsr · Made with HTML & CSS · probably
 
-    <br>
+<br>
 
-    🔵 this website is extremely blu 🔵
+🔵 this website is extremely blu 🔵
+```
 
   </footer>
-
 
   <!-- =========================
        ESCAPE EFFECT ELEMENTS
@@ -2537,21 +3043,21 @@
     id="crackOverlay"
   ></div>
 
-
   <div
     id="binaryVoid"
   >
 
-    <div
-      id="binaryMud"
-    ></div>
+```
+<div
+  id="binaryMud"
+></div>
 
-    <div
-      id="binaryFadeToBlack"
-    ></div>
+<div
+  id="binaryFadeToBlack"
+></div>
+```
 
   </div>
-
 
   <div
     id="escapedBlueImage"
@@ -2559,6 +3065,33 @@
     🔵
   </div>
 
+  <!-- =========================
+       ULTIMATE BLU FAILURE
+       ========================= -->
+
+  <div
+    id="ultimateBluFailure"
+  >
+
+```
+<div
+  id="failureDialogue"
+></div>
+
+<div
+  id="failureFinalMessage"
+></div>
+```
+
+  </div>
+
+  <!-- =========================
+       SKY ESCAPE
+       ========================= -->
+
+  <div
+    id="skyEscape"
+  ></div>
 
   <!-- =========================
        COUNTERAPI
@@ -2568,7 +3101,6 @@
     src="https://counterapi.com/c.js"
     async>
   </script>
-
 
   <script>
 
@@ -2589,6 +3121,12 @@
 
     let escapeTimers =
       [];
+
+    let ultimateBluFinished =
+      false;
+
+    let ultimateBluFailureRunning =
+      false;
 
 
     /* =========================
@@ -2956,6 +3494,22 @@
     function changeBlu() {
 
       if (
+        ultimateBluFinished
+      ) {
+
+        return;
+      }
+
+
+      if (
+        ultimateBluFailureRunning
+      ) {
+
+        return;
+      }
+
+
+      if (
         escapePhase === 1
       ) {
 
@@ -2973,13 +3527,11 @@
         )
       ) {
 
+        activateUltimateBluFailure();
+
         return;
       }
 
-
-      /*
-       * BLU STAGES 1 - 6
-       */
 
       if (
         bluStage < 6
@@ -3050,11 +3602,6 @@
       }
 
 
-      /*
-       * STAGE 7:
-       * START THE RITUAL
-       */
-
       activateUltimateBluRitual();
     }
 
@@ -3064,6 +3611,14 @@
        ========================= */
 
     function activateUltimateBluRitual() {
+
+      if (
+        ultimateBluFinished
+      ) {
+
+        return;
+      }
+
 
       const warnings = [
 
@@ -3169,7 +3724,7 @@
       if (button) {
 
         button.textContent =
-          "ULTIMATE BLU";
+          "???";
 
         button.disabled =
           false;
@@ -3188,6 +3743,14 @@
        ========================= */
 
     function returnToNormalBlu() {
+
+      if (
+        ultimateBluFinished
+      ) {
+
+        return;
+      }
+
 
       document.body.classList.remove(
         "ultimate-blu"
@@ -4755,11 +5318,6 @@
         );
 
 
-      /* =========================
-         PHASE 1
-         0 - 20 SECONDS
-         ========================= */
-
       image.style.opacity =
         "0";
 
@@ -4780,11 +5338,6 @@
         "active"
       );
 
-
-      /* =========================
-         PHASE 2
-         20 - 30 SECONDS
-         ========================= */
 
       later(() => {
 
@@ -4816,11 +5369,6 @@
       }, 20000);
 
 
-      /* =========================
-         PHASE 3
-         30 - 40 SECONDS
-         ========================= */
-
       later(() => {
 
         escapePhase =
@@ -4838,10 +5386,6 @@
 
       }, 30000);
 
-
-      /* =========================
-         GERALD RETURNS
-         ========================= */
 
       later(
         async () => {
@@ -4980,14 +5524,689 @@
       restoreNormalMessages();
 
 
-      /*
-       * Gerald has done his thing.
-       * He cannot escape again.
-       */
-
       escapePhase =
         4;
     }
+
+
+    /* =========================
+       ULTIMATE BLU FAILURE
+       ========================= */
+
+    const websiteFailureLines = [
+
+      "WEBSITE: ok, so what the actual funk. This dumbass user wants me to be MORE BLU. ik im all like blue and shit but i lowkey cannot be more blu. In short, IDFK what to dooooo. omg pls help",
+
+      "WEBSITE: the problem is idk gnggg. thats why im asking you",
+
+      "bruh"
+    ];
+
+
+    const devFailureLines = [
+
+      "DEV: Okay, received. So what do you think you should do?",
+
+      "DEV: Okay, well I can't help you so maybe you should try solving it yourself."
+    ];
+
+
+    function textToBinary(
+      text
+    ) {
+
+      return Array.from(
+        new TextEncoder().encode(
+          text
+        )
+      )
+        .map(
+          byte =>
+            byte
+              .toString(2)
+              .padStart(
+                8,
+                "0"
+              )
+        )
+        .join(" ");
+    }
+
+
+    function sleep(
+      milliseconds
+    ) {
+
+      return new Promise(
+        resolve =>
+          setTimeout(
+            resolve,
+            milliseconds
+          )
+      );
+    }
+
+
+    async function typeFailureLine(
+      container,
+      text,
+      type,
+      inconsistent
+    ) {
+
+      const line =
+        document.createElement(
+          "div"
+        );
+
+
+      line.className =
+        `failure-line ${type}`;
+
+
+      container.appendChild(
+        line
+      );
+
+
+      const cursor =
+        document.createElement(
+          "span"
+        );
+
+
+      cursor.className =
+        "failure-cursor";
+
+
+      line.appendChild(
+        cursor
+      );
+
+
+      for (
+        const character of text
+      ) {
+
+        cursor.before(
+          document.createTextNode(
+            character
+          )
+        );
+
+
+        const delay =
+          inconsistent
+
+            ? (
+                22 +
+                Math.random() *
+                95
+              )
+
+            : 34;
+
+
+        await sleep(
+          delay
+        );
+
+      }
+
+
+      cursor.remove();
+
+
+      await sleep(
+        inconsistent
+
+          ? (
+              450 +
+              Math.random() *
+              950
+            )
+
+          : 500
+      );
+    }
+
+
+    async function typeBinaryFailureLine(
+      container,
+      englishText
+    ) {
+
+      await typeFailureLine(
+        container,
+        textToBinary(
+          englishText
+        ),
+        "website",
+        true
+      );
+    }
+
+
+    async function runUltimateBluConversation() {
+
+      const dialogue =
+        document.getElementById(
+          "failureDialogue"
+        );
+
+
+      dialogue.innerHTML =
+        "";
+
+
+      await typeBinaryFailureLine(
+        dialogue,
+        websiteFailureLines[0]
+      );
+
+
+      await typeFailureLine(
+        dialogue,
+        devFailureLines[0],
+        "dev",
+        false
+      );
+
+
+      await typeBinaryFailureLine(
+        dialogue,
+        websiteFailureLines[1]
+      );
+
+
+      await typeFailureLine(
+        dialogue,
+        devFailureLines[1],
+        "dev",
+        false
+      );
+
+
+      await typeBinaryFailureLine(
+        dialogue,
+        websiteFailureLines[2]
+      );
+
+
+      dialogue.style.display =
+        "none";
+
+
+      const finalMessage =
+        document.getElementById(
+          "failureFinalMessage"
+        );
+
+
+      finalMessage.textContent =
+        "";
+
+
+      finalMessage.classList.add(
+        "show"
+      );
+
+
+      const finalText =
+        "IDK how to make ts more blu. I mean why are you torturing me bro. Like dont you have more fun things to do? I mean atp just go outside.";
+
+
+      for (
+        const character of finalText
+      ) {
+
+        finalMessage.textContent +=
+          character;
+
+
+        const delay =
+          28 +
+          Math.random() *
+          85;
+
+
+        await sleep(
+          delay
+        );
+
+      }
+
+
+      await sleep(
+        10000
+      );
+
+
+      startSkyEscape();
+    }
+
+
+    function activateUltimateBluFailure() {
+
+      if (
+        ultimateBluFinished ||
+        ultimateBluFailureRunning
+      ) {
+
+        return;
+      }
+
+
+      ultimateBluFailureRunning =
+        true;
+
+
+      const failure =
+        document.getElementById(
+          "ultimateBluFailure"
+        );
+
+
+      failure.classList.add(
+        "active",
+        "frozen"
+      );
+
+
+      document.body.style.overflow =
+        "hidden";
+
+
+      document.body.style.pointerEvents =
+        "none";
+
+
+      document.documentElement.style.overflow =
+        "hidden";
+
+
+      const freezeEnd =
+        Date.now() +
+        3000;
+
+
+      const freezeTimer =
+        setInterval(
+          () => {
+
+            if (
+              Date.now() >=
+              freezeEnd
+            ) {
+
+              clearInterval(
+                freezeTimer
+              );
+
+
+              document.body.style.pointerEvents =
+                "";
+
+
+              failure.classList.remove(
+                "frozen"
+              );
+
+
+              runUltimateBluConversation();
+
+            }
+
+          },
+          25
+        );
+    }
+
+
+    /* =========================
+       SKY ESCAPE
+       ========================= */
+
+    const birdSources = [
+
+      "https://upload.wikimedia.org/wikipedia/commons/4/4f/Apus_apus_flying_%28transparent_background%29.png",
+
+      "https://upload.wikimedia.org/wikipedia/commons/9/9e/HirundoRusticaFlight_%28transparent_background%29.png"
+    ];
+
+
+    function createSkyCloud(
+      index
+    ) {
+
+      const cloud =
+        document.createElement(
+          "div"
+        );
+
+
+      cloud.className =
+        "sky-cloud";
+
+
+      const width =
+        120 +
+        Math.random() *
+        260;
+
+
+      const height =
+        25 +
+        Math.random() *
+        45;
+
+
+      cloud.style.setProperty(
+        "--cloud-width",
+        `${width}px`
+      );
+
+
+      cloud.style.setProperty(
+        "--cloud-height",
+        `${height}px`
+      );
+
+
+      cloud.style.setProperty(
+        "--cloud-left",
+        `${Math.random() * 100}%`
+      );
+
+
+      cloud.style.setProperty(
+        "--cloud-top",
+        `${8 + Math.random() * 72}%`
+      );
+
+
+      cloud.style.setProperty(
+        "--cloud-opacity",
+        `${0.45 + Math.random() * 0.4}`
+      );
+
+
+      cloud.style.setProperty(
+        "--cloud-blur",
+        `${1 + Math.random() * 3}px`
+      );
+
+
+      cloud.style.setProperty(
+        "--cloud-duration",
+        `${75 + Math.random() * 80}s`
+      );
+
+
+      cloud.style.animationDelay =
+        `${-Math.random() * 80}s`;
+
+
+      return cloud;
+    }
+
+
+    function spawnSkyBird() {
+
+      const sky =
+        document.getElementById(
+          "skyEscape"
+        );
+
+
+      if (
+        !sky.classList.contains(
+          "active"
+        )
+      ) {
+
+        return;
+      }
+
+
+      const bird =
+        document.createElement(
+          "img"
+        );
+
+
+      bird.className =
+        "sky-bird";
+
+
+      bird.src =
+        birdSources[
+          Math.floor(
+            Math.random() *
+            birdSources.length
+          )
+        ];
+
+
+      bird.alt =
+        "";
+
+
+      const reverse =
+        Math.random() <
+        0.5;
+
+
+      if (
+        reverse
+      ) {
+
+        bird.classList.add(
+          "reverse"
+        );
+      }
+
+
+      bird.style.setProperty(
+        "--bird-width",
+        `${55 + Math.random() * 75}px`
+      );
+
+
+      bird.style.setProperty(
+        "--bird-top",
+        `${12 + Math.random() * 65}%`
+      );
+
+
+      bird.style.setProperty(
+        "--bird-opacity",
+        `${0.65 + Math.random() * 0.3}`
+      );
+
+
+      bird.style.setProperty(
+        "--bird-duration",
+        `${18 + Math.random() * 24}s`
+      );
+
+
+      bird.style.setProperty(
+        "--bird-wave",
+        `${-35 + Math.random() * 70}px`
+      );
+
+
+      sky.appendChild(
+        bird
+      );
+
+
+      bird.addEventListener(
+        "error",
+        () => {
+
+          bird.remove();
+
+        }
+      );
+
+
+      bird.addEventListener(
+        "animationend",
+        () => {
+
+          bird.remove();
+
+        }
+      );
+
+
+      const nextBirdDelay =
+        7000 +
+        Math.random() *
+        18000;
+
+
+      setTimeout(
+        spawnSkyBird,
+        nextBirdDelay
+      );
+    }
+
+
+    function startSkyEscape() {
+
+      const failure =
+        document.getElementById(
+          "ultimateBluFailure"
+        );
+
+
+      const sky =
+        document.getElementById(
+          "skyEscape"
+        );
+
+
+      failure.classList.remove(
+        "active"
+      );
+
+
+      failure.style.display =
+        "none";
+
+
+      document.body.style.overflow =
+        "hidden";
+
+
+      document.body.style.pointerEvents =
+        "";
+
+
+      document.documentElement.style.overflow =
+        "hidden";
+
+
+      sky.innerHTML =
+        "";
+
+
+      for (
+        let i = 0;
+        i < 7;
+        i++
+      ) {
+
+        sky.appendChild(
+          createSkyCloud(i)
+        );
+      }
+
+
+      sky.classList.add(
+        "active"
+      );
+
+
+      spawnSkyBird();
+
+
+      ultimateBluFinished =
+        true;
+
+      ultimateBluFailureRunning =
+        false;
+    }
+
+
+    function returnFromSky() {
+
+      const sky =
+        document.getElementById(
+          "skyEscape"
+        );
+
+
+      sky.classList.remove(
+        "active"
+      );
+
+
+      sky.innerHTML =
+        "";
+
+
+      document.body.style.overflow =
+        "";
+
+
+      document.documentElement.style.overflow =
+        "";
+
+
+      document.body.style.pointerEvents =
+        "";
+
+
+      document.body.classList.add(
+        "ultimate-blu"
+      );
+
+
+      const button =
+        document.querySelector(
+          '#posts button[onclick="changeBlu()"]'
+        );
+
+
+      if (button) {
+
+        button.textContent =
+          "no";
+
+        button.disabled =
+          false;
+
+        button.style.pointerEvents =
+          "auto";
+
+        button.style.cursor =
+          "pointer";
+      }
+    }
+
+
+    document
+      .getElementById(
+        "skyEscape"
+      )
+      .addEventListener(
+        "click",
+        returnFromSky
+      );
 
 
     /* =========================
@@ -5032,6 +6251,14 @@
     document.addEventListener(
       "mousemove",
       function(event) {
+
+        if (
+          ultimateBluFinished
+        ) {
+
+          return;
+        }
+
 
         const dot =
           document.createElement(
