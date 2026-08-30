@@ -2003,22 +2003,19 @@ content="JZ's personal bored crap lol"
         50%;
 
       top:
-        50%;
+        5vh;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
+        translateX(-50%);
 
       width:
         min(
-          760px,
+          900px,
           88vw
         );
 
       max-height:
-        80vh;
+        88vh;
 
       overflow:
         hidden;
@@ -2034,6 +2031,9 @@ content="JZ's personal bored crap lol"
 
       word-break:
         break-word;
+
+      text-align:
+        left;
     }
 
 
@@ -2051,6 +2051,9 @@ content="JZ's personal bored crap lol"
 
       color:
         #0055ff;
+
+      white-space:
+        pre-wrap;
     }
 
 
@@ -2670,6 +2673,9 @@ content="JZ's personal bored crap lol"
         width:
           88vw;
 
+        top:
+          3vh;
+
         font-size:
           12px;
       }
@@ -2702,7 +2708,6 @@ content="JZ's personal bored crap lol"
 
   <header>
 
-```
 <h1>
   Hey ig. :l
 </h1>
@@ -2734,7 +2739,6 @@ content="JZ's personal bored crap lol"
   </a>
 
 </nav>
-```
 
   </header>
 
@@ -2744,7 +2748,6 @@ content="JZ's personal bored crap lol"
 
   <main>
 
-```
 <!-- ABOUT -->
 
 <section
@@ -2771,95 +2774,97 @@ content="JZ's personal bored crap lol"
 
 </section>
 
-
 <!-- POSTS -->
 
 <section id="posts">
 
   <article class="post">
 
-    <span class="date">
-      August 16, 2026
-    </span>
+```
+<span class="date">
+  August 16, 2026
+</span>
 
-    <h2>
-      Post 1: "ClutterFunk"
-    </h2>
+<h2>
+  Post 1: "ClutterFunk"
+</h2>
 
-    <p>
-      This is the first piece of "clutterfunk"
-      im adding to the internet. Think of it as a
-      wonderous bit of malware-not-malware im adding
-      to the internet
-    </p>
+<p>
+  This is the first piece of "clutterfunk"
+  im adding to the internet. Think of it as a
+  wonderous bit of malware-not-malware im adding
+  to the internet
+</p>
 
-    <button
-      onclick="randomNonsense()"
-    >
-      CLICK FOR RANDOM CRAP
-    </button>
+<button
+  onclick="randomNonsense()"
+>
+  CLICK FOR RANDOM CRAP
+</button>
 
-    <p id="randomResult"></p>
-
-  </article>
-
-
-  <article class="post">
-
-    <span class="date">
-      August 16, 2026
-    </span>
-
-    <h2>
-      Post 2: More "ClutterFunk"
-    </h2>
-
-    <p>
-      Second piece of "clutterfunk" lol.
-      omg im so boreddddd
-    </p>
-
-    <button
-      onclick="changeBlu()"
-    >
-      MAKE IT BLUER
-    </button>
-
-    <button
-      onclick="uselessButton()"
-    >
-      USELESS BUTTON
-    </button>
+<p id="randomResult"></p>
+```
 
   </article>
 
+  <article class="post">
+
+```
+<span class="date">
+  August 16, 2026
+</span>
+
+<h2>
+  Post 2: More "ClutterFunk"
+</h2>
+
+<p>
+  Second piece of "clutterfunk" lol.
+  omg im so boreddddd
+</p>
+
+<button
+  onclick="changeBlu()"
+>
+  MAKE IT BLUER
+</button>
+
+<button
+  onclick="uselessButton()"
+>
+  USELESS BUTTON
+</button>
+```
+
+  </article>
 
   <article class="post">
 
-    <span class="date">
-      August 16, 2026
-    </span>
+```
+<span class="date">
+  August 16, 2026
+</span>
 
-    <h2>
-      Post 3: Why Is This Here
-    </h2>
+<h2>
+  Post 3: Why Is This Here
+</h2>
 
-    <p>
-      i genuinely have no idea what im doing anymore
-    </p>
+<p>
+  i genuinely have no idea what im doing anymore
+</p>
 
-    <button
-      onclick="spawnSpiderManEdit()"
-    >
-      NO TOUCHIE, this is my no-no square
-    </button>
+<button
+  onclick="spawnSpiderManEdit()"
+>
+  NO TOUCHIE, this is my no-no square
+</button>
 
-    <p id="dontTouchMessage"></p>
+<p id="dontTouchMessage"></p>
+```
 
   </article>
 
 </section>
-
 
 <!-- =========================
      BLUE IMAGE INCIDENT
@@ -2881,14 +2886,16 @@ content="JZ's personal bored crap lol"
     class="blue-image-wrapper"
   >
 
-    <div
-      id="blueImage"
-      class="spinning-jpeg"
-      title="this is not a JPEG"
-      onclick="blueImageClicked()"
-    >
-      🔵
-    </div>
+```
+<div
+  id="blueImage"
+  class="spinning-jpeg"
+  title="this is not a JPEG"
+  onclick="blueImageClicked()"
+>
+  🔵
+</div>
+```
 
   </div>
 
@@ -2903,7 +2910,6 @@ content="JZ's personal bored crap lol"
   </p>
 
 </section>
-
 
 <!-- =========================
      VISITOR COUNTER
@@ -2921,32 +2927,33 @@ content="JZ's personal bored crap lol"
     class="counter-box"
   >
 
-    <div
-      class="counter-label"
-    >
-      You are visitor:
-    </div>
+```
+<div
+  class="counter-label"
+>
+  You are visitor:
+</div>
 
-    <div
-      class="counterapi"
-      ns="jzs-wonderously-bored-website"
-      action="view"
-      key="homepage"
-      noIcon="true"
-      noLink="true"
-      noCss="true"
-      color="#00ff00"
-      bg="black"
-    ></div>
+<div
+  class="counterapi"
+  ns="jzs-wonderously-bored-website"
+  action="view"
+  key="homepage"
+  noIcon="true"
+  noLink="true"
+  noCss="true"
+  color="#00ff00"
+  bg="black"
+></div>
 
-    <p>
-      probably
-    </p>
+<p>
+  probably
+</p>
+```
 
   </div>
 
 </section>
-
 
 <!-- =========================
      FAKE MALWARE
@@ -2966,16 +2973,20 @@ content="JZ's personal bored crap lol"
     absolutely normal clutterfunk.
   </p>
 
-  <button
-    onclick="fakeMalware()"
-  >
-    💾 DOWNLOAD CLUTTERFUNK.EXE
+<button
+onclick="fakeMalware()"
+
+>
+
+```
+💾 DOWNLOAD CLUTTERFUNK.EXE
+```
+
   </button>
 
   <p id="downloadMessage"></p>
 
 </section>
-
 
 <!-- =========================
      DO NOT CLICK
@@ -2993,29 +3004,33 @@ content="JZ's personal bored crap lol"
     seriously
   </p>
 
-  <button
-    id="dangerButton"
-    onclick="doNotClick()"
-  >
-    🚨 DO NOT CLICK THIS BUTTON 🚨
+<button
+id="dangerButton"
+onclick="doNotClick()"
+
+>
+
+```
+🚨 DO NOT CLICK THIS BUTTON 🚨
+```
+
   </button>
 
   <p id="dontClickMessage"></p>
 
 </section>
 
-
 <!-- =========================
      RETURN TO NORMAL
      ========================= -->
 
 <button
-  id="returnToNormal"
-  onclick="returnToNormalBlu()"
+id="returnToNormal"
+onclick="returnToNormalBlu()"
+
 >
-  RETURN TO NORMAL
-</button>
-```
+
+RETURN TO NORMAL </button>
 
   </main>
 
@@ -3025,13 +3040,11 @@ content="JZ's personal bored crap lol"
 
   <footer>
 
-```
 © 2026 HitGubUsr · Made with HTML & CSS · probably
 
 <br>
 
 🔵 this website is extremely blu 🔵
-```
 
   </footer>
 
@@ -3047,7 +3060,6 @@ content="JZ's personal bored crap lol"
     id="binaryVoid"
   >
 
-```
 <div
   id="binaryMud"
 ></div>
@@ -3055,7 +3067,6 @@ content="JZ's personal bored crap lol"
 <div
   id="binaryFadeToBlack"
 ></div>
-```
 
   </div>
 
@@ -3073,7 +3084,6 @@ content="JZ's personal bored crap lol"
     id="ultimateBluFailure"
   >
 
-```
 <div
   id="failureDialogue"
 ></div>
@@ -3081,7 +3091,6 @@ content="JZ's personal bored crap lol"
 <div
   id="failureFinalMessage"
 ></div>
-```
 
   </div>
 
@@ -5676,13 +5685,130 @@ content="JZ's personal bored crap lol"
       englishText
     ) {
 
-      await typeFailureLine(
-        container,
+      const line =
+        document.createElement(
+          "div"
+        );
+
+
+      line.className =
+        "failure-line website";
+
+
+      container.appendChild(
+        line
+      );
+
+
+      /*
+        WEBSITE: stays plain English.
+        Only the actual message is
+        converted into binary.
+      */
+
+      const prefix =
+        document.createTextNode(
+          "WEBSITE:"
+        );
+
+
+      line.appendChild(
+        prefix
+      );
+
+
+      line.appendChild(
+        document.createTextNode(
+          "\n"
+        )
+      );
+
+
+      const binaryText =
         textToBinary(
-          englishText
-        ),
-        "website",
-        true
+          englishText.replace(
+            /^WEBSITE:\s*/i,
+            ""
+          )
+        );
+
+
+      const cursor =
+        document.createElement(
+          "span"
+        );
+
+
+      cursor.className =
+        "failure-cursor";
+
+
+      line.appendChild(
+        cursor
+      );
+
+
+      /*
+        The complete binary message
+        must finish typing within 5 seconds.
+
+        The maximum per-character delay
+        accounts for the random speed
+        variation, so the actual message
+        cannot exceed the 5-second limit.
+      */
+
+      const maxTypingTime =
+        5000;
+
+
+      const characterCount =
+        binaryText.length;
+
+
+      const maximumVariation =
+        1.35;
+
+
+      const delayPerCharacter =
+        maxTypingTime /
+        Math.max(
+          1,
+          characterCount *
+          maximumVariation
+        );
+
+
+      for (
+        const character of binaryText
+      ) {
+
+        cursor.before(
+          document.createTextNode(
+            character
+          )
+        );
+
+
+        const variation =
+          0.65 +
+          Math.random() *
+          0.7;
+
+
+        await sleep(
+          delayPerCharacter *
+          variation
+        );
+
+      }
+
+
+      cursor.remove();
+
+
+      await sleep(
+        500
       );
     }
 
