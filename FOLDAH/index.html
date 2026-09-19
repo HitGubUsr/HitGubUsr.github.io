@@ -6136,77 +6136,122 @@ RETURN TO NORMAL </button>
 
     function returnFromSky() {
 
-      const sky =
-        document.getElementById(
-          "skyEscape"
-        );
+  const sky =
+    document.getElementById(
+      "skyEscape"
+    );
 
+  sky.classList.remove(
+    "active"
+  );
 
-      sky.classList.remove(
-        "active"
-      );
+  sky.innerHTML =
+    "";
 
+  document.body.style.overflow =
+    "";
 
-      sky.innerHTML =
-        "";
+  document.documentElement.style.overflow =
+    "";
 
+  document.body.style.pointerEvents =
+    "";
 
-      document.body.style.overflow =
-        "";
+  // Completely reset the website
+  document.body.classList.remove(
+    "ultimate-blu",
+    "blu-stage-1",
+    "blu-stage-2",
+    "blu-stage-3",
+    "blu-stage-4",
+    "blu-stage-5",
+    "blu-stage-6",
+    "escape-dead",
+    "escape-finished"
+  );
 
+  document.body.style.background =
+    "";
 
-      document.documentElement.style.overflow =
-        "";
+  document.body.style.color =
+    "";
 
+  document.body.style.cursor =
+    "";
 
-      document.body.style.pointerEvents =
-        "";
+  bluStage =
+    0;
 
+  escapePhase =
+    0;
 
-      document.body.classList.add(
-        "ultimate-blu"
-      );
+  blueImageEscaped =
+    false;
 
+  ultimateBluFinished =
+    false;
 
-      const button =
-        document.querySelector(
-          '#posts button[onclick="changeBlu()"]'
-        );
+  ultimateBluFailureRunning =
+    false;
 
+  const button =
+    document.querySelector(
+      '#posts button[onclick="changeBlu()"]'
+    );
 
-      if (button) {
+  if (button) {
 
-        button.textContent =
-          "no";
+    button.textContent =
+      "MAKE IT BLUER";
 
-        button.disabled =
-          false;
+    button.disabled =
+      false;
 
-        button.style.pointerEvents =
-          "auto";
+    button.style.pointerEvents =
+      "auto";
 
-        button.style.cursor =
-          "pointer";
-      }
-    }
+    button.style.cursor =
+      "pointer";
+  }
 
+  const blueImage =
+    document.getElementById(
+      "blueImage"
+    );
 
-    document
-      .getElementById(
-        "skyEscape"
-      )
-      .addEventListener(
-        "click",
-        returnFromSky
-      );
+  if (blueImage) {
 
+    blueImage.style.opacity =
+      "";
 
-    /* =========================
-       START GERALD GLITCHES
-       ========================= */
+    blueImage.style.animation =
+      "";
 
-    scheduleBlueGlitch();
+    blueImage.style.pointerEvents =
+      "";
 
+    blueImage.classList.remove(
+      "blue-glitch"
+    );
+  }
+
+  const escapeMessage =
+    document.getElementById(
+      "escapeMessage"
+    );
+
+  if (escapeMessage) {
+
+    escapeMessage.classList.remove(
+      "show"
+    );
+  }
+
+  restoreNormalMessages();
+
+  // Start Gerald's normal random glitches again
+  scheduleBlueGlitch();
+}
 
     /* =========================
        CURSOR TRAIL
