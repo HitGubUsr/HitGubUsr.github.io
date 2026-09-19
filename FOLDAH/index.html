@@ -3972,130 +3972,6 @@ RETURN TO NORMAL </button>
         random;
     }
 
-
-    /* =========================
-       POLYESTER SPIDER-MAN
-       ========================= */
-
-    function spawnSpiderManEdit() {
-
-      const spider =
-        document.createElement(
-          "div"
-        );
-
-
-      spider.className =
-        "spiderman-edit";
-
-
-      spider.innerHTML = `
-        <video autoplay playsinline>
-          <source
-            src="polyester-spiderman-edit.mp4"
-            type="video/mp4"
-          >
-
-          Your browser does not support MP4 video.
-        </video>
-      `;
-
-
-      document.body.appendChild(
-        spider
-      );
-
-
-      requestAnimationFrame(
-        () => {
-
-          const margin =
-            10;
-
-
-          const maxX =
-            Math.max(
-              margin,
-
-              window.innerWidth -
-              spider.offsetWidth -
-              margin
-            );
-
-
-          const maxY =
-            Math.max(
-              margin,
-
-              window.innerHeight -
-              spider.offsetHeight -
-              margin
-            );
-
-
-          const randomX =
-            margin +
-            Math.random() *
-            Math.max(
-              0,
-              maxX -
-              margin
-            );
-
-
-          const randomY =
-            margin +
-            Math.random() *
-            Math.max(
-              0,
-              maxY -
-              margin
-            );
-
-
-          spider.style.left =
-            randomX +
-            "px";
-
-
-          spider.style.top =
-            randomY +
-            "px";
-
-        }
-      );
-
-
-      const video =
-        spider.querySelector(
-          "video"
-        );
-
-
-      video.addEventListener(
-        "ended",
-        () => {
-
-          spider.remove();
-        }
-      );
-
-
-      video.addEventListener(
-        "error",
-        () => {
-
-          spider.remove();
-
-          console.error(
-            "Could not load polyester-spiderman-edit.mp4"
-          );
-
-        }
-      );
-    }
-
-
     /* =========================
        BLUE IMAGE GLITCH
        ========================= */
@@ -4175,7 +4051,6 @@ RETURN TO NORMAL </button>
           delay
         );
     }
-
 
     /* =========================
        GERALD CLICK
