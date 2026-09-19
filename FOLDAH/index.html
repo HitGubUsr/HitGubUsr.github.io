@@ -6134,30 +6134,21 @@ RETURN TO NORMAL </button>
     }
 
 
-    function returnFromSky() {
+  function returnFromSky() {
+  const sky = document.getElementById("skyEscape");
 
-  const sky =
-    document.getElementById(
-      "skyEscape"
-    );
+  // Remove the sky screen
+  if (sky) {
+    sky.classList.remove("active");
+    sky.innerHTML = "";
+  }
 
-  sky.classList.remove(
-    "active"
-  );
+  // Restore normal scrolling and interaction
+  document.body.style.overflow = "";
+  document.documentElement.style.overflow = "";
+  document.body.style.pointerEvents = "";
 
-  sky.innerHTML =
-    "";
-
-  document.body.style.overflow =
-    "";
-
-  document.documentElement.style.overflow =
-    "";
-
-  document.body.style.pointerEvents =
-    "";
-
-  // Completely reset the website
+  // Reset all blue/escape classes
   document.body.classList.remove(
     "ultimate-blu",
     "blu-stage-1",
@@ -6170,87 +6161,57 @@ RETURN TO NORMAL </button>
     "escape-finished"
   );
 
-  document.body.style.background =
-    "";
+  // Restore normal body styling
+  document.body.style.background = "";
+  document.body.style.color = "";
+  document.body.style.cursor = "";
 
-  document.body.style.color =
-    "";
+  // Reset sequence state
+  bluStage = 0;
+  escapePhase = 0;
+  blueImageEscaped = false;
+  ultimateBluFinished = false;
+  ultimateBluFailureRunning = false;
 
-  document.body.style.cursor =
-    "";
-
-  bluStage =
-    0;
-
-  escapePhase =
-    0;
-
-  blueImageEscaped =
-    false;
-
-  ultimateBluFinished =
-    false;
-
-  ultimateBluFailureRunning =
-    false;
-
-  const button =
-    document.querySelector(
-      '#posts button[onclick="changeBlu()"]'
-    );
+  // Reset the MAKE IT BLUER button,
+  // but keep it DISABLED
+  const button = document.querySelector(
+    '#posts button[onclick="changeBlu()"]'
+  );
 
   if (button) {
-
-    button.textContent =
-      "MAKE IT BLUER";
-
-    button.disabled =
-      false;
-
-    button.style.pointerEvents =
-      "auto";
-
-    button.style.cursor =
-      "pointer";
+    button.textContent = "MAKE IT BLUER";
+    button.disabled = true;
+    button.style.pointerEvents = "none";
+    button.style.cursor = "default";
   }
 
-  const blueImage =
-    document.getElementById(
-      "blueImage"
-    );
+  // Restore the blue image
+  const blueImage = document.getElementById("blueImage");
 
   if (blueImage) {
-
-    blueImage.style.opacity =
-      "";
-
-    blueImage.style.animation =
-      "";
-
-    blueImage.style.pointerEvents =
-      "";
-
-    blueImage.classList.remove(
-      "blue-glitch"
-    );
+    blueImage.style.opacity = "";
+    blueImage.style.animation = "";
+    blueImage.style.pointerEvents = "";
+    blueImage.style.transform = "";
+    blueImage.classList.remove("blue-glitch");
   }
 
-  const escapeMessage =
-    document.getElementById(
-      "escapeMessage"
-    );
+  // Remove the escape message
+  const escapeMessage = document.getElementById("escapeMessage");
 
   if (escapeMessage) {
-
-    escapeMessage.classList.remove(
-      "show"
-    );
+    escapeMessage.classList.remove("show");
+    escapeMessage.innerHTML = "";
   }
 
+  // Restore normal messages
   restoreNormalMessages();
 
-  // Start Gerald's normal random glitches again
-  scheduleBlueGlitch();
+  // Resume normal Gerald glitches
+  if (typeof scheduleBlueGlitch === "function") {
+    scheduleBlueGlitch();
+  }
 }
 
     /* =========================
